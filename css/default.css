@@ -319,7 +319,7 @@
         display:none;
     }
     .itemSymbol {
-        position:absolute;
+        position:relative;
         transform:scale(2.5);
         -webkit-transform:scale(2.5);
         top:15px;

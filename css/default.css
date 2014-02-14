@@ -1,0 +1,530 @@
+﻿body {
+    font-size:1.5em;
+    height: 100%;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* Disable double tap zoom in IE*/
+    -ms-touch-action: manipulation !important;
+    /*hearts*/
+    background: 
+    radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+    radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
+    radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+    radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%),
+    radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%),
+
+    radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+    radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
+    radial-gradient(circle closest-side at 40% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+    radial-gradient(circle closest-side at 60% 22%, #d35 45%, rgba(221,51,85,0) 46%) 50px 50px,
+    radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
+    background-color:#b03;
+    background-size:100px 100px;
+    
+    /*Green Stripes*/
+    /*background-size: 50px 50px;
+    background-color: #ac0;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    -pie-background: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent) 0 0 / 50px 50px #ac0;
+    behavior: url(/pie/PIE.htc);*/
+    /*Carbon*/
+    /* background-position: 0px 0px, 8px 8px, 0px 1px, 8px 9px; background-image: radial-gradient(black 15%, transparent 16%), radial-gradient(black 15%, transparent 16%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%); background-attachment: scroll, scroll, scroll, scroll; background-repeat: repeat, repeat, repeat, repeat; background-size: 16px 16px; background-origin: padding-box, padding-box, padding-box, padding-box; background-clip: border-box, border-box, border-box, border-box; background-color: rgb(40, 40, 40);*/
+    /*Microbial Mat*/
+    /*background-position: 0px 10px, 0% 0%, 0% 0%; background-image: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, rgb(102, 17, 51) 10px, rgba(96, 16, 48, 0) 11px), radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, rgb(102, 17, 51) 10px, rgba(96, 16, 48, 0) 11px), none; background-attachment: scroll, scroll, scroll; background-repeat: repeat, repeat, repeat; background-size: 20px 20px; background-origin: padding-box, padding-box, padding-box; background-clip: border-box, border-box, border-box; background-color: rgb(136, 170, 51);*/
+    /*Zig Zag*/
+    /*background-position: -50px 0px, -50px 0px, 0% 0%, 0% 0%; background-image: linear-gradient(135deg, rgb(236, 237, 220) 25%, transparent 25%), linear-gradient(225deg, rgb(236, 237, 220) 25%, transparent 25%), linear-gradient(315deg, rgb(236, 237, 220) 25%, transparent 25%), linear-gradient(45deg, rgb(236, 237, 220) 25%, transparent 25%); background-attachment: scroll, scroll, scroll, scroll; background-repeat: repeat, repeat, repeat, repeat; background-size: 100px 100px; background-origin: padding-box, padding-box, padding-box, padding-box; background-clip: border-box, border-box, border-box, border-box; background-color: rgb(236, 23, 58);*/
+
+    -webkit-text-size-adjust: none;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+    padding: 5px;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .items {
+        margin-top: 5px;
+        text-align: center;
+        max-height: 30px;
+        cursor:pointer;
+    }
+    .itemName {
+        width: 500px;
+        text-align: right;
+        cursor:pointer;
+    }
+    .itemButton {
+        font-size: 15pt;
+        max-width: 320px;
+        text-align: left;
+        cursor:pointer;
+    }
+    .itemButtonAlign {
+        text-align: center;
+    }
+    .itemGroup {
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        color: black;
+        border: 1px solid #CCCCCC;
+        background: #EEEEEE;
+        background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#EEEEEE));
+        background: -webkit-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -ms-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -o-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background-image: -ms-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+    }
+
+    #clickArea {
+        width: 250px;
+        height: 250px;
+        background-color: green;
+        border-radius: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+        margin-top: -125px;
+        margin-left: -125px;
+    }
+    #clickCover {
+        width: 250px;
+        height: 250px;
+        background-color: green;
+        opacity: .01;
+        border-radius: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+        margin-top: -125px;
+        margin-left: -125px;
+    }
+    .clickContainer {
+        position: relative;
+        /*width:95%;*/
+        margin-top: 50px;
+        background-color: transparent;
+        /*background-color: rgba(0,0,255,0.5);*/
+        border-radius: 50px;
+        min-height: 350px;
+    }
+    #totalCps #totalCurrency {
+        font-family: 20pt;
+        /*text-shadow: 2px 2px 2px #000;*/
+        /*width: 100%;*/
+        text-align: center;
+    }
+
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-device-width: 1024px) {
+
+     .items {
+        margin-top: 5px;
+        text-align: center;
+        max-height: 30px;
+        cursor:pointer;
+        min-width:120px;
+    }
+    .itemName {
+        /*width: 500px;*/
+        text-align: right;
+        vertical-align:text-bottom;
+        cursor:pointer;
+    }
+    .itemSymbol {
+        position:absolute;
+        transform:scale(2.5);
+        -webkit-transform:scale(2.5);
+        top:15px;
+    }
+    .itemButton {
+        font-size: 10pt;
+        max-width: 240px;
+        min-width: 160px;
+        text-align: left;
+        cursor:pointer;
+        margin-top:30px;
+    }
+    .itemButtonAlign {
+        text-align: center;
+    }
+    .itemGroup {
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        color: black;
+        border: 1px solid #CCCCCC;
+        min-width:120px;
+        background: #EEEEEE;
+        background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#EEEEEE));
+        background: -webkit-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -ms-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -o-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background-image: -ms-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+    }
+
+    #clickArea {
+        width: 120px;
+        height: 120px;
+        background-color: green;
+        border-radius: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+        margin-top: -60px;
+        margin-left: -60px;
+    }
+    #clickCover {
+        width: 120px;
+        height: 120px;
+        background-color: green;
+        opacity: .01;
+        border-radius: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+        margin-top: -60px;
+        margin-left: -60px;
+    }
+    .clickContainer {
+        position: relative;
+        /*width:95%;*/
+        margin-top: 50px;
+        background-color: transparent;
+        /*background-color: rgba(0,0,255,0.5);*/
+        border-radius: 50px;
+        min-height: 130px;
+    }
+    #totalCps #totalCurrency {
+        font-size: 15pt;
+        
+        /*text-shadow: 2px 2px 2px #000;*/
+        /*width: 100%;*/
+        text-align: center;
+    }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+     .items {
+        margin-top: 5px;
+        text-align: center;
+        max-height: 30px;
+        cursor:pointer;
+    }
+    .itemName {
+        width: 500px;
+        text-align: right;
+        vertical-align:text-bottom;
+        cursor:pointer;
+        display:none;
+    }
+    .itemSymbol {
+        position:absolute;
+        transform:scale(2.5);
+        -webkit-transform:scale(2.5);
+        top:15px;
+    }
+    .itemButton {
+        font-size: 10pt;
+        max-width: 120px;
+        text-align: left;
+        cursor:pointer;
+        margin-top:30px;
+    }
+    .itemButtonAlign {
+        text-align: center;
+    }
+    .itemGroup {
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        color: black;
+        border: 1px solid #CCCCCC;
+        background: #EEEEEE;
+        background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#EEEEEE));
+        background: -webkit-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -ms-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -o-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background-image: -ms-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+    }
+
+    #clickArea {
+        width: 240px;
+        height: 240px;
+        background-color: green;
+        border-radius: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+        margin-top: -120px;
+        margin-left: -120px;
+    }
+    #clickCover {
+        width: 240px;
+        height: 240px;
+        background-color: green;
+        opacity: .01;
+        border-radius: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+        margin-top: -120px;
+        margin-left: -120px;
+    }
+    .clickContainer {
+        position: relative;
+        /*width:95%;*/
+        margin-top: 50px;
+        background-color: transparent;
+        /*background-color: rgba(0,0,255,0.5);*/
+        border-radius: 50px;
+        min-height: 300px;
+    }
+    #totalCps #totalCurrency {
+        font-size: 15pt;
+        
+        /*text-shadow: 2px 2px 2px #000;*/
+        /*width: 100%;*/
+        text-align: center;
+    }
+}
+/* Landscape phones and down */
+@media only screen and (max-device-width: 480px) {
+    .items {
+        margin-top: 5px;
+        text-align: center;
+        max-height: 50px;
+        cursor:pointer;
+    }
+    .itemName {
+        width: 500px;
+        text-align: right;
+        vertical-align:text-bottom;
+        cursor:pointer;
+        display:none;
+    }
+    .itemSymbol {
+        position:absolute;
+        transform:scale(2.5);
+        -webkit-transform:scale(2.5);
+        top:15px;
+    }
+    .itemButton {
+        font-size: 15pt;
+        max-width: 120px;
+        text-align: left;
+        cursor:pointer;
+        margin-top:30px;
+        height:50px
+    }
+    .itemButtonAlign {
+        text-align: center;
+    }
+    .itemGroup {
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        color: black;
+        border: 1px solid #CCCCCC;
+        background: #EEEEEE;
+        background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#EEEEEE));
+        background: -webkit-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -ms-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background: -o-linear-gradient(top, #FFFFFF, #EEEEEE);
+        background-image: -ms-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+    }
+
+    #clickArea {
+        width: 120px;
+        height: 120px;
+        background-color: green;
+        border-radius: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+        margin-top: -60px;
+        margin-left: -60px;
+    }
+    #clickCover {
+        width: 120px;
+        height: 120px;
+        background-color: green;
+        opacity: .01;
+        border-radius: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1);
+        margin-top: -60px;
+        margin-left: -60px;
+    }
+    .clickContainer {
+        position: relative;
+        /*width:95%;*/
+        margin-top: 50px;
+        background-color: transparent;
+        /*background-color: rgba(0,0,255,0.5);*/
+        border-radius: 50px;
+        min-height: 120px;
+    }
+    #totalCps #totalCurrency {
+        font-size: 15pt;
+        
+        /*text-shadow: 2px 2px 2px #000;*/
+        /*width: 100%;*/
+        text-align: center;
+    }
+}
+
+button {
+    border: 1px solid #CCCCCC;
+    background: #EEEEEE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#EEEEEE));
+    background: -webkit-linear-gradient(top, #FFFFFF, #EEEEEE);
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE);
+    background: -ms-linear-gradient(top, #FFFFFF, #EEEEEE);
+    background: -o-linear-gradient(top, #FFFFFF, #EEEEEE);
+    background-image: -ms-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+    padding: 2px 4px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    text-shadow: #FFFFFF 0 1px 0;
+    color: #333333;
+    /*font-size: 30px;*/
+    font-family: Arial, Helvetica, Serif;
+    font-weight: bold;
+    text-decoration: none;
+    vertical-align: middle;
+}
+button:hover {
+    border: 1px solid #CCCCCC;
+    text-shadow: #FFFFFF 0 1px 0;
+    background: #EEEEEE;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#EEEEEE));
+    background: -webkit-linear-gradient(top, #FFFFFF, #EEEEEE);
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE);
+    background: -ms-linear-gradient(top, #FFFFFF, #EEEEEE);
+    background: -o-linear-gradient(top, #FFFFFF, #EEEEEE);
+    background-image: -ms-linear-gradient(top, #FFFFFF 0%, #EEEEEE 100%);
+    color: #333333;
+    text-decoration: none;
+}
+button:active {
+    text-shadow: #FFFFFF 0 1px 0;
+    border: 1px solid #CCCCCC;
+    background: #FFFFFF;
+    background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#EEEEEE));
+    background: -webkit-linear-gradient(top, #EEEEEE, #FFFFFF);
+    background: -moz-linear-gradient(top, #EEEEEE, #FFFFFF);
+    background: -ms-linear-gradient(top, #EEEEEE, #FFFFFF);
+    background: -o-linear-gradient(top, #EEEEEE, #FFFFFF);
+    background-image: -ms-linear-gradient(top, #EEEEEE 0%, #FFFFFF 100%);
+    color: #333333;
+}
+
+
+
+.clickAnimationPlus {
+    font-family: 'Asimov','Eras Bold ITC','Cooper Black';
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*text-shadow: 2px 2px 2px #000;*/
+    animation: visualClickAnimation 1s ease-in 1;
+    -webkit-animation: visualClickAnimation 1s ease-in 1;
+}
+.clickAnimationCircle {
+    animation: shrinkGrow .15s ease-out 1;
+    -webkit-animation: shrinkGrow .15s ease-out 1;
+}
+
+
+/*CSS Animations to spice it up a bit*/
+@keyframes shrinkGrow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(.85);
+        opacity: .6;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes shrinkGrow {
+    0% {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        -webkit-transform: scale(.90);
+        opacity: .9;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes visualClickAnimation {
+    0% {
+        opacity: 1;
+        font-size: small;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    100% {
+        opacity: .1;
+        font-size: 1000pt;
+        margin-top: -50px;
+        margin-left: -50px;
+    }
+}
+
+@-webkit-keyframes visualClickAnimation {
+    0% {
+        opacity: 1;
+        font-size: small;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    100% {
+        opacity: .1;
+        font-size: 120pt;
+        margin-top: -50px;
+        margin-left: -50px;
+    }
+}

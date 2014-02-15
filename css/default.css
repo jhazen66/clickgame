@@ -43,7 +43,7 @@
 }
 
 /* Large desktop */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     .items {
         margin-top: 5px;
         text-align: center;
@@ -118,7 +118,7 @@
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-device-width: 1024px) {
 
-     .items {
+    .items {
         margin-top: 5px;
         text-align: center;
         max-height: 30px;
@@ -132,10 +132,9 @@
         cursor:pointer;
     }
     .itemSymbol {
-        position:absolute;
         transform:scale(2.5);
         -webkit-transform:scale(2.5);
-        top:15px;
+        top:-15px;
     }
     .itemButton {
         font-size: 10pt;
@@ -202,7 +201,7 @@
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-     .items {
+    .items {
         margin-top: 5px;
         text-align: center;
         max-height: 30px;
@@ -216,10 +215,9 @@
         display:none;
     }
     .itemSymbol {
-        position:absolute;
-        transform:scale(2.5);
-        -webkit-transform:scale(2.5);
-        top:15px;
+        transform:scale(0.8);
+        -webkit-transform:scale(0.8);
+        top:-15px;
     }
     .itemButton {
         font-size: 10pt;
@@ -298,10 +296,9 @@
         display:none;
     }
     .itemSymbol {
-        position:relative;
         transform:scale(2.5);
         -webkit-transform:scale(2.5);
-        top:15px;
+        top:-15px;
     }
     .itemButton {
         font-size: 15pt;
@@ -417,7 +414,9 @@ button:active {
 }
 
 
-
+.update{
+    font-size: small;
+}
 .clickAnimationPlus {
     font-family: 'Asimov','Eras Bold ITC','Cooper Black';
     font-weight: 500;

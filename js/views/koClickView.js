@@ -35,6 +35,7 @@ function ItemButton(name, price, cps, symbol, owned) {
             totalCurrency -= self.price();
             ClicksPS += self.cps;
             self.owned(self.owned() + 1);
+            self.price(self.price() * Math.pow((1+.15), self.owned()));
         }
     }
 }

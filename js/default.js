@@ -24,7 +24,7 @@ function save() {
             try {
                 window.localStorage.setItem("currency", totalCurrency.toString());
                 window.localStorage.setItem("cps", ClicksPS.toString());
-
+                alert(ko.view().)
             } catch (e) {
                 if (e === QUOTA_EXCEEDED_ERR) {
                     alert('Quota exceeded!');
@@ -95,7 +95,7 @@ function destroyClick(obj) {
     document.getElementById("clickArea").removeChild(obj);
 }
 
-// Start the gameloop
+// Map the the best option for performance available
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
            window.webkitRequestAnimationFrame ||

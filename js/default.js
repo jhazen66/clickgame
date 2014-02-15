@@ -24,7 +24,7 @@ function save() {
             try {
                 window.localStorage.setItem("currency", totalCurrency.toString());
                 window.localStorage.setItem("cps", ClicksPS.toString());
-                alert(ko.view().)
+                
             } catch (e) {
                 if (e === QUOTA_EXCEEDED_ERR) {
                     alert('Quota exceeded!');

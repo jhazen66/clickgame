@@ -3,7 +3,7 @@
     height: 100%;
     color: white;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     /* Disable double tap zoom in IE*/
     -ms-touch-action: manipulation !important;
     /*hearts*/
@@ -239,20 +239,20 @@
     }
 
     #clickArea {
-        width: 240px;
-        height: 240px;
+        width: 120px;
+        height: 120px;
         background-color: green;
         border-radius: 250px;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: scale(1);
-        margin-top: -120px;
-        margin-left: -120px;
+        margin-top: -60px;
+        margin-left: -60px;
     }
     #clickCover {
-        width: 240px;
-        height: 240px;
+        width: 120px;
+        height: 120px;
         background-color: green;
         opacity: .01;
         border-radius: 250px;
@@ -260,8 +260,8 @@
         top: 50%;
         left: 50%;
         transform: scale(1);
-        margin-top: -120px;
-        margin-left: -120px;
+        margin-top: -60px;
+        margin-left: -60px;
     }
     .clickContainer {
         position: relative;
@@ -270,7 +270,7 @@
         background-color: transparent;
         /*background-color: rgba(0,0,255,0.5);*/
         border-radius: 50px;
-        min-height: 300px;
+        min-height: 140px;
     }
     #totalCps #totalCurrency {
         font-size: 15pt;
@@ -494,7 +494,7 @@ button:active {
 
     100% {
         opacity: .1;
-        font-size: 120pt;
+        font-size: 1000pt;
         margin-top: -50px;
         margin-left: -50px;
     }

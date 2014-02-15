@@ -26,7 +26,8 @@ function ItemButton(name, price, cps, symbol, owned) {
     self.owned = ko.observable(owned);
 
     self.formattedPrice = ko.computed(function () {
-        return accounting.formatMoney(self.price(),,0);
+        var price = self.price();
+        return price ? "$" + price.toFixed(0): "None";
     })
 
     self.handleKOButtonClick = function (e) {

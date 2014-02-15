@@ -13,25 +13,9 @@ $(document).ready(function () {
     } catch (e) {
         window.status = e.message;
     }
-
-    // Doesn't seem to work on Safari/Chrome on iPhone.
-
-    //FastClick.attach(document.body);
-    //var clickCoverElement = $("#clickCover");
-    //alert(clickCoverElement);
-    //// Add click handler for button
-    //if (window.Touch) {
-
-    //    clickCoverElement.addEventListener('touchStart', mouseDown, false);
-    //    clickCoverElement.addEventListener('touchEnd', mouseUp, false);
-    //    alert("Using Touch");
-    //} else {
-    //    clickCoverElement.addEventListener('mouseDown', mouseDown, false);
-    //    clickCoverElement.addEventListener('mouseUp', mouseUp, false);
-    //    alert("Using Mouse");
-    //}
 });
 
+// Save tries to save game data using local storage
 function save() {
     try {
         if (typeof (localStorage) === 'undefined') {
@@ -46,9 +30,6 @@ function save() {
                     alert('Quota exceeded!');
                 }
             }
-
-            //window.status = (localStorage.getItem("currency")); 
-            //localStorage.removeItem("currency"); 
         }
     } catch (e) {
         window.status = e.message;
@@ -114,18 +95,6 @@ function destroyClick(obj) {
     document.getElementById("clickArea").removeChild(obj);
 }
 
-// Add a prototype function to numbers for handling money formating
-Number.prototype.formatMoney = function (c, d, t) {
-    var n = this,
-        c = isNaN(c = Math.abs(c)) ? 2 : c,
-        d = d == undefined ? "." : d,
-        t = t == undefined ? "," : t,
-        s = n < 0 ? "-" : "",
-        i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
-        j = (j = i.length) > 3 ? j % 3 : 0;
-    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-};
-
 // Start the gameloop
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
@@ -139,8 +108,8 @@ window.requestAnimFrame = (function () {
 
 
 function gameLoop() {
-    document.getElementById("totalCurrency").innerText = "💰" + totalCurrency.formatMoney(0, '.', ',');
-    document.getElementById("totalCps").innerText = ClicksPS.toFixed(2);
+    $("#totalCurrency").text("💰" + accounting.formatMoney(totalCurrency, "$", 0));
+    $("#totalCps").text(accounting.formatNumber(ClicksPS, 1, ","));
     requestAnimFrame(gameLoop);
     
 }

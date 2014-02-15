@@ -112,6 +112,7 @@
         /*text-shadow: 2px 2px 2px #000;*/
         /*width: 100%;*/
         text-align: center;
+        vertical-align: text-middle;
     }
 
 }
@@ -132,8 +133,8 @@
         cursor:pointer;
     }
     .itemSymbol {
-        transform:scale(2.5);
-        -webkit-transform:scale(2.5);
+        transform:scale(1);
+        -webkit-transform:scale(1);
         top:-15px;
     }
     .itemButton {
@@ -197,6 +198,7 @@
         /*text-shadow: 2px 2px 2px #000;*/
         /*width: 100%;*/
         text-align: center;
+        vertical-align: text-middle;
     }
 }
 /* Landscape phone to portrait tablet */
@@ -278,6 +280,7 @@
         /*text-shadow: 2px 2px 2px #000;*/
         /*width: 100%;*/
         text-align: center;
+        vertical-align: text-middle;
     }
 }
 /* Landscape phones and down */
@@ -296,8 +299,8 @@
         display:none;
     }
     .itemSymbol {
-        transform:scale(2.5);
-        -webkit-transform:scale(2.5);
+        transform:scale(1);
+        -webkit-transform:scale(1);
         top:-15px;
     }
     .itemButton {
@@ -360,6 +363,7 @@
         /*text-shadow: 2px 2px 2px #000;*/
         /*width: 100%;*/
         text-align: center;
+        vertical-align: text-middle;
     }
 }
 
@@ -413,7 +417,25 @@ button:active {
     color: #333333;
 }
 
+.coins{
+    vertical-align: middle;
+}
+.svgScale{
+    max-width: 40px;
+    max-height: 40px;
 
+}
+.attributionHolder{
+    position: absolute;
+    top:1px;
+    left:1px;
+    width:100px;
+}
+.attribution{
+    font-size: 8pt;
+    position: relative;
+    color:white;
+}
 .update{
     font-size: small;
 }
@@ -432,7 +454,14 @@ button:active {
     -webkit-animation: shrinkGrow .15s ease-out 1;
 }
 
-
+.noTextSelect{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 /*CSS Animations to spice it up a bit*/
 @keyframes shrinkGrow {
     0% {

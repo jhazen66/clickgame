@@ -101,10 +101,10 @@ var koClickView = function() {
 
 //Game inventory data
 self.clickItems = [
-        { name: "Mouse", price: 10, cps: .1, symbol: "🐁", owned: 0, basePrice:10 },
-        { name: "Dog", price: 100, cps: 1, symbol: "🐕", owned: 0, basePrice:100 },
-        { name: "Chicken", price: 500, cps: 10, symbol: "🐔", owned: 0, basePrice:500 },
-        { name: "Octopus", price: 3000, cps: 25, symbol: "🐙", owned: 0, basePrice:3000 }
+        { name: "Mouse", price: 10, cps: .1, symbol:"img/svg/mouse.svg", fontSymbol: "🐁", owned: 0, basePrice:10 },
+        { name: "Dog", price: 100, cps: 1, symbol:"img/svg/dog.svg", fontSymbol: "🐕", owned: 0, basePrice:100 },
+        { name: "Chicken", price: 500, cps: 10, symbol:"img/svg/chicken.svg", fontSymbol: "🐔", owned: 0, basePrice:500 },
+        { name: "Octopus", price: 3000, cps: 25, symbol:"img/svg/octopus.svg", fontSymbol: "🐙", owned: 0, basePrice:3000 }
     ];
 
 //=PV*(1+R)^N 

@@ -23,19 +23,15 @@
 </head>
 
 <body>
-    <div class="row-fluid">
-        <div class="span12">
-            <strong class="update">Click Game: updated 2/15/2014 around 11:34 a.m.</strong>
-        </div>
-    </div>
+
     <div class="row-fluid">
         <div class="span12">
             <div class="row-fluid">
                 <div class="span12">
                     <div class="row-fluid">
                         <div class="span12 items" data-bind="foreach: buttons">
-                            <button class="itemButton itemButtonAlign" data-bind="click: buyItem">
-                                    <span class="itemSymbol" data-bind="text: symbol"></span>
+                            <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem">
+                                    <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"></img>
                                     <strong class="itemName" data-bind="text: name"></strong><br/>
                                     <span class="itemPrice" data-bind="text: formattedPrice"></span>
                                 <div class="win-voice-textdisplay"></div>
@@ -49,6 +45,7 @@
                     <div id="clickContainer" class="clickContainer">
                         <div id="clickArea"></div>
                         <button id="clickCover" onmousedown="mouseDown()" onmouseup="mouseUp()"></button>
+
                     </div>
                 </div>
             </div>
@@ -58,7 +55,7 @@
         <div class="span12">
             <div class="span12">
                 <p class="itemButtonAlign">
-                    <span id="totalCurrency"></span>
+                    <img class="coins" src="img/svg/coins.svg"/><span id="totalCurrency"></span>
                     &nbsp;CPS:<span id="totalCps"></span>
                     <br />
                 </p>
@@ -69,11 +66,20 @@
         <div class="span12">
             <div class="span12 items" data-bind="foreach: buttons">
                 <span class="itemGroup" data-bind="click: sellItem">
-                    <span data-bind="text: owned"></span>
-                    <span data-bind="text: symbol"></span>
+                    <span class="noTextSelect" data-bind="text: owned"></span>
+                    <img class="svgScale noTextSelect" data-bind="attr:{src:symbol}"></img>
                 </span>
             </div>
         </div>
     </div>
+    
+    <div class="attributionHolder">
+        <p class="attribution">Octopus by Jason Grube from The Noun Project</p>
+        <p class="attribution">Dog by marta michalowska from The Noun Project</p>
+        <p class="attribution">Mouse by Nina Sandgaard Rasmussen from The Noun Project</p>
+        <p class="attribution">Coins by Sławek Jurczyk from The Noun Project</p>
+        <p class="attribution">Chicken by nikki rodriguez from The Noun Project</p>
+    </div>
+
 </body>
 </html>

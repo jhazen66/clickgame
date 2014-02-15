@@ -1,4 +1,4 @@
-﻿// Initialize my ko view
+// Initialize my ko view
 $(document).ready(function () {
     try{
         load();
@@ -24,7 +24,7 @@ function save() {
             try {
                 window.localStorage.setItem("currency", totalCurrency.toString());
                 window.localStorage.setItem("cps", CPS.toString());
-                
+
             } catch (e) {
                 if (e === QUOTA_EXCEEDED_ERR) {
                     alert('Quota exceeded!');
@@ -108,7 +108,7 @@ window.requestAnimFrame = (function () {
 
 
 function gameLoop() {
-    $("#totalCurrency").text("💰" + accounting.formatMoney(totalCurrency, "$", 0));
+    $("#totalCurrency").text(accounting.formatMoney(totalCurrency, "$", 0));
     $("#totalCps").text(accounting.formatNumber(CPS, 1, ","));
     requestAnimFrame(gameLoop);
     

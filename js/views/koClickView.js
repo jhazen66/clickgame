@@ -17,25 +17,54 @@
 
 
 // Class representing Item Button
-function ItemButton(name, price, cps, symbol, owned) {
+function ItemButton(name, price, cps, symbol, owned, basePrice) {
     var self = this;
     self.name = name;
     self.price = ko.observable(price);
     self.cps = cps;
     self.symbol = symbol;
     self.owned = ko.observable(owned);
+    self.basePrice = ko.observable(basePrice);
 
     self.formattedPrice = ko.computed(function () {
         // Use accounting.js to format money
         return accounting.formatMoney(self.price(),"$",0);
     })
 
-    self.handleKOButtonClick = function (e) {
+    // Buying an item increases the price as well
+    // Using the compound interest formula
+    self.buyItem = function (e) {
         if (totalCurrency >= self.price()) {
             totalCurrency -= self.price();
-            ClicksPS += self.cps;
+            CPS += self.cps;
+            // Increase the players inventory
             self.owned(self.owned() + 1);
-            self.price(self.price() * Math.pow((1+.05), self.owned()));
+            // Increase the item price
+            self.price( self.basePrice() + (self.basePrice() * (.05 * self.owned())) );
+        }
+    }
+
+    // Selling an item comes with a cost
+    // Only return 90% of the previous purchase price
+    self.sellItem = function (e){
+        if(self.owned() > 0){
+            // Calculate the refund
+            //alert(self.price());
+            var refund = 0;
+            if(self.owned() === 1){
+                refund = (self.basePrice() + (self.basePrice() * (.05 * self.owned()))  *.9);
+            }else{
+                refund = (self.basePrice() + (self.basePrice() * (.05 * self.owned()) - 1)  *.9);
+            }
+            
+            // Give the refund to the player
+            totalCurrency += refund;
+            // Take the item from the inventory
+            self.owned(self.owned() - 1);
+            // Set the lower price
+            self.price( self.basePrice() + (self.basePrice() * (.05 * self.owned())) );
+            // Reduce the CPS
+            CPS -= self.cps;
         }
     }
 }
@@ -60,7 +89,8 @@ var koClickView = function() {
             self.clickItems[i].price,
             self.clickItems[i].cps,
             self.clickItems[i].symbol,
-            self.clickItems[i].owned))
+            self.clickItems[i].owned,
+            self.clickItems[i].basePrice))
     }
 
     getButtons = function() {
@@ -71,10 +101,10 @@ var koClickView = function() {
 
 //Game inventory data
 self.clickItems = [
-        { name: "Mouse", price: 10, cps: .1, symbol: "🐁", owned: 0 },
-        { name: "Dog", price: 100, cps: 1, symbol: "🐕", owned: 0 },
-        { name: "Chicken", price: 500, cps: 10, symbol: "🐔", owned: 0 },
-        { name: "Octopus", price: 3000, cps: 25, symbol: "🐙", owned: 0 }
+        { name: "Mouse", price: 10, cps: .1, symbol: "🐁", owned: 0, basePrice:10 },
+        { name: "Dog", price: 100, cps: 1, symbol: "🐕", owned: 0, basePrice:100 },
+        { name: "Chicken", price: 500, cps: 10, symbol: "🐔", owned: 0, basePrice:500 },
+        { name: "Octopus", price: 3000, cps: 25, symbol: "🐙", owned: 0, basePrice:3000 }
     ];
 
 //=PV*(1+R)^N 

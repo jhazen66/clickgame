@@ -23,7 +23,7 @@ function save() {
         } else {
             try {
                 window.localStorage.setItem("currency", totalCurrency.toString());
-                window.localStorage.setItem("cps", ClicksPS.toString());
+                window.localStorage.setItem("cps", CPS.toString());
                 
             } catch (e) {
                 if (e === QUOTA_EXCEEDED_ERR) {
@@ -50,7 +50,7 @@ function load() {
                 totalCurrency = savedCurrency;
             }
             if(!isNaN(savedCps)){
-                ClicksPS = savedCps;
+                CPS = savedCps;
             }
         } else {
             //Save a different way
@@ -68,7 +68,7 @@ function reset() {
 
 // Setup game variables
 var totalCurrency = new Number();
-var ClicksPS = new Number();
+var CPS = new Number();
 
 
 // Animate the click circle
@@ -109,12 +109,12 @@ window.requestAnimFrame = (function () {
 
 function gameLoop() {
     $("#totalCurrency").text("💰" + accounting.formatMoney(totalCurrency, "$", 0));
-    $("#totalCps").text(accounting.formatNumber(ClicksPS, 1, ","));
+    $("#totalCps").text(accounting.formatNumber(CPS, 1, ","));
     requestAnimFrame(gameLoop);
     
 }
 
 function updateMoney() {
-    totalCurrency += ClicksPS;
+    totalCurrency += CPS;
     setTimeout(updateMoney, 1000);
 }

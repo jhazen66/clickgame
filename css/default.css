@@ -419,6 +419,7 @@ button:active {
 
 .coins{
     vertical-align: middle;
+    width:100px;
 }
 .svgScale{
     max-width: 40px;

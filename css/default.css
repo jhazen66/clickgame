@@ -6,7 +6,8 @@
     overflow-y: hidden;
     /* Disable double tap zoom in IE*/
     -ms-touch-action: manipulation !important;
-    /*hearts*/
+    background-color: blue;
+    /*hearts
     background: 
     radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
     radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
@@ -21,7 +22,7 @@
     radial-gradient(circle closest-side at 50% 35%, #d35 30%, rgba(221,51,85,0) 31%) 50px 50px;
     background-color:#b03;
     background-size:100px 100px;
-    
+    */
     /*Green Stripes*/
     /*background-size: 50px 50px;
     background-color: #ac0;
@@ -419,6 +420,7 @@ button:active {
 
 .coins{
     vertical-align: middle;
+    max-width: 80px;
 }
 .svgScale{
     max-width: 40px;
@@ -454,14 +456,6 @@ button:active {
     -webkit-animation: shrinkGrow .15s ease-out 1;
 }
 
-.noTextSelect{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
 /*CSS Animations to spice it up a bit*/
 @keyframes shrinkGrow {
     0% {

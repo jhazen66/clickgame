@@ -69,7 +69,22 @@ function load() {
 
 function reset() {
 
+        totalCurrency = 0;
+        CPS = 0;
+        save();
+        updateMoney();
+
 }
+
+function cheat() {
+
+        totalCurrency = 2000000000;
+        CPS = 100000;
+        save();
+        updateMoney();
+
+}
+
 
 // Setup game variables
 var totalCurrency = new Number();
@@ -80,14 +95,18 @@ var AUTO_SAVE_INTERVAL = 4000;
 // Animate the click circle
 // For iPhone use the onTouchStart instead of onMouseDown
 function mouseDown(e) {
+    showClick(1);
+    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
     showClick(1,e);
-    $("#clickArea").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
+    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
+
     totalCurrency += 1;
 }
 
 function mouseUp(e) {
-    setTimeout(function () { $('#clickArea').removeClass("clickAnimationCircle"); }, 150);
+    setTimeout(function () { $('#clickCover').removeClass("clickAnimationCircle"); }, 150);
 }
+
 
 function showClick(num, e) {
     var evt = e ? e:window.event;
@@ -114,7 +133,9 @@ function showClick(num, e) {
     obj.setAttribute("class", "clickAnimationPlus");
     obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
     obj.innerText = "+" + num;
+
     document.body.appendChild(obj);
+
     setTimeout(destroyClick, 300, obj);
 }
 
@@ -132,6 +153,59 @@ window.requestAnimFrame = (function () {
                 window.setTimeout(callback, 1000 / 60);
            };
 })();
+
+
+
+function locationHashChanged() {
+    
+    switch(location.hash)
+    {
+
+        case "#about":
+            $("#about").removeClass("hidden");
+            $("#aboutMenu").addClass("active");
+
+            $("#game").addClass("hidden");
+            $("#gameMenu").removeClass("active");
+
+            $("#contact").addClass("hidden");
+            $("#contactMenu").removeClass("active");
+
+            /*$('.navbar-collapse').toggle();*/
+
+            break;
+
+        case "#contact":
+            $("#about").addClass("hidden");
+            $("#aboutMenu").removeClass("active");
+
+            $("#contact").removeClass("hidden");
+            $("#contactMenu").addClass("active");
+
+            $("#game").addClass("hidden");
+            $("#gameMenu").removeClass("active");
+
+            break;
+
+        case "#":
+        default:
+            $("#about").addClass("hidden");
+            $("#aboutMenu").removeClass("active");
+
+            $("#contact").addClass("hidden");
+            $("#contactMenu").removeClass("active");
+
+            $("#game").removeClass("hidden");
+            $("#gameMenu").addClass("active");
+
+            break;
+
+    }
+
+
+}
+
+window.onhashchange = locationHashChanged;
 
 
 function gameLoop() {

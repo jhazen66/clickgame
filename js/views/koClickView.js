@@ -86,7 +86,8 @@ var clickItems = [
         { name: "Mouse", price: 10, cps: .1, symbol:"img/mouse.png", fontSymbol: "🐁", owned: 0, basePrice:10 },
         { name: "Dog", price: 100, cps: 1, symbol:"img/dog.png", fontSymbol: "🐕", owned: 0, basePrice:100 },
         { name: "Chicken", price: 500, cps: 10, symbol:"img/chicken.png", fontSymbol: "🐔", owned: 0, basePrice:500 },
-        { name: "Octopus", price: 3000, cps: 25, symbol:"img/octopus.png", fontSymbol: "🐙", owned: 0, basePrice:3000 }
+        { name: "Octopus", price: 3000, cps: 25, symbol:"img/octopus.png", fontSymbol: "🐙", owned: 0, basePrice:3000 },
+        { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", fontSymbol: "🐙", owned: 0, basePrice:10000 }
     ];
 
 

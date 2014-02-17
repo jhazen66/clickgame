@@ -9,11 +9,9 @@ $(document).ready(function () {
         requestAnimFrame(gameLoop);
         // Start update money loop
         updateMoney();
-        // Autosave
-        // alert(ko);
-        
     } catch (e) {
         window.status = e.message;
+        debugger;
     }
 });
 
@@ -56,10 +54,8 @@ function load() {
                 CPS = savedCps;
             }
             if(inventory.length > 10){
-                //loadKoData(inventory);
                 koClickView.buttons = ko.observableArray([]);
                 loadKoData(JSON.parse(inventory).buttons);
-                //debugger;
             }
         } else {
             //Save a different way
@@ -84,7 +80,7 @@ var AUTO_SAVE_INTERVAL = 4000;
 // Animate the click circle
 // For iPhone use the onTouchStart instead of onMouseDown
 function mouseDown(e) {
-    showClick(1);
+    showClick(1,e);
     $("#clickArea").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
     totalCurrency += 1;
 }
@@ -93,16 +89,37 @@ function mouseUp(e) {
     setTimeout(function () { $('#clickArea').removeClass("clickAnimationCircle"); }, 150);
 }
 
-function showClick(num) {
+function showClick(num, e) {
+    var evt = e ? e:window.event;
+    var clickX=0, clickY=0;
+
+    if ((evt.clientX || evt.clientY) &&
+     document.body &&
+     document.body.scrollLeft!=null) {
+        clickX = evt.clientX + document.body.scrollLeft;
+        clickY = evt.clientY + document.body.scrollTop;
+    }
+    if ((evt.clientX || evt.clientY) &&
+     document.compatMode=='CSS1Compat' && 
+     document.documentElement && 
+     document.documentElement.scrollLeft!=null) {
+        clickX = evt.clientX + document.documentElement.scrollLeft;
+        clickY = evt.clientY + document.documentElement.scrollTop;
+    }
+    if (evt.pageX || evt.pageY) {
+        clickX = evt.pageX;
+        clickY = evt.pageY;
+ }
     var obj = document.createElement("p");
     obj.setAttribute("class", "clickAnimationPlus");
+    obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
     obj.innerText = "+" + num;
-    document.getElementById("clickArea").appendChild(obj);
+    document.body.appendChild(obj);
     setTimeout(destroyClick, 300, obj);
 }
 
 function destroyClick(obj) {
-    document.getElementById("clickArea").removeChild(obj);
+    document.body.removeChild(obj);
 }
 
 // Map the the best option for performance available

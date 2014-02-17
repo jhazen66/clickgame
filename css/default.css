@@ -75,20 +75,20 @@
     }
 
     #clickArea {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
         background-color: green;
         border-radius: 250px;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: scale(1);
-        margin-top: -125px;
-        margin-left: -125px;
+        margin-top: -100px;
+        margin-left: -100px;
     }
     #clickCover {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
         background-color: green;
         opacity: .01;
         border-radius: 250px;
@@ -96,8 +96,8 @@
         top: 50%;
         left: 50%;
         transform: scale(1);
-        margin-top: -125px;
-        margin-left: -125px;
+        margin-top: -100px;
+        margin-left: -100px;
     }
     .clickContainer {
         position: relative;
@@ -106,7 +106,7 @@
         background-color: transparent;
         /*background-color: rgba(0,0,255,0.5);*/
         border-radius: 50px;
-        min-height: 350px;
+        min-height: 210px;
     }
     #totalCps #totalCurrency {
         font-family: 20pt;
@@ -445,11 +445,17 @@ button:active {
     font-family: 'Asimov','Eras Bold ITC','Cooper Black';
     font-weight: 500;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    /*top: 50%;
+    left: 50%;*/
     /*text-shadow: 2px 2px 2px #000;*/
     animation: visualClickAnimation 1s ease-in 1;
     -webkit-animation: visualClickAnimation 1s ease-in 1;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .clickAnimationCircle {
     animation: shrinkGrow .15s ease-out 1;

@@ -26,6 +26,7 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
         }
     }
 
+    
     // Selling an item comes with a cost
     // Only return 90% of the previous purchase price
     self.sellItem = function (e){
@@ -71,7 +72,15 @@ var clickItems = [
         { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", fontSymbol: "🐙", owned: 0, basePrice:10000 }
     ];
 
+//jykwak: 
+//helper function to reset the board
+//doesn't work if this function moved below loadKoDat(clickItems); line
 
+function resetKoData() {
+    koClickView.buttons = ko.observableArray([]);
+    loadKoData(clickItems);
+
+}
 
 function loadKoData(clickItems){
     for (var i = 0; i < clickItems.length; i++) {

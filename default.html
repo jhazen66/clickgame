@@ -52,13 +52,18 @@
 
             <!-- Header Row -->
             <div class="row" data-bind="foreach: buttons">
+
                 <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem">
                         <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"/><br>
                         <div class="itemNameDiv"><span class="itemName" data-bind="text: name"></span><br/></div>
+
+
                         <span class="itemPrice" data-bind="text: formattedPrice"></span>
                     <div class="win-voice-textdisplay"></div>
                 </button>
             </div>
+
+            
 
             <!-- Click Button Row -->
             <div class="row">

@@ -6,7 +6,7 @@
     overflow-y: hidden;
     /* Disable double tap zoom in IE*/
     -ms-touch-action: manipulation !important;
-    background-color: blue;
+    /*background-color: blue;
     /*hearts
     background: 
     radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
@@ -24,13 +24,13 @@
     background-size:100px 100px;
     */
     /*Green Stripes*/
-    /*background-size: 50px 50px;
+    background-size: 50px 50px;
     background-color: #ac0;
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
     background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
     -pie-background: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent) 0 0 / 50px 50px #ac0;
-    behavior: url(/pie/PIE.htc);*/
+    behavior: url(/pie/PIE.htc);
     /*Carbon*/
     /* background-position: 0px 0px, 8px 8px, 0px 1px, 8px 9px; background-image: radial-gradient(black 15%, transparent 16%), radial-gradient(black 15%, transparent 16%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%); background-attachment: scroll, scroll, scroll, scroll; background-repeat: repeat, repeat, repeat, repeat; background-size: 16px 16px; background-origin: padding-box, padding-box, padding-box, padding-box; background-clip: border-box, border-box, border-box, border-box; background-color: rgb(40, 40, 40);*/
     /*Microbial Mat*/

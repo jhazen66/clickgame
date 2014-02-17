@@ -38,15 +38,15 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li id="gameMenu" class="active"><a href="#">Game</a></li>
+            <li id="contactMenu"><a href="#contact">Contact</a></li>
+            <li id="aboutMenu" ><a href="#about">Credits</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
-    <div class="container">
+    <div class="container game">
       <div id="game">
 
             <!-- Header Row -->
@@ -88,8 +88,40 @@
             </div>        
 
         </div>
-        <button id="reset" onclick="reset()">reset</button>
-        <button id="cheat" onclick="cheat()">cheat</button>
+
+        <div id="about" class="hidden">
+            <div class="row attributionHolder">
+                <h3>Images used courtesy of </br><a href="http://www.thenounproject.com" target="_blank">The Noun Project</a></h3>
+                <div class="row">
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/rat/15130/" target="_blank"><img id="coins" src="img/mouse.png"/></a></br><p class="attribution">by Francisca Arévalo</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/dog/8126/" target="_blank"><img id="coins" src="img/dog.png"/></a></br><p class="attribution">by Marta Michalowska</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/chicken/33759/" target="_blank"><img id="coins" src="img/chicken.png"/></a></br><p class="attribution">by Adam Zubin</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/octopus/15331/" target="_blank"><img id="coins" src="img/octopus.png"/></a></br><p class="attribution">by Jason Grube</p></div>  
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/milipede/9436/" target="_blank"><img id="coins" src="img/millipede.png"/></a></br><p class="attribution">by Rosie Hardwick</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/coins/24860/" target="_blank"><img id="coins" src="img/coins.png"/></a></br><p class="attribution">by Sławek Jurczyk</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/shrink/33953/" target="_blank"><img id="coins" src="img/plus-120.png"/></a></br><p class="attribution">by P.J. Onori</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/octopus/15331/" target="_blank"><img id="coins" src="img/shrink.png"/></a></br><p class="attribution">by Berkay Sargın </p></div>  
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/click/12280/" target="_blank"><img id="coins" src="img/cps.png"/></a></br><p class="attribution">by Rohan Gupta</p></div>
+                </div>
+
+            </div>
+            <div class="row">
+                <button id="reset" onclick="reset()">reset</button>
+                <button id="cheat" onclick="cheat()">cheat</button>
+            </div>
+        </div>
+
+        <div id="contact" class="hidden">
+
+            contacts page
+
+        </div>
+
+
     </div><!-- /.container -->
 
 

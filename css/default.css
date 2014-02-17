@@ -18,6 +18,8 @@
 
 }
 
+
+
 #game {
   padding: 20px 15px;
   text-align: center;
@@ -125,7 +127,7 @@
 @media (min-width: 768px) and (max-device-width: 1024px) {
 
     #items {
-        max-height: 60px;
+        max-height: 80px;
         min-width:120px;
     }
     .itemName {
@@ -298,14 +300,10 @@ button:active {
 
 }
 .attributionHolder{
-    position: absolute;
-    top:1px;
-    left:1px;
-    width:100px;
+
 }
 .attribution{
-    font-size: 8pt;
-    position: relative;
+    font-size: 12pt;
     color:white;
 }
 .update{

@@ -123,6 +123,59 @@ window.requestAnimFrame = (function () {
 })();
 
 
+
+function locationHashChanged() {
+    
+    switch(location.hash)
+    {
+
+        case "#about":
+            $("#about").removeClass("hidden");
+            $("#aboutMenu").addClass("active");
+
+            $("#game").addClass("hidden");
+            $("#gameMenu").removeClass("active");
+
+            $("#contact").addClass("hidden");
+            $("#contactMenu").removeClass("active");
+
+            /*$('.navbar-collapse').toggle();*/
+
+            break;
+
+        case "#contact":
+            $("#about").addClass("hidden");
+            $("#aboutMenu").removeClass("active");
+
+            $("#contact").removeClass("hidden");
+            $("#contactMenu").addClass("active");
+
+            $("#game").addClass("hidden");
+            $("#gameMenu").removeClass("active");
+
+            break;
+
+        case "#":
+        default:
+            $("#about").addClass("hidden");
+            $("#aboutMenu").removeClass("active");
+
+            $("#contact").addClass("hidden");
+            $("#contactMenu").removeClass("active");
+
+            $("#game").removeClass("hidden");
+            $("#gameMenu").addClass("active");
+
+            break;
+
+    }
+
+
+}
+
+window.onhashchange = locationHashChanged;
+
+
 function gameLoop() {
     $("#totalCurrency").text(accounting.formatMoney(totalCurrency, "$", 0));
     $("#totalCps").text(accounting.formatNumber(CPS, 1, ","));

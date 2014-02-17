@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>clickgame</title>
+
+    <!-- meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
+
+    <!-- clickgame css -->
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/css/default.css" rel="stylesheet" />
+
+    <!-- clickgame javascript -->
+    <script src="/js/lib/jquery-2.1.0.js"></script>
+    <script src="/js/lib/fastclick.js"></script>
+    <script src="/js/lib/bootstrap.js"></script>
+    <script src="/js/lib/modernizr-latest.js"></script>
+    <script src="/js/lib/accounting.min.js"></script>
+    <script src="/js/views/koClickView.js"></script>
+    <script src="/js/lib/knockout-3.0.0.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+
+<body>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="header">
+                        <div class="row-fluid">
+                            <div class="span12 items" data-bind="foreach: buttons">
+                                <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem">
+                                        <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"></img><br>
+                                        <strong class="itemName" data-bind="text: name"></strong><br/>
+                                        <span class="itemPrice" data-bind="text: formattedPrice"></span>
+                                    <div class="win-voice-textdisplay"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="clickContainer" class="clickContainer">
+                        <div id="clickArea"></div>
+                        <button id="clickCover" onmousedown="mouseDown()" onmouseup="mouseUp()"></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div id="totals">
+                <p class="itemButtonAlign">
+                    <img id="coins" src="img/coins.png"/><span id="totalCurrency"></span>
+                    &nbsp;<img id="cps" src="img/cps.png"/><span id="totalCps"></span>
+                    <br />
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <div id="items" data-bind="foreach: buttons">
+                <span class="itemGroup" data-bind="click: sellItem">
+                    <span class="noTextSelect" data-bind="text: owned"></span>
+                    <img class="svgScale noTextSelect" data-bind="attr:{src:symbol}"></img>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="attributionHolder">
+        <p class="attribution">Octopus by Jason Grube from The Noun Project</p>
+        <p class="attribution">Dog by marta michalowska from The Noun Project</p>
+        <p class="attribution">Rat by Francisca Arévalo from the Noun Project</p>
+        <p class="attribution">Coins by Sławek Jurczyk from The Noun Project</p>
+        <p class="attribution">Chicken by Adam Zubin from The Noun Project</p>
+        <p class="attribution">Milipede by Rosie Hardwick from the Noun Project</p>
+        <p class="attribution">Shrink by Berkay Sargın from the Noun Project</p> 
+        <p class="attribution">Click by Rohan Gupta from the Noun Project</p>    
+        <p class="attribution">Plus designed by P.J. Onori from the Noun Project   </p>   
+
+    </div>
+
+</body>
+</html>

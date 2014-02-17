@@ -67,13 +67,18 @@ function load() {
     }
 }
 
-function reset() {
 
+function reset() {
         totalCurrency = 0;
         CPS = 0;
+        window.localStorage.setItem("currency", "");
+        window.localStorage.setItem("cps", "");
+        window.localStorage.setItem("inventory", "");
+        
+        resetKoData();
         save();
+        load();
         updateMoney();
-
 }
 
 function cheat() {
@@ -224,3 +229,4 @@ function updateMoney() {
     totalCurrency += CPS;
     setTimeout(updateMoney, 1000);
 }
+

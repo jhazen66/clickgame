@@ -79,7 +79,6 @@ var clickItems = [
 function resetKoData() {
     koClickView.buttons = ko.observableArray([]);
     loadKoData(clickItems);
-
 }
 
 function loadKoData(clickItems){

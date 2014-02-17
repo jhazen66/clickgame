@@ -64,7 +64,22 @@ function load() {
 
 function reset() {
 
+        totalCurrency = 0;
+        CPS = 0;
+        save();
+        updateMoney();
+
 }
+
+function cheat() {
+
+        totalCurrency = 2000000000;
+        CPS = 100000;
+        save();
+        updateMoney();
+
+}
+
 
 // Setup game variables
 var totalCurrency = new Number();
@@ -75,24 +90,25 @@ var CPS = new Number();
 // For iPhone use the onTouchStart instead of onMouseDown
 function mouseDown(e) {
     showClick(1);
-    $("#clickArea").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
+    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
     totalCurrency += 1;
 }
 
 function mouseUp(e) {
-    setTimeout(function () { $('#clickArea').removeClass("clickAnimationCircle"); }, 150);
+    setTimeout(function () { $('#clickCover').removeClass("clickAnimationCircle"); }, 150);
 }
 
 function showClick(num) {
+
     var obj = document.createElement("p");
     obj.setAttribute("class", "clickAnimationPlus");
     obj.innerText = "+" + num;
-    document.getElementById("clickArea").appendChild(obj);
+    document.getElementById("clickCover").appendChild(obj);
     setTimeout(destroyClick, 300, obj);
 }
 
 function destroyClick(obj) {
-    document.getElementById("clickArea").removeChild(obj);
+    document.getElementById("clickCover").removeChild(obj);
 }
 
 // Map the the best option for performance available

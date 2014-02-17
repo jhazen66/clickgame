@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>clickgame</title>
+
+    <!-- meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
+
+    <!-- clickgame css -->
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/default.css" rel="stylesheet" />
+
+    <!-- clickgame javascript -->
+    <script src="/js/lib/jquery-2.1.0.js"></script>
+    <script src="/js/lib/fastclick.js"></script>
+    <script src="/js/lib/bootstrap.js"></script>
+    <script src="/js/lib/modernizr-latest.js"></script>
+    <script src="/js/lib/accounting.min.js"></script>
+    <script src="/js/views/koClickView.js"></script>
+    <script src="/js/lib/knockout-3.0.0.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+
+
+ <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ClickGame</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="game">
+
+            <!-- Header Row -->
+            <div class="row" data-bind="foreach: buttons">
+                <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem">
+                        <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"></img><br>
+                        <div class="itemNameDiv"><span class="itemName" data-bind="text: name"></span></br></div>
+                        <span class="itemPrice" data-bind="text: formattedPrice"></span>
+                    <div class="win-voice-textdisplay"></div>
+                </button>
+            </div>
+
+            <!-- Click Button Row -->
+            <div class="row">
+                <div id="clickContainer" class="clickContainer">
+                    <div id="clickCover" onmousedown="mouseDown()" onmouseup="mouseUp()"></div>
+                </div>
+            </div>
+
+            <!-- Counter Row -->
+            <div class="row">
+                <div id="totals">
+                    <p class="itemButtonAlign">
+                        <img id="coins" src="img/coins.png"/><span id="totalCurrency"></span>
+                        &nbsp;<img id="cps" src="img/cps.png"/><span id="totalCps"></span>
+                        <br />
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer Row -->
+            <div class="row">
+                <div id="items" data-bind="foreach: buttons">
+                    <span class="itemGroup" data-bind="click: sellItem">
+                        <span class="noTextSelect" data-bind="text: owned"></span>
+                        <img class="svgScale noTextSelect" data-bind="attr:{src:symbol}"></img>
+                    </span>
+                </div>
+            </div>        
+
+        </div>
+        <button id="reset" onclick="reset()">reset</button>
+        <button id="cheat" onclick="cheat()">cheat</button>
+    </div><!-- /.container -->
+
+
+
+  </body>
+
+
+
+
+</html>

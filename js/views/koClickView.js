@@ -75,32 +75,14 @@ function Player(name,score){
 }
 
 // Viewmodel for this screen
-var koClickView = function() {
-    var self = this;
-    //var myObservableArray = ko.observableArray();
-    
-    
-    self.buttons = ko.observableArray();
-    self.playerCash = ko.observable(0);
-
-    // Populate the observable array
-    for (var i = 0; i < self.clickItems.length; i++) {
-        self.buttons.push(new ItemButton(self.clickItems[i].name,
-            self.clickItems[i].price,
-            self.clickItems[i].cps,
-            self.clickItems[i].symbol,
-            self.clickItems[i].owned,
-            self.clickItems[i].basePrice))
-    }
-
-    getButtons = function() {
-        return self.buttons;
-    }
-
+var koClickView =  {    
+    buttons : ko.observableArray([]),
+    playerCash : ko.observable(0)
 }
 
+
 //Game inventory data
-self.clickItems = [
+var clickItems = [
         { name: "Mouse", price: 10, cps: .1, symbol:"img/mouse.png", fontSymbol: "🐁", owned: 0, basePrice:10 },
         { name: "Dog", price: 100, cps: 1, symbol:"img/dog.png", fontSymbol: "🐕", owned: 0, basePrice:100 },
         { name: "Chicken", price: 500, cps: 10, symbol:"img/chicken.png", fontSymbol: "🐔", owned: 0, basePrice:500 },
@@ -108,11 +90,17 @@ self.clickItems = [
         { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", fontSymbol: "🐙", owned: 0, basePrice:10000 }
     ];
 
-//=PV*(1+R)^N 
-//where PV is present value, R is the interest rate, and N is the number of investment periods.    
 
-/*
-    self.fullName = ko.computed(function() {
-        return self.firstName() + " " + self.lastName();
-    });
-*/
+
+function loadKoData(clickItems){
+    for (var i = 0; i < clickItems.length; i++) {
+        koClickView.buttons.push(new ItemButton(clickItems[i].name,
+            clickItems[i].price,
+            clickItems[i].cps,
+            clickItems[i].symbol,
+            clickItems[i].owned,
+            clickItems[i].basePrice))
+    }
+}
+
+loadKoData(clickItems);

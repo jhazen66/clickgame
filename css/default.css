@@ -6,7 +6,7 @@
     /* Disable double tap zoom in IE*/
     -ms-touch-action: manipulation !important;
 
-    background-image:url('/img/shrink-background.png');
+    background-image:url('/img/bgTreesGreen.png');
     background-repeat:repeat;
     background-color: blue;
     background-size:100px 100px;
@@ -360,6 +360,8 @@ button:active {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    pointer-events: none;
+
 }
 .clickAnimationCircle {
     animation: shrinkGrow .15s ease-out 1;

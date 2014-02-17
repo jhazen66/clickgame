@@ -92,6 +92,8 @@ var CPS = new Number();
 var lastSave = new Date();
 var AUTO_SAVE_INTERVAL = 4000;
 
+
+
 // Animate the click circle
 // For iPhone use the onTouchStart instead of onMouseDown
 function mouseDown(e) {
@@ -99,8 +101,10 @@ function mouseDown(e) {
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
     showClick(1,e);
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
-
+    var audio = document.getElementById('clickSound');
+    audio.play();
     totalCurrency += 1;
+
 }
 
 function mouseUp(e) {

@@ -1,22 +1,4 @@
-﻿/*
-    Features still needed:
-    1. Save a players state - Local Storage (modernizer detection)
-        a. Have totalCurrency and ClickPS saved, need to save the observable array.
-    2. Add Firefox support for animations
-    3. Increase price after purchase
-    4. Add iPhone, iPad specific meta tags and Touch support
-        Tried using fastclick, this works on the iPhone in a webView, but doesn't seem to on Safari or Chrome browsers on Mobile.
-        https://github.com/ftlabs/fastclick
-    5. Use SVG files, creative commons:
-        http://thenounproject.com
-
-    DONE:
-    * DONE: Only accrue ClicksPS every second
-
-*/
-
-
-// Class representing Item Button
+﻿// Class representing Item Button
 function ItemButton(name, price, cps, symbol, owned, basePrice) {
     var self = this;
     self.name = name;
@@ -49,7 +31,6 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
     self.sellItem = function (e){
         if(self.owned() > 0){
             // Calculate the refund
-            //alert(self.price());
             var refund = 0;
             if(self.owned() === 1){
                 refund = (self.basePrice() + (self.basePrice() * (.05 * self.owned()))  *.9);

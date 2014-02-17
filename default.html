@@ -53,8 +53,8 @@
             <!-- Header Row -->
             <div class="row" data-bind="foreach: buttons">
                 <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem">
-                        <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"></img><br>
-                        <div class="itemNameDiv"><span class="itemName" data-bind="text: name"></span></br></div>
+                        <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"/><br>
+                        <div class="itemNameDiv"><span class="itemName" data-bind="text: name"></span><br/></div>
                         <span class="itemPrice" data-bind="text: formattedPrice"></span>
                     <div class="win-voice-textdisplay"></div>
                 </button>
@@ -84,7 +84,7 @@
                 <div id="items" data-bind="foreach: buttons">
                     <span class="itemGroup" data-bind="click: sellItem">
                         <span class="noTextSelect" data-bind="text: owned"></span>
-                        <img class="svgScale noTextSelect" data-bind="attr:{src:symbol}"></img>
+                        <img class="svgScale noTextSelect" data-bind="attr:{src:symbol}"/>
                     </span>
                 </div>
             </div>        
@@ -93,21 +93,21 @@
 
         <div id="about" class="hidden">
             <div class="row attributionHolder">
-                <h3>Images used courtesy of </br><a href="http://www.thenounproject.com" target="_blank">The Noun Project</a></h3>
+                <h3>Images used courtesy of <br/><a href="http://www.thenounproject.com" target="_blank">The Noun Project</a></h3>
                 <div class="row">
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/rat/15130/" target="_blank"><img id="coins" src="img/mouse.png"/></a></br><p class="attribution">by Francisca Arévalo</p></div>
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/dog/8126/" target="_blank"><img id="coins" src="img/dog.png"/></a></br><p class="attribution">by Marta Michalowska</p></div>
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/chicken/33759/" target="_blank"><img id="coins" src="img/chicken.png"/></a></br><p class="attribution">by Adam Zubin</p></div>
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/octopus/15331/" target="_blank"><img id="coins" src="img/octopus.png"/></a></br><p class="attribution">by Jason Grube</p></div>  
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/rat/15130/" target="_blank"><img id="coins" src="img/mouse.png"/></a><br/><p class="attribution">by Francisca Arévalo</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/dog/8126/" target="_blank"><img id="coins" src="img/dog.png"/></a><br/><p class="attribution">by Marta Michalowska</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/chicken/33759/" target="_blank"><img id="coins" src="img/chicken.png"/></a><br/><p class="attribution">by Adam Zubin</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/octopus/15331/" target="_blank"><img id="coins" src="img/octopus.png"/></a><br/><p class="attribution">by Jason Grube</p></div>  
                 </div>
                 <div class="row">
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/milipede/9436/" target="_blank"><img id="coins" src="img/millipede.png"/></a></br><p class="attribution">by Rosie Hardwick</p></div>
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/coins/24860/" target="_blank"><img id="coins" src="img/coins.png"/></a></br><p class="attribution">by Sławek Jurczyk</p></div>
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/shrink/33953/" target="_blank"><img id="coins" src="img/plus-120.png"/></a></br><p class="attribution">by P.J. Onori</p></div>
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/octopus/15331/" target="_blank"><img id="coins" src="img/shrink.png"/></a></br><p class="attribution">by Berkay Sargın </p></div>  
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/milipede/9436/" target="_blank"><img id="coins" src="img/millipede.png"/></a><br/><p class="attribution">by Rosie Hardwick</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/coins/24860/" target="_blank"><img id="coins" src="img/coins.png"/></a><br/><p class="attribution">by Sławek Jurczyk</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/shrink/33953/" target="_blank"><img id="coins" src="img/plus-120.png"/></a><br/><p class="attribution">by P.J. Onori</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/octopus/15331/" target="_blank"><img id="coins" src="img/shrink.png"/></a><br/><p class="attribution">by Berkay Sargın </p></div>  
                 </div>
                 <div class="row">
-                  <div class="col-md-3"><a href="http://thenounproject.com/term/click/12280/" target="_blank"><img id="coins" src="img/cps.png"/></a></br><p class="attribution">by Rohan Gupta</p></div>
+                  <div class="col-md-3"><a href="http://thenounproject.com/term/click/12280/" target="_blank"><img id="coins" src="img/cps.png"/></a><br/><p class="attribution">by Rohan Gupta</p></div>
                 </div>
 
             </div>
@@ -123,15 +123,10 @@
             contacts page
 
         </div>
-
-
     </div><!-- /.container -->
 
-
-
+    <audio id="clickSound">
+        <source src="/audio/bobpa.ogg" type="audio/ogg"/>
+    </audio>
   </body>
-
-
-
-
 </html>

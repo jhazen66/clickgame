@@ -320,11 +320,17 @@ button:active {
 }
 
 button:disabled{
-    color:#ffffff;
+    color:gray;
 }
+
 
 .itemButtonProgress{
     width:50px;
+    display:run-in;
+    /*top:-50px;*/
+    position: relative;
+    background-color: black;
+    border-radius: 20px;
 }
 
 #coins{
@@ -352,6 +358,16 @@ button:disabled{
 .update{
     font-size: small;
 }
+
+.expand{
+    background-color: red;
+    border-radius: 20px;
+    max-height:8px;
+    font-size: 8px;
+    display: inline-block;
+    height: 8px;
+}
+
 .clickAnimationPlus {
     font-family: 'Asimov','Eras Bold ITC','Cooper Black';
     font-weight: 500;

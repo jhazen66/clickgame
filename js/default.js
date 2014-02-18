@@ -98,7 +98,10 @@ var totalCurrency = new Number();
 var CPS = new Number();
 var lastSave = new Date();
 var AUTO_SAVE_INTERVAL = 4000;
-
+var sound = new Howl({urls:['audio/bobpa.mp3','audio/bobpa.ogg']});
+/*var sound = new Howl({
+  urls: ['audio/bobpa.wav', 'bobpa.ogg']
+})*/
 
 
 // Animate the click circle
@@ -108,8 +111,11 @@ function mouseDown(e) {
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
     showClick(1,e);
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
-    var audio = document.getElementById('clickSound');
-    audio.play();
+
+    if(koClickView.game.soundState()){
+        sound.play();
+    }
+    
     totalCurrency += 1;
 
 }
@@ -166,12 +172,10 @@ window.requestAnimFrame = (function () {
 })();
 
 
-
+// Handle app navigation
 function locationHashChanged() {
-    
     switch(location.hash)
     {
-
         case "#about":
             $("#about").removeClass("hidden");
             $("#aboutMenu").addClass("active");
@@ -220,11 +224,9 @@ window.onhashchange = locationHashChanged;
 
 
 function gameLoop() {
-    $("#totalCurrency").text(accounting.formatMoney(totalCurrency, "$", 0));
-    $("#totalCps").text(accounting.formatNumber(CPS, 1, ","));
-    
     // Update the knockout view model to refelect player cash
-    koClickView.playerCash(totalCurrency);
+    koClickView.game.playerCash(totalCurrency);
+    koClickView.game.CPS(CPS);
 
     // Execute the game loop on the next animation frame
     requestAnimFrame(gameLoop);
@@ -238,11 +240,11 @@ function gameLoop() {
         
 }
 
+// Update the player's money every second by their CPS rate
 function updateMoney() {
     totalCurrency += CPS;
     // Update the knockout view model to refelect player cash
-    koClickView.playerCash(totalCurrency);
+    koClickView.game.playerCash(totalCurrency);
 
     setTimeout(updateMoney, 1000);
 }
-

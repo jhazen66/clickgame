@@ -15,7 +15,7 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
 
     // Check to see if a player can afford an item
     self.canAfford = ko.computed(function(){
-        var pCash = koClickView.playerCash();
+        var pCash = koClickView.game.playerCash();
         if(self.price() <= pCash){
            return true;
         } else {
@@ -24,12 +24,12 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
     })
 
     self.affordProgressValue = ko.computed(function(){
-        var pCash = koClickView.playerCash();
+        var pCash = koClickView.game.playerCash();
         return pCash / self.price();
     })
 
     self.showProgress = ko.computed(function(){
-        var pCash = koClickView.playerCash();
+        var pCash = koClickView.game.playerCash();
         if(pCash/self.price() < 1){
             return true;
         } else {
@@ -76,25 +76,59 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
     }
 }
 
+
+// Class representing the game
+function Game(){
+    var self = this;
+    self.playerCash = ko.observable(0);
+    self.CPS = ko.observable(0);
+    self.soundState = ko.observable(false);
+    
+    self.formattedCPS = ko.computed(function(){
+        // if(Math.round(self.CPS()*10)/10 === self.CPS())
+        if(Math.round(self.CPS() * 10)/10 === Math.round(self.CPS()) ){
+            return accounting.formatNumber(Math.round(self.CPS()*10)/10,0,",");
+        } else {
+            return accounting.formatNumber(Math.round(self.CPS()*10)/10,1,",");
+        }
+        
+    })
+
+    self.formattedPlayerCash = ko.computed(function(){
+        return accounting.formatMoney(self.playerCash(), "$", 0);
+    })
+}
+
 function Player(name){
     this.name = name;
-    this.currency = ko.observable(totalCurrency);
+    this.totalClicks = ko.observable(0);
+    this.totalMoneySpent = ko.observable(0);
+    this.totalItemsPurchased = ko.observable(0);
+}
+
+
+
+var playerStats = {
+    name:"",
+    totalClicks:""
 }
 
 // Viewmodel for the click application.
 var koClickView =  {    
     buttons : ko.observableArray([]),
-    playerCash : ko.observable(0)
+    game: new Game(),
+    playerCash : ko.observable(0),
+    CPS: ko.observable(0)
 }
 
 
 //Game inventory data
 var clickItems = [
-        { name: "Mouse", price: 10, cps: .1, symbol:"img/mouse.png", fontSymbol: "🐁", owned: 0, basePrice:10 },
-        { name: "Dog", price: 100, cps: 1, symbol:"img/dog.png", fontSymbol: "🐕", owned: 0, basePrice:100 },
-        { name: "Chicken", price: 500, cps: 10, symbol:"img/chicken.png", fontSymbol: "🐔", owned: 0, basePrice:500 },
-        { name: "Octopus", price: 3000, cps: 25, symbol:"img/octopus.png", fontSymbol: "🐙", owned: 0, basePrice:3000 },
-        { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", fontSymbol: "🐙", owned: 0, basePrice:10000 }
+        { name: "Mouse", price: 10, cps: .1, symbol:"img/mouse.png", owned: 0, basePrice:10 },
+        { name: "Dog", price: 100, cps: 1, symbol:"img/dog.png", owned: 0, basePrice:100 },
+        { name: "Chicken", price: 500, cps: 10, symbol:"img/chicken.png", owned: 0, basePrice:500 },
+        { name: "Octopus", price: 3000, cps: 25, symbol:"img/octopus.png", owned: 0, basePrice:3000 },
+        { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", owned: 0, basePrice:10000 }
     ];
 
 //jykwak: 

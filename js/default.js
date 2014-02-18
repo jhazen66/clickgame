@@ -61,6 +61,8 @@ function load() {
             //Save a different way
             window.status = "ELSE";
         }
+
+        window.status = "";
     }
     catch (e) {
         window.status = e.message;
@@ -220,9 +222,16 @@ window.onhashchange = locationHashChanged;
 function gameLoop() {
     $("#totalCurrency").text(accounting.formatMoney(totalCurrency, "$", 0));
     $("#totalCps").text(accounting.formatNumber(CPS, 1, ","));
+    
+    // Update the knockout view model to refelect player cash
+    koClickView.playerCash(totalCurrency);
+
+    // Execute the game loop on the next animation frame
     requestAnimFrame(gameLoop);
+    
     var currentTime = new Date();
     var timeSinceSave = currentTime - lastSave
+    // Check if the game has been saved in the last 10 seconds
     if(timeSinceSave > AUTO_SAVE_INTERVAL){
         save();
     }
@@ -231,6 +240,9 @@ function gameLoop() {
 
 function updateMoney() {
     totalCurrency += CPS;
+    // Update the knockout view model to refelect player cash
+    koClickView.playerCash(totalCurrency);
+
     setTimeout(updateMoney, 1000);
 }
 

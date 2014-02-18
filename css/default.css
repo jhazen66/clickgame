@@ -75,11 +75,14 @@
 
 #totals {
 
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(255,255,255,.5);
     max-width:500px;
     margin-left: auto ;
     margin-right: auto ;
-    color:blue;
+    color:green;
+    font-weight: bolder;
+    font-size:x-large;
+    border-radius: 20px;
 
 }
 
@@ -87,14 +90,14 @@
 
 #items{
     margin-top: 5px;
-    background-color: rgba(0,255,255,.8);
+    border-radius: 20px;
+    background-color: rgba(0,255,255,.4);
     max-width:500px;
     margin-left: auto ;
     margin-right: auto ;
     text-align: center;
-    max-height: 30px;
+    max-height: 60px;
     cursor:pointer;
-
 }
 
 .itemName {
@@ -222,7 +225,6 @@
         width: 120px;
         height: 120px;
         background-image:url('/img/plus-120.png');
-
     }
     .clickContainer {
         min-height: 140px;
@@ -246,7 +248,6 @@
     }
     .itemButton {
         max-width: 120px;
-
         height:50px
     }
 
@@ -265,7 +266,6 @@
     }
     #totalCps #totalCurrency {
         font-size: 15pt;
-        
     }
 }
 
@@ -319,14 +319,22 @@ button:active {
     color: #333333;
 }
 
+button:disabled{
+    color:#ffffff;
+}
+
+.itemButtonProgress{
+    width:50px;
+}
+
 #coins{
     vertical-align: middle;
-    max-width: 80px;
+    max-width: 40px;
 }
 
 #cps{
     vertical-align: middle;
-    max-width: 80px;
+    max-width: 40px;
 }
 
 .svgScale{

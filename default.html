@@ -15,7 +15,6 @@
     <script src="/js/lib/jquery-2.1.0.js"></script>
     <script src="/js/lib/fastclick.js"></script>
     <script src="/js/lib/bootstrap.js"></script>
-    <script src="/js/lib/modernizr-latest.js"></script>
     <script src="/js/lib/accounting.min.js"></script>
     <script src="/js/lib/knockout-3.0.0.js"></script>
     <script src="/js/views/koClickView.js"></script>
@@ -53,10 +52,11 @@
             <!-- Header Row -->
             <div class="row" data-bind="foreach: buttons">
 
-                <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem">
+                <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem,enable: canAfford">
                         <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"/><br>
                         <div class="itemNameDiv"><span class="itemName" data-bind="text: name"></span><br/></div>
                         <span class="itemPrice" data-bind="text: formattedPrice"></span>
+                        <progress class="itemButtonProgress" data-bind="attr:{value: affordProgressValue}, visible: showProgress" max="1"></progress>
                     <div class="win-voice-textdisplay"></div>
                 </button>
             </div>
@@ -78,7 +78,7 @@
                         &nbsp;<img id="cps" src="img/cps.png"/><span id="totalCps"></span>
                         <br />
                     </p>
-
+                    <p data-bind="text: playerCash"></p>
                 </div>
             </div>
 
@@ -91,7 +91,6 @@
                     </span>
                 </div>
             </div>        
-
         </div>
 
         <div id="about" class="hidden">

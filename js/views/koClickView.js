@@ -13,6 +13,31 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
         return accounting.formatMoney(self.price(),"$",0);
     })
 
+    // Check to see if a player can afford an item
+    self.canAfford = ko.computed(function(){
+        var pCash = koClickView.playerCash();
+        if(self.price() <= pCash){
+           return true;
+        } else {
+            return false;
+        }
+    })
+
+    self.affordProgressValue = ko.computed(function(){
+        var pCash = koClickView.playerCash();
+        return pCash / self.price();
+    })
+
+    self.showProgress = ko.computed(function(){
+        var pCash = koClickView.playerCash();
+        if(pCash/self.price() < 1){
+            return true;
+        } else {
+            return false;
+        }
+    })
+
+
     // Buying an item increases the price as well
     // Using the compound interest formula
     self.buyItem = function (e) {
@@ -51,12 +76,12 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
     }
 }
 
-function Player(name,score){
+function Player(name){
     this.name = name;
-    this.score = ko.observable(score);
+    this.currency = ko.observable(totalCurrency);
 }
 
-// Viewmodel for this screen
+// Viewmodel for the click application.
 var koClickView =  {    
     buttons : ko.observableArray([]),
     playerCash : ko.observable(0)

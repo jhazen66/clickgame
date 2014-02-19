@@ -1,4 +1,16 @@
-﻿body {
+﻿html{
+
+    /*prevent user selection of the game elements*/
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+
+
+}
+
+body {
     font-size:1.5em;
     
     color: white;
@@ -49,6 +61,7 @@
     font-family: Helvetica, Arial, Verdana, sans-serif;
 
     padding-top: 50px;
+
 
 }
 

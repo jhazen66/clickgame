@@ -18,7 +18,7 @@
     <script src="/js/lib/accounting.min.js"></script>
     <script src="/js/lib/knockout-3.0.0.js"></script>
     <script src="/js/lib/howler.min.js"></script>
-    <script src="/js/views/koClickView.js"></script>
+    <script src="/js/views/appView.js"></script>
     <script src="/js/default.js"></script>
 </head>
 <body>
@@ -42,13 +42,10 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
     <div class="container game">
       <div id="game">
-
             <!-- Header Row -->
             <div class="row" data-bind="foreach: buttons">
-                
                 <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem,enable: canAfford">
                         <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"/><br>
                         <div class="itemNameDiv"><span class="itemName" data-bind="text: name"></span><br/></div>
@@ -57,12 +54,7 @@
                             <progress class="itemButtonProgress" data-bind="attr:{value: affordProgressValue}, visible: showProgress" max="1"></progress>           
                         </span>
                 </button>
-                
-                
             </div>
-
-            
-
             <!-- Click Button Row -->
             <div class="row">
                 <div id="clickContainer" class="clickContainer">
@@ -77,7 +69,6 @@
                         <img id="coins" src="img/coins.png"/><span data-bind="text: game.formattedPlayerCash"></span>
                         &nbsp;<img id="cps" src="img/cps.png"/><span data-bind="text: game.formattedCPS"></span>
                         <br />
-
                     </p>
                 </div>
             </div>

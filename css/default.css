@@ -5,12 +5,12 @@
 
     /* Disable double tap zoom in IE*/
     -ms-touch-action: manipulation !important;
-
+/*
     background-image:url('/img/bgTreesGreen.png');
     background-repeat:repeat;
     background-color: blue;
     background-size:100px 100px;
-
+*/
     /*background-color: blue;
     /*hearts
     background: 
@@ -38,7 +38,7 @@
     behavior: url(/pie/PIE.htc);
     */
     /*Carbon*/
-    /* background-position: 0px 0px, 8px 8px, 0px 1px, 8px 9px; background-image: radial-gradient(black 15%, transparent 16%), radial-gradient(black 15%, transparent 16%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%); background-attachment: scroll, scroll, scroll, scroll; background-repeat: repeat, repeat, repeat, repeat; background-size: 16px 16px; background-origin: padding-box, padding-box, padding-box, padding-box; background-clip: border-box, border-box, border-box, border-box; background-color: rgb(40, 40, 40);*/
+     background-position: 0px 0px, 8px 8px, 0px 1px, 8px 9px; background-image: radial-gradient(black 15%, transparent 16%), radial-gradient(black 15%, transparent 16%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%), radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%); background-attachment: scroll, scroll, scroll, scroll; background-repeat: repeat, repeat, repeat, repeat; background-size: 16px 16px; background-origin: padding-box, padding-box, padding-box, padding-box; background-clip: border-box, border-box, border-box, border-box; background-color: rgb(40, 40, 40);
     /*Microbial Mat*/
     /*background-position: 0px 10px, 0% 0%, 0% 0%; background-image: radial-gradient(circle at 0% 50%, rgba(96, 16, 48, 0) 9px, rgb(102, 17, 51) 10px, rgba(96, 16, 48, 0) 11px), radial-gradient(at 100% 100%, rgba(96, 16, 48, 0) 9px, rgb(102, 17, 51) 10px, rgba(96, 16, 48, 0) 11px), none; background-attachment: scroll, scroll, scroll; background-repeat: repeat, repeat, repeat; background-size: 20px 20px; background-origin: padding-box, padding-box, padding-box; background-clip: border-box, border-box, border-box; background-color: rgb(136, 170, 51);*/
     /*Zig Zag*/
@@ -51,9 +51,6 @@
     padding-top: 50px;
 
 }
-
-
-
 
 #game {
   padding: 20px 15px;
@@ -125,16 +122,12 @@
     height:100%;
 }
 
-
 #clickCover {
     width: 250px;
     height: 250px;
-    background-color: green;
-
+    background-color: gray;
     border: 1px solid #000;
-
     border-radius: 250px;
-
     transform: scale(1);
     margin-left: auto ;
     margin-right: auto ;
@@ -149,7 +142,7 @@
     background-color: transparent;
     /*background-color: rgba(0,0,255,0.5);*/
     border-radius: 50px;
-    min-height: 350px;
+    min-height: 300px;
 }
 #totalCps #totalCurrency {
     font-family: 20pt;
@@ -218,7 +211,7 @@
     }
  
     #totals {
-        max-width:250px;
+        max-width:500px;
     }
 
     #clickCover {
@@ -248,11 +241,11 @@
     }
     .itemButton {
         max-width: 120px;
-        height:50px
+        /*height:50px*/
     }
 
     #totals {
-        max-width:300px;
+        max-width:500px;
     }
 
     #clickCover {
@@ -329,8 +322,14 @@ button:disabled{
     display:run-in;
     /*top:-50px;*/
     position: relative;
-    background-color: black;
+    /*background-color: black;*/
     border-radius: 20px;
+    background-color: #f1a165;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+    background-image: -webkit-linear-gradient(top, #f1a165, #f36d0a); 
+    background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
+    background-image: -ms-linear-gradient(top, #f1a165, #f36d0a);
+    background-image: -o-linear-gradient(top, #f1a165, #f36d0a);
 }
 
 #coins{

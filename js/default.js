@@ -1,17 +1,23 @@
+// Setup game variables
+var totalCurrency = new Number();
+var CPS = new Number();
+var lastSave = new Date();
+var AUTO_SAVE_INTERVAL = 4000;
+var sound = new Howl({urls:['audio/bobpa.mp3','audio/bobpa.ogg']});
+
 // Initialize my ko view
 $(document).ready(function () {
     try{
         //window.localStorage.setItem("inventory", "");
         load();
         // Apply datamodel binding
-        ko.applyBindings(koClickView);
+        ko.applyBindings(appView);
         // Start gameloop
         requestAnimFrame(gameLoop);
         // Start update money loop
         updateMoney();
     } catch (e) {
         window.status = e.message;
-        debugger;
     }
 });
 
@@ -25,7 +31,7 @@ function save() {
             try {
                 window.localStorage.setItem("currency", totalCurrency.toString());
                 window.localStorage.setItem("cps", CPS.toString());
-                window.localStorage.setItem("inventory", ko.toJSON(koClickView));
+                window.localStorage.setItem("inventory", ko.toJSON(appView));
             } catch (e) {
                 if (e === QUOTA_EXCEEDED_ERR) {
                     alert('Quota exceeded!');
@@ -39,6 +45,7 @@ function save() {
     lastSave = new Date();
 }
 
+// Load any existing data
 function load() {
     try {
         window.status = "loading...";
@@ -54,7 +61,7 @@ function load() {
                 CPS = savedCps;
             }
             if(inventory.length > 10){
-                koClickView.buttons = ko.observableArray([]);
+                appView.buttons = ko.observableArray([]);
                 loadKoData(JSON.parse(inventory).buttons);
             }
         } else {
@@ -76,7 +83,6 @@ function reset() {
         window.localStorage.setItem("currency", "");
         window.localStorage.setItem("cps", "");
         window.localStorage.setItem("inventory", "");
-        
         resetKoData();
         save();
         load();
@@ -92,18 +98,6 @@ function cheat() {
 
 }
 
-
-// Setup game variables
-var totalCurrency = new Number();
-var CPS = new Number();
-var lastSave = new Date();
-var AUTO_SAVE_INTERVAL = 4000;
-var sound = new Howl({urls:['audio/bobpa.mp3','audio/bobpa.ogg']});
-/*var sound = new Howl({
-  urls: ['audio/bobpa.wav', 'bobpa.ogg']
-})*/
-
-
 // Animate the click circle
 // For iPhone use the onTouchStart instead of onMouseDown
 function mouseDown(e) {
@@ -112,7 +106,7 @@ function mouseDown(e) {
     showClick(1,e);
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
 
-    if(koClickView.game.soundState()){
+    if(appView.game.soundState()){
         sound.play();
     }
     
@@ -225,8 +219,8 @@ window.onhashchange = locationHashChanged;
 
 function gameLoop() {
     // Update the knockout view model to refelect player cash
-    koClickView.game.playerCash(totalCurrency);
-    koClickView.game.CPS(CPS);
+    appView.game.playerCash(totalCurrency);
+    appView.game.CPS(CPS);
 
     // Execute the game loop on the next animation frame
     requestAnimFrame(gameLoop);
@@ -244,7 +238,7 @@ function gameLoop() {
 function updateMoney() {
     totalCurrency += CPS;
     // Update the knockout view model to refelect player cash
-    koClickView.game.playerCash(totalCurrency);
+    appView.game.playerCash(totalCurrency);
 
     setTimeout(updateMoney, 1000);
 }

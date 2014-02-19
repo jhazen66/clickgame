@@ -96,7 +96,10 @@ body {
 
 }
 
-
+.invert{
+    width:100px;
+    background-color: lightgray;
+}
 
 #items{
     margin-top: 5px;

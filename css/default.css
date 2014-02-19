@@ -139,12 +139,13 @@ body {
     width: 250px;
     height: 250px;
     background-color: gray;
-    border: 1px solid #000;
+    box-shadow: 0 0 0 5px black inset;
     border-radius: 250px;
     transform: scale(1);
     margin-left: auto ;
     margin-right: auto ;
     background-image:url('/img/plus-250.png');
+    background-position: center;
     cursor: pointer;
 
 }

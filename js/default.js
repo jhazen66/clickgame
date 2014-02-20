@@ -4,6 +4,10 @@ var CPS = new Number();
 var lastSave = new Date();
 var AUTO_SAVE_INTERVAL = 4000;
 var sound = new Howl({urls:['audio/bobpa.mp3','audio/bobpa.ogg']});
+var lastClicks = 0;
+var lastClicksPerSecond = 0;
+var appView = {};
+
 
 // Initialize my ko view
 $(document).ready(function () {
@@ -101,16 +105,31 @@ function cheat() {
 // Animate the click circle
 // For iPhone use the onTouchStart instead of onMouseDown
 function mouseDown(e) {
-    showClick(1);
+
+    var clicks = 1;
+    if(lastClicksPerSecond > 8){
+        clicks = 6;
+    } else if (lastClicksPerSecond > 7){
+        clicks = 5;
+    } else if (lastClicksPerSecond > 6){
+        clicks = 4;
+    } else if (lastClicksPerSecond > 5){
+        clicks = 3;
+    } else if (lastClicksPerSecond > 4){
+        clicks = 2;
+    } 
+
+
+    showClick(clicks);
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
-    showClick(1,e);
+    showClick(clicks,e);
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
 
     if(appView.game.soundState()){
         sound.play();
     }
-    
-    totalCurrency += 1;
+    appView.player.addPlayerClickData(clicks); 
+    totalCurrency += clicks;
 
 }
 
@@ -164,7 +183,6 @@ window.requestAnimFrame = (function () {
                 window.setTimeout(callback, 1000 / 60);
            };
 })();
-
 
 // Handle app navigation
 function locationHashChanged() {
@@ -236,9 +254,20 @@ function gameLoop() {
 
 // Update the player's money every second by their CPS rate
 function updateMoney() {
+    // Check the player clicks since last update
+    var clickRate = appView.player.totalClicks() - lastClicks;
+
+    if(clickRate > appView.player.highestClicksPerSecond()){
+        appView.player.highestClicksPerSecond(clickRate);
+    }
+    appView.player.lastClicksPerSecond(clickRate);
+    // Add the auto generated clicks
     totalCurrency += CPS;
     // Update the knockout view model to refelect player cash
     appView.game.playerCash(totalCurrency);
+    // Set the last clicks to the players new totalClick number
+    lastClicks = appView.player.totalClicks();
+    lastClicksPerSecond = clickRate;
 
     setTimeout(updateMoney, 1000);
 }

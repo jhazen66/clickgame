@@ -1,4 +1,4 @@
-﻿html{
+html{
 
     /*prevent user selection of the game elements*/
    -moz-user-select: -moz-none;
@@ -242,7 +242,7 @@ body {
     #totalCps #totalCurrency {
         font-size: 15pt;
     }
-}
+}`
 /* Landscape phones and down */
 @media only screen and (max-device-width: 480px) {
     #items {

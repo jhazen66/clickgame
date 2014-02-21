@@ -10,7 +10,18 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
 
     self.formattedPrice = ko.computed(function () {
         // Use accounting.js to format money
-        return accounting.formatMoney(self.price(),"$",0);
+        // return accounting.formatMoney(self.price(),"$",0);
+        if(self.price() < 1000){
+           return "$" + Math.round(self.price()*10)/10; // return "$" + (Math.round(self.price()*10)/10);
+        } else if (self.price() < 1000000) {
+            return "$" + (self.price() / 1000).toFixed(1) + "K";
+        } else if (self.price() < 1000000000) {
+            return "$" + (self.price() / 1000000).toFixed(2) + "M";
+        } else if (self.price() < 1000000000000) {
+            return "$" + (self.price() / 1000000000).toFixed(3) + "B";
+        } else if (self.price() < 1000000000000000) {
+            return "$" + (self.price() / 1000000000000).toFixed(4) + "T";
+        }
     })
 
     // Check to see if a player can afford an item

@@ -349,6 +349,30 @@ button:disabled{
     background-image: -o-linear-gradient(top, #f1a165, #f36d0a);
 }
 
+.itemButtonProgres::-webkit-progress-bar{
+    width:50px;
+    display:run-in;
+    /*top:-50px;*/
+    position: relative;
+    /*background-color: black;*/
+    border-radius: 20px;
+    background-color: #f1a165;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+    background-image: -webkit-linear-gradient(top, #f1a165, #f36d0a); 
+}
+
+.itemButtonProgres::-webkit-progress-value{
+    width:30px;
+    display:run-in;
+    /*top:-50px;*/
+    position: relative;
+    /*background-color: black;*/
+    border-radius: 20px;
+    background-color: #f1a165;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+    background-image: -webkit-linear-gradient(top, #f1a165, #f36d0a); 
+}
+
 #coins{
     vertical-align: middle;
     max-width: 40px;

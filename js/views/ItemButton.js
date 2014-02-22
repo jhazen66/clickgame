@@ -1,5 +1,5 @@
 // Class representing Item Button
-function ItemButton(name, price, cps, symbol, owned, basePrice) {
+function ItemButton(name, price, cps, symbol, owned, basePrice, hasPlayerSeen, maxSellableItems) {
     var self = this;
     self.name = name;
     self.price = ko.observable(price);
@@ -7,10 +7,17 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
     self.symbol = symbol;
     self.owned = ko.observable(owned);
     self.basePrice = ko.observable(basePrice);
+    self.hasPlayerSeen = ko.observable(hasPlayerSeen);
+    self.maxSellableItems = ko.observable(maxSellableItems);
 
     self.formattedPrice = ko.computed(function () {
         // Use accounting.js to format money
         // return accounting.formatMoney(self.price(),"$",0);
+        
+        if (self.owned() >= self.maxSellableItems()) {
+            return "Sold out";    
+        }
+
         if(self.price() < 1000){
            return "$" + Math.round(self.price()*10)/10; // return "$" + (Math.round(self.price()*10)/10);
         } else if (self.price() < 1000000) {
@@ -32,16 +39,31 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
         } else {
             return false;
         }
-    })
+    });
 
     self.affordProgressValue = ko.computed(function(){
         var pCash = appView.game.playerCash();
         return pCash / self.price();
-    })
+    });
 
     self.showProgress = ko.computed(function(){
+        // Check to make sure showing progres makes sense
+        if(self.owned() >= self.maxSellableItems()){
+            return false;
+        }
+        // Show progress if player doesn't have enought cash to buy
         var pCash = appView.game.playerCash();
         if(pCash/self.price() < 1){
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    self.inRange = ko.computed(function(){
+        var pCash = appView.game.playerCash();
+        if( (self.price() <= ((pCash + 10) * 5) || self.hasPlayerSeen() === "true") ){
+            self.hasPlayerSeen("true");
             return true;
         } else {
             return false;
@@ -52,14 +74,16 @@ function ItemButton(name, price, cps, symbol, owned, basePrice) {
     // Buying an item increases the price as well
     // Using the compound interest formula
     self.buyItem = function (e) {
-        if (totalCurrency >= self.price()) {
+        window.stattus = self.maxSellableItems();
+        if (totalCurrency >= self.price() && self.owned() < self.maxSellableItems()) {
             totalCurrency -= self.price();
+            appView.player.totalMoneySpent(appView.player.totalMoneySpent() + self.price());
             CPS += self.cps;
             // Increase the players inventory
             self.owned(self.owned() + 1);
             // Increase the item price
             self.price( self.basePrice() + (self.basePrice() * (.05 * self.owned())) );
-        }
+        } 
     }
 
     

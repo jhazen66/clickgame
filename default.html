@@ -50,7 +50,7 @@
                     <div id="buttonCarousel" class="carousel">
                         <div class="carousel-inner">
                             <div  data-bind="foreach: buttons">
-                                <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem,enable: canAfford">
+                                <button class="itemButton itemButtonAlign noTextSelect" data-bind="click: buyItem,enable: canAfford, visible: inRange">
                                 <img class="svgScale itemSymbol" data-bind="attr:{src:symbol}"/><br>
                                 <div class="itemNameDiv"><span class="itemName" data-bind="text: name"></span><br/></div>
                                 <span class="itemPrice" data-bind="text: formattedPrice"></span> <br/>
@@ -74,8 +74,7 @@
                             <img id="coins" src="img/coins.png"/><span data-bind="text: game.formattedPlayerCash"></span>
                             &nbsp;<img id="cps" src="img/cps.png"/><span data-bind="text: game.formattedCPS"></span>
                             <br/>
-                            TC:<span data-bind="text: player.totalClicks"></span>
-                            HCPS:<span data-bind="text: player.highestClicksPerSecond"></span>
+                            Clicks:<span data-bind="text: player.totalClicks"></span>&nbsp;Spent:<span data-bind="text: player.formatTotalMoneySpent">
                             <br />
                             </p>
                         </div>

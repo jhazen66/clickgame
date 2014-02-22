@@ -12,6 +12,10 @@
         self.clickData.push(new Data("click", value));
         self.totalClicks(self.totalClicks() + 1);
     }
+
+    self.formatTotalMoneySpent = ko.computed(function(){
+        return accounting.formatMoney(self.totalMoneySpent(),"$",0);
+    })
 }
 
 var playerStats = {
@@ -31,11 +35,11 @@ var appView =  {
 
 //Game inventory data
 var clickItems = [
-        { name: "Mouse", price: 10, cps: .1, symbol:"img/mouse.png", owned: 0, basePrice:10 },
-        { name: "Dog", price: 100, cps: 1, symbol:"img/dog.png", owned: 0, basePrice:100 },
-        { name: "Chicken", price: 500, cps: 10, symbol:"img/chicken.png", owned: 0, basePrice:500 },
-        { name: "Octopus", price: 3000, cps: 25, symbol:"img/octopus.png", owned: 0, basePrice:3000 },
-        { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", owned: 0, basePrice:10000 }
+        { name: "Mouse", price: 10, cps: .1, symbol:"img/mouse.png", owned: 0, basePrice:10, hasPlayerSeen:false , maxSellableItems:20 },
+        { name: "Dog", price: 100, cps: 1, symbol:"img/dog.png", owned: 0, basePrice:100, hasPlayerSeen:false , maxSellableItems:30 },
+        { name: "Chicken", price: 500, cps: 10, symbol:"img/chicken.png", owned: 0, basePrice:500, hasPlayerSeen:false , maxSellableItems:40 },
+        { name: "Octopus", price: 3000, cps: 25, symbol:"img/octopus.png", owned: 0, basePrice:3000, hasPlayerSeen:false , maxSellableItems:50 },
+        { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", owned: 0, basePrice:10000, hasPlayerSeen:false , maxSellableItems:60 }
     ];
 
 //jykwak: 
@@ -54,7 +58,9 @@ function loadKoData(clickItems){
             clickItems[i].cps,
             clickItems[i].symbol,
             clickItems[i].owned,
-            clickItems[i].basePrice))
+            clickItems[i].basePrice,
+            clickItems[i].hasPlayerSeen,
+            clickItems[i].maxSellableItems))
     }
 }
 

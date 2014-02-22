@@ -36,6 +36,8 @@ function save() {
                 window.localStorage.setItem("currency", totalCurrency.toString());
                 window.localStorage.setItem("cps", CPS.toString());
                 window.localStorage.setItem("inventory", ko.toJSON(appView));
+                window.localStorage.setItem("totalClicks", appView.player.totalClicks());
+                window.localStorage.setItem("totalMoneySpent", appView.player.totalMoneySpent());
             } catch (e) {
                 if (e === QUOTA_EXCEEDED_ERR) {
                     alert('Quota exceeded!');
@@ -57,12 +59,20 @@ function load() {
             var savedCurrency = parseInt(window.localStorage.getItem("currency"));
             var savedCps = parseFloat(window.localStorage.getItem("cps"));
             var inventory = window.localStorage.getItem("inventory");
+            var totalClicks = parseInt(window.localStorage.getItem("totalClicks"));
+            var totalMoneySpent = parseInt(window.localStorage.getItem("totalMoneySpent"));
 
+            if(!isNaN(totalMoneySpent)){
+                appView.player.totalMoneySpent(totalMoneySpent);
+            }
             if (!isNaN(savedCurrency)) {
                 totalCurrency = savedCurrency;
             }
             if(!isNaN(savedCps)){
                 CPS = savedCps;
+            }
+            if(!isNaN(totalClicks)){
+                appView.player.totalClicks(totalClicks);
             }
             if(inventory.length > 10){
                 appView.buttons = ko.observableArray([]);
@@ -84,13 +94,13 @@ function load() {
 function reset() {
         totalCurrency = 0;
         CPS = 0;
-        window.localStorage.setItem("currency", "");
-        window.localStorage.setItem("cps", "");
-        window.localStorage.setItem("inventory", "");
+        // Clear all the local Storage data
+        appView.player.totalClicks(0);
+        appView.player.totalMoneySpent(0);
+        window.localStorage.clear();
         resetKoData();
         save();
-        load();
-        updateMoney();
+        window.location.reload();
 }
 
 function cheat() {

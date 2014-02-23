@@ -1,3 +1,5 @@
+"use strict";
+
 // Setup game variables
 var totalCurrency = 0;
 var CPS = 0;
@@ -118,8 +120,8 @@ function mouseDown(e) {
 
     var clicks = 1;
 
-    //only give the multiplier if currency is already above 1000
-    if(totalCurrency > 1000){
+    //only give the multiplier if manual clicks is already above 500
+    if(appView.player.totalClicks() > 500){
         if(lastClicksPerSecond > 8){
             clicks = 6;
         } else if (lastClicksPerSecond > 7){
@@ -157,10 +159,10 @@ function showClick(num, e) {
     var clickX=0, clickY=0;
 
     if ((evt.clientX || evt.clientY) &&
-     document.body &&
-     document.body.scrollLeft!=null) {
-        clickX = evt.clientX + document.body.scrollLeft;
-        clickY = evt.clientY + document.body.scrollTop;
+     document.documentElement &&
+     document.documentElement.scrollLeft!=null) {
+        clickX = evt.clientX + document.documentElement.scrollLeft;
+        clickY = evt.clientY + document.documentElement.scrollTop;
     }
     if ((evt.clientX || evt.clientY) &&
      document.compatMode=='CSS1Compat' && 

@@ -18,17 +18,46 @@ function ItemButton(name, price, cps, symbol, owned, basePrice, hasPlayerSeen, m
             return "Sold out";    
         }
 
-        if(self.price() < 1000){
-           return "$" + Math.round(self.price()*10)/10; // return "$" + (Math.round(self.price()*10)/10);
-        } else if (self.price() < 1000000) {
-            return "$" + (self.price() / 1000).toFixed(1) + "K";
-        } else if (self.price() < 1000000000) {
-            return "$" + (self.price() / 1000000).toFixed(2) + "M";
-        } else if (self.price() < 1000000000000) {
-            return "$" + (self.price() / 1000000000).toFixed(3) + "B";
-        } else if (self.price() < 1000000000000000) {
-            return "$" + (self.price() / 1000000000000).toFixed(4) + "T";
+        //get the price once
+        var price = self.price();
+        var suffix = "";
+        var abbreviatedPrice = 0;
+
+        //abbreviate the value and set the suffix
+        if(price < 1000){
+            abbreviatedPrice = Math.round(price*10)/10; 
+        } else if (price < 1000000) {
+            abbreviatedPrice = (price / 1000);
+            suffix = "K";
+        } else if (price < 1000000000) {
+            abbreviatedPrice = (price / 1000000);
+            suffix = "M";
+        } else if (price < 1000000000000) {
+            abbreviatedPrice = (price / 1000000000);
+            suffix = "B";
+        } else if (price < 1000000000000000) {
+            abbreviatedPrice = (price / 1000000000000);
+            suffix = "T";
         }
+
+        //see if there is a decimal part
+        var decimals = (abbreviatedPrice + "").split(".");   
+
+        //trim the decimal part to 2 digits
+        if(decimals[1]){
+            decimals[1] = decimals[1].substring(0,2);
+            abbreviatedPrice = decimals[0] + "." + decimals[1];
+        }
+
+        //if the remaining decimal part is "00" then ignore it
+        if ( decimals[1] && (decimals[1] == "00") ) { 
+            abbreviatedPrice = decimals[0];
+        }
+
+        //concatenate all the parts to make the final string
+        return "$" + abbreviatedPrice + suffix;
+
+
     })
 
     // Check to see if a player can afford an item

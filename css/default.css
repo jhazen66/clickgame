@@ -119,6 +119,7 @@ body {
     cursor:pointer;
 }
 .itemButton {
+    min-width: 85px;
     font-size: 15pt;
     max-width: 320px;
     text-align: left;
@@ -222,6 +223,7 @@ body {
         top:-15px;
     }
     .itemButton {
+        min-width: 65px;
         font-size: 10pt;
         max-width: 120px;
 
@@ -257,6 +259,7 @@ body {
         top:-15px;
     }
     .itemButton {
+        min-width: 65px;
         max-width: 120px;
         /*height:50px*/
     }
@@ -280,7 +283,7 @@ body {
 }
 
 button {
-    width: 65px;
+    /*width: 65px;*/
     border: 1px solid #CCCCCC;
     background: #EEEEEE;
     background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#EEEEEE));

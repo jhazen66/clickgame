@@ -62,7 +62,11 @@ function ItemButton(name, price, cps, symbol, owned, basePrice, hasPlayerSeen, m
 
     self.inRange = ko.computed(function(){
         var pCash = appView.game.playerCash();
-        if( (self.price() <= ((pCash + 10) * 5) || self.hasPlayerSeen() === "true") ){
+
+        if((self.cps * 10) < CPS && self.owned() >= self.maxSellableItems() ) {
+            return false;
+        }
+        else if( (self.price() <= ((pCash + 10) * 5) || self.hasPlayerSeen() === "true") ){
             self.hasPlayerSeen("true");
             return true;
         } else {
@@ -74,7 +78,7 @@ function ItemButton(name, price, cps, symbol, owned, basePrice, hasPlayerSeen, m
     // Buying an item increases the price as well
     // Using the compound interest formula
     self.buyItem = function (e) {
-        window.stattus = self.maxSellableItems();
+        
         if (totalCurrency >= self.price() && self.owned() < self.maxSellableItems()) {
             totalCurrency -= self.price();
             appView.player.totalMoneySpent(appView.player.totalMoneySpent() + self.price());

@@ -1,6 +1,6 @@
 // Setup game variables
-var totalCurrency = new Number();
-var CPS = new Number();
+var totalCurrency = 0;
+var CPS = 0;
 var lastSave = new Date();
 var AUTO_SAVE_INTERVAL = 4000;
 var sound = new Howl({urls:['audio/bobpa.mp3','audio/bobpa.ogg']});

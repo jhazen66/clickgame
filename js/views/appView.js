@@ -35,12 +35,65 @@ var appView =  {
 
 //Game inventory data
 var clickItems = [
-        { name: "Mouse", price: 10, cps: .1, symbol:"img/mouse.png", owned: 0, basePrice:10, hasPlayerSeen:false , maxSellableItems:20 },
-        { name: "Dog", price: 100, cps: 1, symbol:"img/dog.png", owned: 0, basePrice:100, hasPlayerSeen:false , maxSellableItems:30 },
-        { name: "Chicken", price: 500, cps: 10, symbol:"img/chicken.png", owned: 0, basePrice:500, hasPlayerSeen:false , maxSellableItems:40 },
-        { name: "Octopus", price: 3000, cps: 25, symbol:"img/octopus.png", owned: 0, basePrice:3000, hasPlayerSeen:false , maxSellableItems:50 },
-        { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", owned: 0, basePrice:10000, hasPlayerSeen:false , maxSellableItems:60 }
+        { name: "Mouse", price: 10, cps: .1, symbol:"img/mouse.png", 
+          owned: 0, basePrice:10, hasPlayerSeen:false , maxSellableItems:20,
+          attribution: "Francisca Arévalo",
+          attributionLink: "http://thenounproject.com/term/rat/15130/" 
+        },
+        { name: "Dog", price: 100, cps: 1, symbol:"img/dog.png", 
+          owned: 0, basePrice:100, hasPlayerSeen:false , maxSellableItems:30,
+          attribution: "Marta Michalowska",
+          attributionLink: "http://thenounproject.com/term/dog/8126/"
+        },
+        { name: "Chicken", price: 500, cps: 10, symbol:"img/chicken.png", 
+          owned: 0, basePrice:500, hasPlayerSeen:false , maxSellableItems:40,
+          attribution: "Adam Zubin",
+          attributionLink: "http://thenounproject.com/term/chicken/33759/" 
+        },
+        { name: "Octopus", price: 3000, cps: 25, symbol:"img/octopus.png", 
+          owned: 0, basePrice:3000, hasPlayerSeen:false , maxSellableItems:50,
+          attribution: "Jason Grube",
+          attributionLink: "http://thenounproject.com/term/octopus/15331/" 
+        },
+        { name: "Millipede", price: 10000, cps: 100, symbol:"img/Millipede.png", 
+          owned: 0, basePrice:10000, hasPlayerSeen:false , maxSellableItems:60,
+          attribution: "Rosie Hardwick (modified)",
+          attributionLink: "http://thenounproject.com/term/milipede/9436/" 
+        },
+        { name: "Robot", price: 100000, cps: 1000, symbol:"img/robot.png", 
+          owned: 0, basePrice:10000, hasPlayerSeen:false , maxSellableItems:70,
+          attribution: "",
+          attributionLink: "" 
+        }
     ];
+
+var media = [
+    {
+        localLink:"img/coins.png", 
+        attributionLink:"http://thenounproject.com/term/coins/7970/", 
+        attribution:"Anton Håkanson"
+    },
+    {
+        localLink:"img/plus-120.png", 
+        attributionLink:"http://thenounproject.com/term/plus/2875/", 
+        attribution:"P.J. Onori"
+    },
+    {
+        localLink:"img/shrink.png", 
+        attributionLink:"http://thenounproject.com/term/shrink/33953/", 
+        attribution:"Berkay Sargın"
+    },
+    {
+        localLink:"img/cps.png", 
+        attributionLink:"http://thenounproject.com/term/click/12280/", 
+        attribution:"Rohan Gupta"
+    },
+    {
+        localLink:"img/tap.png", 
+        attributionLink:"http://thenounproject.com/term/tap-and-hold/2936/", 
+        attribution:"P.J. Onori"
+    }
+]
 
 //jykwak: 
 //helper function to reset the board

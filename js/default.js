@@ -105,8 +105,8 @@ function reset() {
 
 function cheat() {
 
-        totalCurrency = 2000000000;
-        CPS = 100000;
+        totalCurrency = 20000000;
+        CPS = 200;
         save();
         updateMoney();
 
@@ -117,17 +117,21 @@ function cheat() {
 function mouseDown(e) {
 
     var clicks = 1;
-    if(lastClicksPerSecond > 8){
-        clicks = 6;
-    } else if (lastClicksPerSecond > 7){
-        clicks = 5;
-    } else if (lastClicksPerSecond > 6){
-        clicks = 4;
-    } else if (lastClicksPerSecond > 5){
-        clicks = 3;
-    } else if (lastClicksPerSecond > 4){
-        clicks = 2;
-    } 
+
+    //only give the multiplier if currency is already above 1000
+    if(totalCurrency > 1000){
+        if(lastClicksPerSecond > 8){
+            clicks = 6;
+        } else if (lastClicksPerSecond > 7){
+            clicks = 5;
+        } else if (lastClicksPerSecond > 6){
+            clicks = 4;
+        } else if (lastClicksPerSecond > 5){
+            clicks = 3;
+        } else if (lastClicksPerSecond > 4){
+            clicks = 2;
+        } 
+    }
 
 
     showClick(clicks);
@@ -172,7 +176,7 @@ function showClick(num, e) {
     var obj = document.createElement("p");
     obj.setAttribute("class", "clickAnimationPlus");
     obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
-    obj.innerText = "+" + num;
+    obj.innerText = "+$" + num;
 
     document.body.appendChild(obj);
 

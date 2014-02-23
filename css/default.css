@@ -145,10 +145,10 @@ body {
     background-color: gray;
     box-shadow: 0 0 0 5px black inset;
     border-radius: 250px;
-    transform: scale(1);
+    background-size: 250px;
     margin-left: auto ;
     margin-right: auto ;
-    background-image:url('/img/plus-250.png');
+    background-image:url('/img/svg/plus.svg');
     background-position: center;
     cursor: pointer;
 
@@ -201,7 +201,8 @@ body {
     #clickCover {
         width: 120px;
         height: 120px;
-        background-image:url('/img/plus-120.png');
+        background-image:url('/img/svg/plus.svg');
+        background-size: 120px;
 
     }
     .clickContainer {
@@ -236,7 +237,8 @@ body {
     #clickCover {
         width: 120px;
         height: 120px;
-        background-image:url('/img/plus-120.png');
+        background-image:url('/img/svg/plus.svg');
+        background-size: 120px;
     }
     .clickContainer {
         min-height: 140px;
@@ -271,8 +273,8 @@ body {
     #clickCover {
         width: 120px;
         height: 120px;
-        background-image:url('/img/plus-120.png');        
-
+        background-image:url('/img/svg/plus.svg');        
+        background-size: 120px;
     }
     .clickContainer {
         min-height: 120px;
@@ -380,11 +382,15 @@ button:disabled{
 #coins{
     vertical-align: middle;
     max-width: 40px;
+    max-height: 40px;
+    margin-right: 10px;
 }
 
 #cps{
     vertical-align: middle;
     max-width: 40px;
+    max-height: 40px;
+    margin-left: 20px;
 }
 
 .svgScale{

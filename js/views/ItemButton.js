@@ -1,5 +1,5 @@
 // Class representing Item Button
-function ItemButton(name, price, cps, symbol, owned, basePrice, hasPlayerSeen, maxSellableItems) {
+function ItemButton(name, price, cps, symbol, owned, basePrice, hasPlayerSeen, maxSellableItems, designer, attributionLink) {
     var self = this;
     self.name = name;
     self.price = ko.observable(price);
@@ -9,6 +9,9 @@ function ItemButton(name, price, cps, symbol, owned, basePrice, hasPlayerSeen, m
     self.basePrice = ko.observable(basePrice);
     self.hasPlayerSeen = ko.observable(hasPlayerSeen);
     self.maxSellableItems = ko.observable(maxSellableItems);
+    self.designer = designer;
+    self.attributionLink = attributionLink;
+
 
     self.formattedPrice = ko.computed(function () {
         // Use accounting.js to format money

@@ -89,7 +89,28 @@
                         </div>
                     </div>
                 </div>
+
                 <div id="about" class="hidden">
+                    <div id="buttonCarousel" class="carousel">
+                        <div class="carousel-inner">
+                            <div  data-bind="foreach: buttons">
+                                <button class="test" data-bind="attr:{href:attributionLink}">
+                                    <img class="attrib" data-bind="attr:{src:symbol}"/><br>
+                                    <div class="itemAttributionDiv">
+                                        <span class="itemAttribution" data-bind="text: designer"></span><br/>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <br/><br/>
+                        <button id="reset" onclick="reset()">reset</button>
+                        <button id="cheat" onclick="cheat()">cheat</button>
+                    </div>                  
+                </div>
+
+                <div id="about2" class="hidden">
                     <div class="row attributionHolder">
                         <h4>Images used courtesy of </h4><h3><a href="http://www.thenounproject.com" target="_blank">The Noun Project</a></h3>
                         <div class="row">

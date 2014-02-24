@@ -37,45 +37,46 @@ var appView =  {
 var clickItems = [
         { name: "Caterpillar", price: 10, cps: .1, symbol:"img/svg/caterpillar.svg", 
           owned: 0, basePrice:10, hasPlayerSeen:false , maxSellableItems:20,
-          attribution: "Adam Mullin",
+          designer: "Adam Mullin",
           attributionLink: "http://thenounproject.com/term/caterpillar/5721/" 
         },
         { name: "Mouse", price: 100, cps: 1, symbol:"img/svg/mouse.svg", 
           owned: 0, basePrice:100, hasPlayerSeen:false , maxSellableItems:30,
-          attribution: "Darrin Higgins",
+          designer: "Darrin Higgins",
           attributionLink: "http://thenounproject.com/term/mouse/27457/" 
         },
         { name: "Chicken", price: 1000, cps: 5, symbol:"img/svg/chicken.svg", 
           owned: 0, basePrice:1000, hasPlayerSeen:false , maxSellableItems:40,
-          attribution: "Adam Zubin",
+          designer: "Adam Zubin",
           attributionLink: "http://thenounproject.com/term/chicken/33759/" 
         },        
         { name: "Cat", price: 5000, cps: 10, symbol:"img/svg/cat.svg", 
           owned: 0, basePrice:5000, hasPlayerSeen:false , maxSellableItems:50,
-          attribution: "Lucie Parker",
+          designer: "Lucie Parker",
           attributionLink: "http://thenounproject.com/term/cat/1836/"
         },        
         { name: "Dog", price: 13000, cps: 25, symbol:"img/svg/dog.svg", 
           owned: 0, basePrice:13000, hasPlayerSeen:false , maxSellableItems:60,
-          attribution: "Marta Michalowska",
+          designer: "Marta Michalowska",
           attributionLink: "http://thenounproject.com/term/dog/8126/"
         },
         { name: "Kangaroo", price: 30000, cps: 50, symbol:"img/svg/kangaroo.svg", 
           owned: 0, basePrice:30000, hasPlayerSeen:false , maxSellableItems:70,
-          attribution: "Jennifer Cozzette",
+          designer: "Jennifer Cozzette",
           attributionLink: "http://thenounproject.com/term/kangaroo/13785/" 
         },
         { name: "Octopus", price: 100000, cps: 100, symbol:"img/svg/octopus.svg", 
           owned: 0, basePrice:100000, hasPlayerSeen:false , maxSellableItems:80,
-          attribution: "Jason Grube",
+          designer: "Jason Grube",
           attributionLink: "http://thenounproject.com/term/octopus/15331/" 
         },
         { name: "Robot", price: 5000000, cps: 250, symbol:"img/svg/robot.svg", 
           owned: 0, basePrice:5000000, hasPlayerSeen:false , maxSellableItems:90,
-          attribution: "",
-          attributionLink: "" 
+          designer: "Ricardo Moreira",
+          attributionLink: "http://thenounproject.com/term/robot/11018/" 
         }
     ];
+
 
 var media = [
     {
@@ -110,6 +111,9 @@ function resetKoData() {
 }
 
 function loadKoData(clickItems){
+
+    console.log(clickItems);
+
     for (var i = 0; i < clickItems.length; i++) {
         appView.buttons.push(new ItemButton(clickItems[i].name,
             clickItems[i].price,
@@ -118,7 +122,9 @@ function loadKoData(clickItems){
             clickItems[i].owned,
             clickItems[i].basePrice,
             clickItems[i].hasPlayerSeen,
-            clickItems[i].maxSellableItems))
+            clickItems[i].maxSellableItems,
+            clickItems[i].designer,
+            clickItems[i].attributionLink))
     }
 }
 

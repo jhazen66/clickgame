@@ -1,3 +1,5 @@
+"use strict";
+
 // Setup game variables
 var totalCurrency = 0;
 var CPS = 0;
@@ -105,8 +107,8 @@ function reset() {
 
 function cheat() {
 
-        totalCurrency = 2000000000;
-        CPS = 100000;
+        totalCurrency = 20000000;
+        CPS = 200;
         save();
         updateMoney();
 
@@ -117,17 +119,21 @@ function cheat() {
 function mouseDown(e) {
 
     var clicks = 1;
-    if(lastClicksPerSecond > 8){
-        clicks = 6;
-    } else if (lastClicksPerSecond > 7){
-        clicks = 5;
-    } else if (lastClicksPerSecond > 6){
-        clicks = 4;
-    } else if (lastClicksPerSecond > 5){
-        clicks = 3;
-    } else if (lastClicksPerSecond > 4){
-        clicks = 2;
-    } 
+
+    //only give the multiplier if manual clicks is already above 500
+    if(appView.player.totalClicks() > 500){
+        if(lastClicksPerSecond > 8){
+            clicks = 6;
+        } else if (lastClicksPerSecond > 7){
+            clicks = 5;
+        } else if (lastClicksPerSecond > 6){
+            clicks = 4;
+        } else if (lastClicksPerSecond > 5){
+            clicks = 3;
+        } else if (lastClicksPerSecond > 4){
+            clicks = 2;
+        } 
+    }
 
 
     showClick(clicks);
@@ -153,10 +159,10 @@ function showClick(num, e) {
     var clickX=0, clickY=0;
 
     if ((evt.clientX || evt.clientY) &&
-     document.body &&
-     document.body.scrollLeft!=null) {
-        clickX = evt.clientX + document.body.scrollLeft;
-        clickY = evt.clientY + document.body.scrollTop;
+     document.documentElement &&
+     document.documentElement.scrollLeft!=null) {
+        clickX = evt.clientX + document.documentElement.scrollLeft;
+        clickY = evt.clientY + document.documentElement.scrollTop;
     }
     if ((evt.clientX || evt.clientY) &&
      document.compatMode=='CSS1Compat' && 
@@ -172,7 +178,7 @@ function showClick(num, e) {
     var obj = document.createElement("p");
     obj.setAttribute("class", "clickAnimationPlus");
     obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
-    obj.innerText = "+" + num;
+    obj.innerText = "+$" + num;
 
     document.body.appendChild(obj);
 

@@ -65,6 +65,7 @@ body {
 
 }
 
+
 #game {
   padding: 20px 15px;
   text-align: center;
@@ -119,6 +120,7 @@ body {
     cursor:pointer;
 }
 .itemButton {
+    min-width: 85px;
     font-size: 15pt;
     max-width: 320px;
     text-align: left;
@@ -144,10 +146,10 @@ body {
     background-color: gray;
     box-shadow: 0 0 0 5px black inset;
     border-radius: 250px;
-    transform: scale(1);
+    background-size: 250px;
     margin-left: auto ;
     margin-right: auto ;
-    background-image:url('/img/plus-250.png');
+    background-image:url('/img/svg/plus.svg');
     background-position: center;
     cursor: pointer;
 
@@ -200,7 +202,8 @@ body {
     #clickCover {
         width: 120px;
         height: 120px;
-        background-image:url('/img/plus-120.png');
+        background-image:url('/img/svg/plus.svg');
+        background-size: 120px;
 
     }
     .clickContainer {
@@ -222,6 +225,7 @@ body {
         top:-15px;
     }
     .itemButton {
+        min-width: 65px;
         font-size: 10pt;
         max-width: 120px;
 
@@ -234,7 +238,8 @@ body {
     #clickCover {
         width: 120px;
         height: 120px;
-        background-image:url('/img/plus-120.png');
+        background-image:url('/img/svg/plus.svg');
+        background-size: 120px;
     }
     .clickContainer {
         min-height: 140px;
@@ -257,6 +262,7 @@ body {
         top:-15px;
     }
     .itemButton {
+        min-width: 65px;
         max-width: 120px;
         /*height:50px*/
     }
@@ -268,8 +274,8 @@ body {
     #clickCover {
         width: 120px;
         height: 120px;
-        background-image:url('/img/plus-120.png');        
-
+        background-image:url('/img/svg/plus.svg');        
+        background-size: 120px;
     }
     .clickContainer {
         min-height: 120px;
@@ -280,7 +286,7 @@ body {
 }
 
 button {
-    width: 65px;
+    /*width: 65px;*/
     border: 1px solid #CCCCCC;
     background: #EEEEEE;
     background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#EEEEEE));
@@ -377,11 +383,15 @@ button:disabled{
 #coins{
     vertical-align: middle;
     max-width: 40px;
+    max-height: 40px;
+    margin-right: 10px;
 }
 
 #cps{
     vertical-align: middle;
     max-width: 40px;
+    max-height: 40px;
+    margin-left: 20px;
 }
 
 .svgScale{

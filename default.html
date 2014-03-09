@@ -46,6 +46,7 @@
             </div>
             <div class="container game">
                 <div id="game">
+
                     <!-- Header Row -->
                     <div id="buttonCarousel" class="carousel">
                         <div class="carousel-inner">
@@ -61,45 +62,68 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- Click Button Row -->
-                    <div class="row">
-                        <div id="clickContainer" class="clickContainer">
-                            <div id="clickCover" onmousedown="mouseDown()" onmouseup="mouseUp()"></div>
+                    
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div id="totals">
+                                    <p class="itemButtonAlignx">
+                                    <img id="coins" src="img/svg/coins_white.svg"/><span data-bind="text: game.formattedPlayerCash"></span>&nbsp;earned
+                                    <br/>
+                                    <img id="cps" src="img/svg/click_white.svg"/><span data-bind="text: game.formattedCPS"></span>&nbsp;clicks/sec
+                                    <br/>
+                                    <span data-bind="text: player.totalClicks"></span>&nbsp; total clicks
+                                    <br />
+                                    <span data-bind="text: player.formatTotalMoneySpent"></span>&nbsp; total spent
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div id="clickContainer" class="clickContainer">
+                                    <div id="clickCover" onmousedown="mouseDown()" onmouseup="mouseUp()"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Counter Row -->
-                    <div class="row">
-                        <div id="totals">
-                            <p class="itemButtonAlign">
-                            <img id="coins" src="img/svg/coins.svg"/><span data-bind="text: game.formattedPlayerCash"></span>
-                            &nbsp;<img id="cps" src="img/svg/click.svg"/><span data-bind="text: game.formattedCPS"></span>
-                            <br/>
-                            Clicks:<span data-bind="text: player.totalClicks"></span>&nbsp;Spent:<span data-bind="text: player.formatTotalMoneySpent">
-                            <br />
-                            </p>
-                        </div>
+
                     </div>
                     <!-- Footer Row -->
                     <div class="row">
-                        <div id="items" data-bind="foreach: buttons">
-                            <span class="itemGroup" data-bind="click: sellItem">
-                            <span class="noTextSelect" data-bind="text: owned"></span>
-                            <img class="svgScale noTextSelect" data-bind="attr:{src:symbol}"/>
-                            </span>
+                        <div id="items">
+                            <span id="purchases">Your Purchases (Click to sell)</span>
+                            <div id="buttonCarousel" class="carousel">
+                                <div class="carousel-inner">
+                                    <div  data-bind="foreach: buttons">
+                                        <button class="sellButton itemButtonAlign noTextSelect" data-bind="click: sellItem, enable: canAfford, visible: owned">
+                                        <img class="svgSellScale itemSymbol" data-bind="attr:{src:symbol}"/><br>
+                                        <div class="itemNameDiv"><span class="itemName" data-bind="text: name"></span><br/></div>
+                                        <span class="itemPrice" data-bind="text: owned"></span> <br/>
+
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div id="about" class="hidden">
+
+                    <h3>Images used in this app are all courtesy of <a href="http://thenounproject.com" target="_blank">The Noun Project</a></h3>
+
                     <div id="buttonCarousel" class="carousel">
                         <div class="carousel-inner">
-                            <div  data-bind="foreach: buttons">
-                                <button class="test" data-bind="attr:{href:attributionLink}">
+                            <div  data-bind="foreach: attributions">
+
+                                <button class="attribution" data-bind="click: $parent.showAttribution">
                                     <img class="attrib" data-bind="attr:{src:symbol}"/><br>
                                     <div class="itemAttributionDiv">
                                         <span class="itemAttribution" data-bind="text: designer"></span><br/>
                                     </div>
-                                </button>
+                                </button>                                
+
                             </div>
                         </div>
                     </div>  
@@ -110,34 +134,6 @@
                     </div>                  
                 </div>
 
-                <div id="about2" class="hidden">
-                    <div class="row attributionHolder">
-                        <h4>Images used courtesy of </h4><h3><a href="http://www.thenounproject.com" target="_blank">The Noun Project</a></h3>
-                        <div class="row">
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/mouse/27457/" target="_blank"><img class="invert" src="img/svg/mouse.svg"/></a><br/><p class="attribution">by Darrin Higgins</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/dog/17608/" target="_blank"><img class="invert" src="img/svg/dog.svg"/></a><br/><p class="attribution">by Martin Vanco</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/chicken/33759/" target="_blank"><img class="invert" src="img/svg/chicken.svg"/></a><br/><p class="attribution">by Adam Zubin</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/octopus/15331/" target="_blank"><img class="invert" src="img/svg/octopus.svg"/></a><br/><p class="attribution">by Jason Grube</p></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/caterpillar/5721/" target="_blank"><img class="invert" src="img/svg/caterpillar.svg"/></a><br/><p class="attribution">by Adam Mullin</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/coins/7970/" target="_blank"><img class="invert" src="img/svg/coins.svg"/></a><br/><p class="attribution">by Anton Håkanson</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/plus/2875/" target="_blank"><img class="invert" src="img/svg/plus.svg"/></a><br/><p class="attribution">by P.J. Onori</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/cat/1836/" target="_blank"><img class="invert" src="img/svg/cat.svg"/></a><br/><p class="attribution">by Lucie Parker </p></div>  
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/click/12280/" target="_blank"><img class="invert" src="img/svg/click.svg"/></a><br/><p class="attribution">by Rohan Gupta</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/tap-and-hold/2936/" target="_blank"><img class="invert" src="img/svg/tap.svg"/></a><br/><p class="attribution">by P.J. Onori</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/robot/11018/" target="_blank"><img class="invert" src="img/svg/robot.svg"/></a><br/><p class="attribution">by Ricardo Moreira</p></div>
-                            <div class="col-md-3"><a href="http://thenounproject.com/term/kangaroo/13785/" target="_blank"><img class="invert" src="img/svg/kangaroo.svg"/></a><br/><p class="attribution">by Jennifer Cozzette</p></div>                            
-                                                  
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button id="reset" onclick="reset()">reset</button>
-                        <button id="cheat" onclick="cheat()">cheat</button>
-                    </div>
-                </div>
                 <div id="contact" class="hidden">
                     <h3><a href="https://github.com/Gr8Gatsby/clickgame" target="_blank">Fork me on GitHub!</a></h3>
                 </div>

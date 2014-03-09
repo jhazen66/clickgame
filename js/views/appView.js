@@ -25,11 +25,20 @@ var playerStats = {
 
 // Viewmodel for the click application.
 var appView =  {    
+
     buttons : ko.observableArray([]),
+    attributions: ko.observableArray([]),
     game: new Game(),
     player: new Player(),
     playerCash : ko.observable(0),
-    CPS: ko.observable(0)
+    CPS: ko.observable(0),
+
+    //this function launches a new page with the attribution link
+    showAttribution : function(item) {
+        console.log("hit function: " + item.attributionLink);
+        window.open(item.attributionLink);
+    }
+
 }
 
 
@@ -70,8 +79,8 @@ var clickItems = [
           designer: "Jason Grube",
           attributionLink: "http://thenounproject.com/term/octopus/15331/" 
         },
-        { name: "Robot", price: 5000000, cps: 250, symbol:"img/svg/robot.svg", 
-          owned: 0, basePrice:5000000, hasPlayerSeen:false , maxSellableItems:90,
+        { name: "Robot", price: 1500000, cps: 250, symbol:"img/svg/robot.svg", 
+          owned: 0, basePrice:1500000, hasPlayerSeen:false , maxSellableItems:90,
           designer: "Ricardo Moreira",
           attributionLink: "http://thenounproject.com/term/robot/11018/" 
         }
@@ -80,24 +89,24 @@ var clickItems = [
 
 var media = [
     {
-        localLink:"img/svg/coins.svg", 
+        symbol:"img/svg/coins.svg", 
         attributionLink:"http://thenounproject.com/term/coins/7970/", 
-        attribution:"Anton Håkanson"
+        designer:"Anton Håkanson"
     },
     {
-        localLink:"img/svg/plus.svg", 
+        symbol:"img/svg/plus.svg", 
         attributionLink:"http://thenounproject.com/term/plus/2875/", 
-        attribution:"P.J. Onori"
+        designer:"P.J. Onori"
     },
     {
-        localLink:"img/svg/click.svg", 
+        symbol:"img/svg/click.svg", 
         attributionLink:"http://thenounproject.com/term/click/12280/", 
-        attribution:"Rohan Gupta"
+        designer:"Rohan Gupta"
     },
     {
-        localLink:"img/svg/tap.svg", 
+        symbol:"img/svg/tap.svg", 
         attributionLink:"http://thenounproject.com/term/tap-and-hold/2936/", 
-        attribution:"P.J. Onori"
+        designer:"P.J. Onori"
     }
 ]
 
@@ -111,8 +120,6 @@ function resetKoData() {
 }
 
 function loadKoData(clickItems){
-
-    console.log(clickItems);
 
     for (var i = 0; i < clickItems.length; i++) {
         appView.buttons.push(new ItemButton(clickItems[i].name,
@@ -129,3 +136,32 @@ function loadKoData(clickItems){
 }
 
 loadKoData(clickItems);
+
+
+function loadKoAttributionData(clickItems, media){
+
+    console.log("loading attributions");
+
+    //first add the attributions from the list of things you can buy
+    for (var i = 0; i < clickItems.length; i++) {
+        appView.attributions.push({
+          "symbol":clickItems[i].symbol, 
+          "designer":clickItems[i].designer, 
+          "attributionLink":clickItems[i].attributionLink
+        })
+    }
+
+    //now add the attributions from any other media used in the app
+    for (var i = 0; i < media.length; i++) {
+        appView.attributions.push({
+          "symbol":media[i].symbol, 
+          "designer":media[i].designer, 
+          "attributionLink":media[i].attributionLink
+        })
+    }
+
+
+}
+
+loadKoAttributionData(clickItems, media);
+

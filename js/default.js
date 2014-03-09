@@ -120,8 +120,8 @@ function mouseDown(e) {
 
     var clicks = 1;
 
-    //only give the multiplier if manual clicks is already above 500
-    if(appView.player.totalClicks() > 500){
+    //only give the multiplier if manual clicks is already above 200
+    if(appView.player.totalClicks() > 200){
         if(lastClicksPerSecond > 8){
             clicks = 6;
         } else if (lastClicksPerSecond > 7){
@@ -134,7 +134,6 @@ function mouseDown(e) {
             clicks = 2;
         } 
     }
-
 
     showClick(clicks);
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
@@ -287,3 +286,5 @@ function updateMoney() {
 
     setTimeout(updateMoney, 1000);
 }
+
+

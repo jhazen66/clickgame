@@ -487,6 +487,8 @@ button:disabled{
 @media (max-width: 480px) {
     #items {
         max-width: 300px;
+        padding-top: 0px;
+        margin-top: 0px;
 
     }
     .itemNameDiv {
@@ -552,6 +554,15 @@ button:disabled{
         margin-top: 40px;
         margin-bottom: 20px;
         min-height: 120px;
+    }
+
+    .container-fluid{
+
+        padding-left: 5px;
+    }
+
+    .col-xs-6{
+        padding-left:0px;
     }
 
     #coins{

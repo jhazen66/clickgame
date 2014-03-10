@@ -284,11 +284,9 @@ function updateMoney() {
     lastClicks = appView.player.totalClicks();
     lastClicksPerSecond = clickRate;
 
-    var scr = document.getElementById("screen");
-    scr.innerText = " H: " + document.body.clientHeight + " W: " + document.body.clientWidth;
 
     setTimeout(updateMoney, 1000);
-    
+
 }
 
 

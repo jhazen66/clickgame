@@ -49,6 +49,27 @@ body {
 
 }
 
+#clickButtonRow{
+
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+#buttonCarousel{
+    margin-top: 10px;
+    height: 250px;
+
+}
+
+
+#sellButtonCarousel{
+    margin-top: 10px;
+    height: 100px;
+
+}
+
 #totals {
 
     background-color: transparent;
@@ -71,18 +92,21 @@ body {
 
 #purchases{
     text-align: left;
-    color:black;
+    color:white;
+    font-weight: 600;
+
 }
 
 #items{
     margin-top: 5px;
     border-radius: 20px;
-    background-color: rgba(0,255,255,.4);
-    max-width:500px;
+    background-color: darkslategrey;
+    max-width:700px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 5px;
     text-align: center;
     cursor:pointer;
 }
@@ -131,7 +155,7 @@ body {
     width: 250px;
     height: 250px;
     background-color: gray;
-    box-shadow: 0 0 0 5px black inset;
+    box-shadow: 0 0 0 5px white inset;
     border-radius: 250px;
     background-size: 250px;
     margin-left: auto ;
@@ -150,9 +174,7 @@ body {
     min-height: 300px;
 }
 
-.col-xs-6{
-    padding: 0px;
-}
+
 
 
 button {
@@ -275,9 +297,6 @@ button:disabled{
 }
 
 
-.attributionHolder{
-
-}
 
 .attribution{
     font-size: 10pt;
@@ -285,6 +304,7 @@ button:disabled{
     margin: 5px;
     width:100px;
     height: 100px;
+    padding: 0px;
 }
 
 .attrib{
@@ -402,7 +422,7 @@ button:disabled{
 @media (max-width: 767px) {
 
     #items {
-        background-color: yellow;
+        max-width: 500px;
     }
 
     .itemNameDiv {
@@ -420,9 +440,9 @@ button:disabled{
     }
 
     .sellButton {
-        min-width: 30px;
-        font-size: 8pt;
-        max-width: 40px;
+        min-width: 50px;
+        font-size: 10pt;
+
         margin-top: 3px;
         margin-bottom: 3px;    
     }
@@ -432,6 +452,17 @@ button:disabled{
 
         font-size: 15pt;
         margin-top: 15px;
+
+    }
+
+    #buttonCarousel{
+        margin-top: 10px;
+        height: 180px;
+    }       
+
+    #sellButtonCarousel{
+        margin-top: 10px;
+        height: 80px;
 
     }
 
@@ -456,7 +487,7 @@ button:disabled{
 @media (max-width: 480px) {
     #items {
         max-width: 300px;
-        background-color: pink;
+
     }
     .itemNameDiv {
         display:none;
@@ -488,16 +519,27 @@ button:disabled{
 
     }
 
+    #buttonCarousel{
+        margin-top: 10px;
+        height: 130px;
+    }    
+
+    #sellButtonCarousel{
+        margin-top: 10px;
+        height: 130px;
+
+    }
 
     #totals {
 
-        font-size: 10pt;
-        margin-top: 15px;
+        font-size: 12pt;
+        margin-top: 40px;
+        margin-bottom: 20px;
     }
 
     .svgSellScale{
-        max-width: 20px;
-        max-height: 20px;
+        max-width: 30px;
+        max-height: 30px;
     }    
 
     #clickCover {
@@ -507,13 +549,14 @@ button:disabled{
         background-size: 120px;
     }
     .clickContainer {
-        margin-top: 15px;
+        margin-top: 40px;
+        margin-bottom: 20px;
         min-height: 120px;
     }
 
     #coins{
-        max-width: 20px;
-        max-height: 20px;
+        max-width: 30px;
+        max-height: 30px;
         margin-right: 5px;
     }    
 

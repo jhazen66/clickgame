@@ -67,17 +67,17 @@
                     
                     <div class="container-fluid">
 
-                        <div class="row">
+                        <div id="clickButtonRow" class="row">
                             <div class="col-xs-6">
                                 <div id="totals">
                                     <p class="itemButtonAlignx">
-                                    <img id="coins" src="img/svg/coins_white.svg"/><span data-bind="text: game.formattedPlayerCash"></span>&nbsp;earned
+                                    <img id="coins" src="img/svg/coins_white.svg"/><span data-bind="text: game.formattedPlayerCash"></span>&nbsp;
                                     <br/>
-                                    <img id="cps" src="img/svg/click_white.svg"/><span data-bind="text: game.formattedCPS"></span>&nbsp;clicks/sec
+                                    <img id="cps" src="img/svg/click_white.svg"/><span data-bind="text: game.formattedCPS"></span>&nbsp;cps
                                     <br/>
-                                    <span data-bind="text: player.totalClicks"></span>&nbsp; total clicks
+                                    <span data-bind="text: player.totalClicks"></span>&nbsp; clicks
                                     <br />
-                                    <span data-bind="text: player.formatTotalMoneySpent"></span>&nbsp; total spent
+                                    <span data-bind="text: player.formatTotalMoneySpent"></span>&nbsp; spent
                                     </p>
                                 </div>
                             </div>
@@ -92,8 +92,8 @@
                     <!-- Footer Row -->
                     <div class="row">
                         <div id="items">
-                            <span id="purchases">Your Purchases (Click to sell)</span><span id="screen"></span>
-                            <div id="buttonCarousel" class="carousel">
+                            <span id="purchases">Your Purchases (Click to sell)</span>
+                            <div id="sellButtonCarousel" class="carousel">
                                 <div class="carousel-inner">
                                     <div  data-bind="foreach: buttons">
                                         <button class="sellButton itemButtonAlign noTextSelect" data-bind="click: sellItem, enable: canAfford, visible: owned">
@@ -113,7 +113,7 @@
 
                     <h3>Images used in this app are all courtesy of <a href="http://thenounproject.com" target="_blank">The Noun Project</a></h3>
 
-                    <div id="buttonCarousel" class="carousel">
+                    <div id="sellCarousel" class="carousel">
                         <div class="carousel-inner">
                             <div  data-bind="foreach: attributions">
 

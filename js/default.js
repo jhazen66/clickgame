@@ -172,20 +172,25 @@ function showClick(num, e) {
     }
     if (evt.pageX || evt.pageY) {
         clickX = evt.pageX;
-        clickY = evt.pageY;
- }
+        clickY = evt.pageY - 50;
+    }
+
     var obj = document.createElement("p");
     obj.setAttribute("class", "clickAnimationPlus");
     obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
     obj.innerText = "+$" + num;
 
-    document.body.appendChild(obj);
+    var holder = document.getElementById("animationDiv");
+
+    holder.appendChild(obj);
 
     setTimeout(destroyClick, 300, obj);
 }
 
 function destroyClick(obj) {
-    document.body.removeChild(obj);
+    var holder = document.getElementById("animationDiv");
+
+    holder.removeChild(obj);
 }
 
 // Map the the best option for performance available

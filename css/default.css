@@ -27,6 +27,15 @@ body {
 
     padding-top: 50px;
 
+}
+
+#animationDiv{
+
+    position: fixed;
+    width:100%;
+    height: 100%;
+    background-color: transparent;
+
 
 }
 
@@ -341,6 +350,8 @@ button:disabled{
     -ms-user-select: none;
     user-select: none;
     pointer-events: none;
+
+    z-index: 100;
 
 }
 .clickAnimationCircle {

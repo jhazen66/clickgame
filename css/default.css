@@ -68,7 +68,7 @@ body {
 
 #buttonCarousel{
     margin-top: 10px;
-    height: 250px;
+    height: 125px;
 
 }
 
@@ -430,7 +430,7 @@ button:disabled{
 
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
+@media (max-width: 1280px) {
 
     #items {
         max-width: 500px;
@@ -462,13 +462,14 @@ button:disabled{
     #totals {
 
         font-size: 15pt;
-        margin-top: 15px;
+        margin-top: 50px;
+        margin-left:100px;
 
     }
 
     #buttonCarousel{
         margin-top: 10px;
-        height: 180px;
+        height: 90px;
     }       
 
     #sellButtonCarousel{
@@ -489,18 +490,19 @@ button:disabled{
         background-size: 120px;
     }
     .clickContainer {
-        margin-top: 15px;
+        margin-top: 50px;
+        margin-right:50px;
         min-height: 140px;
     }
 
 }
 /* Landscape phones and down */
-@media (max-width: 480px) {
+@media (max-width: 585px) {
     #items {
         max-width: 300px;
         padding-top: 0px;
         margin-top: 0px;
-
+        background-color: pink;
     }
     .itemNameDiv {
         display:none;
@@ -548,6 +550,7 @@ button:disabled{
         font-size: 12pt;
         margin-top: 40px;
         margin-bottom: 20px;
+        margin-left:10px;
     }
 
     .svgSellScale{
@@ -564,6 +567,7 @@ button:disabled{
     .clickContainer {
         margin-top: 40px;
         margin-bottom: 20px;
+        margin-right:10px;
         min-height: 120px;
     }
 
@@ -584,6 +588,35 @@ button:disabled{
 
 }
 
-#screen{
-    color:black;
+@media screen and (orientation:landscape) and (max-width: 1280px) { 
+
+    #buttonCarousel{
+        margin-top: 5px;
+        height: 70px;
+    }  
+
+    #items {
+        max-width: 500px;
+        padding-top: 0px;
+        margin-top: 0px;
+        background-color: blue;
+    }
+
+    #sellButtonCarousel{
+        margin-top: 5px;
+        height: 70px;
+
+    }
+
+    #totals {
+        margin-top:25px;
+        margin-left:10px;
+    }  
+
+    .clickContainer {
+        margin-top: 35px;
+
+    }    
+
 }
+

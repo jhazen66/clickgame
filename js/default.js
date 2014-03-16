@@ -218,6 +218,9 @@ function locationHashChanged() {
             $("#contact").addClass("hidden");
             $("#contactMenu").removeClass("active");
 
+            $("#animationDiv").addClass("hidden");
+            $("#animationDiv").removeClass("active");
+
             /*$('.navbar-collapse').toggle();*/
 
             break;
@@ -232,6 +235,9 @@ function locationHashChanged() {
             $("#game").addClass("hidden");
             $("#gameMenu").removeClass("active");
 
+            $("#animationDiv").addClass("hidden");
+            $("#animationDiv").removeClass("active");
+
             break;
 
         case "#":
@@ -244,6 +250,9 @@ function locationHashChanged() {
 
             $("#game").removeClass("hidden");
             $("#gameMenu").addClass("active");
+
+            $("#animationDiv").removeClass("hidden");
+            $("#animationDiv").addClass("active");
 
             break;
 

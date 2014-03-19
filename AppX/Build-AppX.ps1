@@ -19,7 +19,7 @@ Set-Alias -Name "signtool" -Value ('{0}signtool.exe' -f $sdkPath);
 
 # Helper function to search the AppXManifest file.
 function Get-AppXManifestInfo($regex) {
-    (Get-Content ('{0}\appxmanifest.xml' -f $projectDirectory.FullName) -raw) -imatch $regex | Out-Null;
+    (Get-Content ('{0}\AppX\appxmanifest.xml' -f $projectDirectory.FullName) -raw) -imatch $regex | Out-Null;
     $matches[0]; 
 }
 
@@ -31,7 +31,7 @@ $publisher = Get-AppXManifestInfo '(?<=Publisher=")(.+?)(?=".+)';
 
 # All keys (regardless of extension) are stored using the same base name in the keys directory under the build directory.
 # A ".gitignore" file is in that folder so none of the keys will ever be checked into source control.
-$keyName = ('{0}\build\keys\{1}-{2}' -f $projectDirectory, [Environment]::MachineName, [Environment]::UserName.Replace(" ", ""));
+$keyName = ('{0}\AppX\keys\{1}-{2}' -f $projectDirectory, [Environment]::MachineName, [Environment]::UserName.Replace(" ", ""));
 
 # Get all the installed certificates under "Trusted People"
 $certs = certutil -store TrustedPeople 2>$1;
@@ -46,10 +46,10 @@ if ($false -eq ($certs -imatch "^Issuer:\ $publisher")) {
     pvk2pfx /pvk "$keyName.pvk" /spc "$keyName.cer" /pfx "$keyName.pfx" 2>$1;
 }
 
-$appXPackageFile = ('{0}\{1}.appx' -f $projectDirectory, $appXDisplayName);
+$appXPackageFile = ('{0}\AppX\dist\{1}.appx' -f $projectDirectory, $appXDisplayName);
 
 # Make AppX package using the mapping file at the project's root directory.
-makeappx pack /o /f "$projectDirectory\mappingfile.txt" /p $appXPackageFile;
+makeappx pack /o /f "$projectDirectory\AppX\mappingfile.txt" /p $appXPackageFile;
 
 # Sign the package using the pfx key that should at this point be in the keys folder.
 signtool sign /fd SHA256 /a /f "$keyName.pfx" $appXPackageFile;

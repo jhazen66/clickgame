@@ -4,7 +4,7 @@
 		"working_dir": "${project_path:${folder}}",
 
 		"cmd": [
-			"@powershell -ExecutionPolicy unrestricted .\\build\\Build-AppX.ps1"
+			"@powershell -ExecutionPolicy unrestricted .\\AppX\\Build-AppX.ps1"
 		]
 	}
 }

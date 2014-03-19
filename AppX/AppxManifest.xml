@@ -6,7 +6,7 @@
   <Properties>
     <DisplayName>ClickGame</DisplayName>
     <PublisherDisplayName>John Hazen</PublisherDisplayName>
-    <Logo>img\icon_50.png</Logo>
+    <Logo>images\icon_50.png</Logo>
   </Properties>
   <Prerequisites>
     <OSMinVersion>6.3.0</OSMinVersion>
@@ -16,10 +16,10 @@
     <Resource Language="EN-US" />
   </Resources>
   <Applications>
-    <Application Id="App" StartPage="default.html">
-      <m2:VisualElements DisplayName="ClickGame" Description="ClickGame" ForegroundText="light" BackgroundColor="#0168a4" Square150x150Logo="img\icon_150.png" Square30x30Logo="img\icon_30.png">
-        <m2:DefaultTile Square310x310Logo="img\icon_310.png" Wide310x150Logo="img\icon_150-wide.png" Square70x70Logo="img\icon_70.png"></m2:DefaultTile>
-        <m2:SplashScreen Image="img\splash.png" BackgroundColor="#0168a4" />
+    <Application Id="App" StartPage="index.html">
+      <m2:VisualElements DisplayName="ClickGame" Description="ClickGame" ForegroundText="light" BackgroundColor="#0168a4" Square150x150Logo="images\icon_150.png" Square30x30Logo="images\icon_30.png">
+        <m2:DefaultTile Square310x310Logo="images\icon_310.png" Wide310x150Logo="images\icon_150-wide.png" Square70x70Logo="images\icon_70.png"></m2:DefaultTile>
+        <m2:SplashScreen Image="images\splash.png" BackgroundColor="#0168a4" />
         <m2:InitialRotationPreference>
           <m2:Rotation Preference="landscape" />
         </m2:InitialRotationPreference>

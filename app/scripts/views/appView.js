@@ -107,7 +107,17 @@ var media = [
         symbol:"images/svg/tap.svg", 
         attributionLink:"http://thenounproject.com/term/tap-and-hold/2936/", 
         designer:"P.J. Onori"
-    }
+    },
+    {
+        symbol:"images/svg/atm.svg", 
+        attributionLink:"http://thenounproject.com/term/atm/1422/", 
+        designer:"Andy Santos-Johnson "
+    },
+    {
+        symbol:"images/svg/reset.svg", 
+        attributionLink:"http://thenounproject.com/term/refund/10938/", 
+        designer:"Mourad Mokrane"
+    }    
 ]
 
 //jykwak: 

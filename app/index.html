@@ -38,9 +38,10 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li id="gameMenu" class="active"><a href="#">Game</a></li>
-                <li id="contactMenu"><a href="#contact">Contact</a></li>
-                <li id="aboutMenu" ><a href="#about">Credits</a></li>
+                <li id="gameMenu" class="active"><a href="#" onClick="showPage('game')">Game</a></li>
+                <li id="creditMenu" ><a href="#" onClick="showPage('credits')">Credits</a></li>
+                <li id="extrasMenu"><a href="#" onClick="showPage('extras')">Extras</a></li>
+
             </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -121,14 +122,16 @@
                 </div>
             </div>
             <div class="row">
-                <br/><br/>
-                <button id="reset" onclick="reset()">reset</button>
-                <button id="cheat" onclick="cheat()">cheat</button>
+
             </div>
         </div>
 
-        <div id="contact" class="hidden">
-            <h3><a href="https://github.com/Gr8Gatsby/clickgame" target="_blank">Fork me on GitHub!</a></h3>
+        <div id="extras" class="hidden">
+            <br/><br/>
+            <button class="extrasButtons" id="reset" onclick="reset()"><img class="attrib" src="images/svg/reset.svg" /><br /><br />Reset Game</button>
+            <button class="extrasButtons" id="cheat" onclick="cheat()"><img class="attrib" src="images/svg/atm.svg" /><br />Free Money</button>
+            <a href="https://github.com/Gr8Gatsby/clickgame" target="_blank">
+            <button class="extrasButtons" ><img class="attrib" src="images/svg/github.svg" /><br />Fork Me on GitHub</button></a>
         </div>
 
     </div>

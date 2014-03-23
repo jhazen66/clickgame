@@ -5,7 +5,6 @@ var totalCurrency = 0;
 var CPS = 0;
 var lastSave = new Date();
 var AUTO_SAVE_INTERVAL = 4000;
-var sound = new Howl({urls: ['audio/bobpa.mp3', 'audio/bobpa.ogg']});
 var lastClicks = 0;
 var lastClicksPerSecond = 0;
 var appView = {};
@@ -114,10 +113,10 @@ function reset() {
 
 function cheat() {
 
-        totalCurrency = 20000000;
-        CPS = 200;
+        totalCurrency = totalCurrency + 5000000;
         save();
         updateMoney();
+        window.location.reload();
 
 }
 
@@ -214,18 +213,21 @@ window.requestAnimFrame = (function () {
 })();
 
 // Handle app navigation
-function locationHashChanged() {
-    switch(location.hash)
+function showPage(arg) {
+
+    console.log("showGame: " + arg);
+
+    switch(arg)
     {
-        case "#about":
+        case "credits":
             $("#about").removeClass("hidden");
             $("#aboutMenu").addClass("active");
 
             $("#game").addClass("hidden");
             $("#gameMenu").removeClass("active");
 
-            $("#contact").addClass("hidden");
-            $("#contactMenu").removeClass("active");
+            $("#extras").addClass("hidden");
+            $("#extrasMenu").removeClass("active");
 
             $("#animationDiv").addClass("hidden");
             $("#animationDiv").removeClass("active");
@@ -234,12 +236,12 @@ function locationHashChanged() {
 
             break;
 
-        case "#contact":
+        case "extras":
             $("#about").addClass("hidden");
             $("#aboutMenu").removeClass("active");
 
-            $("#contact").removeClass("hidden");
-            $("#contactMenu").addClass("active");
+            $("#extras").removeClass("hidden");
+            $("#extrasMenu").addClass("active");
 
             $("#game").addClass("hidden");
             $("#gameMenu").removeClass("active");
@@ -249,13 +251,13 @@ function locationHashChanged() {
 
             break;
 
-        case "#":
+        case "game":
         default:
             $("#about").addClass("hidden");
             $("#aboutMenu").removeClass("active");
 
-            $("#contact").addClass("hidden");
-            $("#contactMenu").removeClass("active");
+            $("#extras").addClass("hidden");
+            $("#extrasMenu").removeClass("active");
 
             $("#game").removeClass("hidden");
             $("#gameMenu").addClass("active");
@@ -269,8 +271,6 @@ function locationHashChanged() {
 
 
 }
-
-window.onhashchange = locationHashChanged;
 
 
 function gameLoop() {

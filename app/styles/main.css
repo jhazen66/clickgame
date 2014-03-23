@@ -327,15 +327,26 @@ button:disabled{
 }
 
 
+.extrasButtons{
+    font-size: 10pt;
+    color:black;
+    margin: 5px;
+    width:100px;
+    height: 120px;
+    padding: 0px;
+}
+
 
 .attribution{
     font-size: 10pt;
     color:black;
     margin: 5px;
     width:100px;
-    height: 100px;
+    height: 120px;
     padding: 0px;
 }
+
+
 
 .attrib{
     width:50px;

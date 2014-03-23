@@ -5,7 +5,7 @@ var totalCurrency = 0;
 var CPS = 0;
 var lastSave = new Date();
 var AUTO_SAVE_INTERVAL = 4000;
-var sound = new Howl({urls:['audio/bobpa.mp3','audio/bobpa.ogg']});
+var sound = new Howl({urls: ['audio/bobpa.mp3', 'audio/bobpa.ogg']});
 var lastClicks = 0;
 var lastClicksPerSecond = 0;
 var appView = {};
@@ -25,6 +25,13 @@ $(document).ready(function () {
     } catch (e) {
         window.status = e.message;
     }
+
+    //set my event listeners
+    var ele=document.getElementById("clickCover");
+    ele.addEventListener("mousedown", mouseDown, false );
+    ele.addEventListener("mouseup", mouseUp, false );
+
+
 });
 
 // Save tries to save game data using local storage
@@ -114,6 +121,7 @@ function cheat() {
 
 }
 
+
 // Animate the click circle
 // For iPhone use the onTouchStart instead of onMouseDown
 function mouseDown(e) {
@@ -135,7 +143,7 @@ function mouseDown(e) {
         } 
     }
 
-    showClick(clicks);
+    showClick(clicks,e);
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
     showClick(clicks,e);
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
@@ -153,8 +161,8 @@ function mouseUp(e) {
 }
 
 
-function showClick(num, e) {
-    var evt = e ? e:window.event;
+function showClick(num, evt) {
+    // var evt = e ? e:window.event;
     var clickX=0, clickY=0;
 
     if ((evt.clientX || evt.clientY) &&
@@ -172,25 +180,26 @@ function showClick(num, e) {
     }
     if (evt.pageX || evt.pageY) {
         clickX = evt.pageX;
-        clickY = evt.pageY - 50;
+        clickY = evt.pageY;
     }
+
+    clickX = clickX - 15;
 
     var obj = document.createElement("p");
     obj.setAttribute("class", "clickAnimationPlus");
     obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
-    obj.innerText = "+$" + num;
+    obj.innerHTML = "$" + num;
 
-    var holder = document.getElementById("animationDiv");
+    document.body.appendChild(obj);
 
-    holder.appendChild(obj);
 
-    setTimeout(destroyClick, 300, obj);
+
+    setTimeout(destroyClick, 600, obj);
 }
 
-function destroyClick(obj) {
-    var holder = document.getElementById("animationDiv");
 
-    holder.removeChild(obj);
+function destroyClick(obj) {
+    document.body.removeChild(obj);
 }
 
 // Map the the best option for performance available

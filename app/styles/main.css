@@ -1,11 +1,12 @@
 html{
 
     /*prevent user selection of the game elements*/
-   -moz-user-select: -moz-none;
+   -moz-user-select: none;
    -khtml-user-select: none;
    -webkit-user-select: none;
    -ms-user-select: none;
    user-select: none;
+
 
 
 }
@@ -241,45 +242,65 @@ button:disabled{
     color:gray;
 }
 
+.itemButtonProgress {
 
-.itemButtonProgress{
-    width:50px;
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
     display:run-in;
-    /*top:-50px;*/
-    position: relative;
-    /*background-color: black;*/
-    border-radius: 20px;
-    background-color: #f1a165;
-    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
-    background-image: -webkit-linear-gradient(top, #f1a165, #f36d0a); 
-    background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
-    background-image: -ms-linear-gradient(top, #f1a165, #f36d0a);
-    background-image: -o-linear-gradient(top, #f1a165, #f36d0a);
+    position:relative;
+
+  width: 50px;
+  height: 10px;
+  
+  /* Get rid of default border in Firefox. */
+  border: none;
+
+  color:#13559F;
+  background-color: #f36d0a;
+
+      -webkit-border-radius:20px;
+       -moz-border-radius:20px;
+            border-radius:20px;
+
+
+    background-color: #f36d0a;
+
+
+
+
 }
 
-.itemButtonProgres::-webkit-progress-bar{
-    width:50px;
-    display:run-in;
-    /*top:-50px;*/
-    position: relative;
-    /*background-color: black;*/
-    border-radius: 20px;
-    background-color: #f1a165;
-    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
-    background-image: -webkit-linear-gradient(top, #f1a165, #f36d0a); 
+.itemButtonProgress::-moz-progress-bar {
+    background-color: #13559F;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
-.itemButtonProgres::-webkit-progress-value{
-    width:30px;
-    display:run-in;
-    /*top:-50px;*/
-    position: relative;
-    /*background-color: black;*/
+.itemButtonProgress::-webkit-progress-bar {
+    background-color: #f36d0a;
     border-radius: 20px;
-    background-color: #f1a165;
-    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
-    background-image: -webkit-linear-gradient(top, #f1a165, #f36d0a); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
+
+.itemButtonProgress::-webkit-progress-value {
+    background-color: #13559F;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+
+
+
+
+
 
 #coins{
     vertical-align: middle;
@@ -334,29 +355,26 @@ button:disabled{
 }
 
 .clickAnimationPlus {
-    font-family: 'Asimov','Eras Bold ITC','Cooper Black';
+    font-family: 'Arial';
     font-weight: 500;
+    color:#f36d0a;
 
     position: absolute;
-    /*top: 50%;
-    left: 50%;*/
-    /*text-shadow: 2px 2px 2px #000;*/
-    animation: visualClickAnimation 1s ease-in 1;
-    -webkit-animation: visualClickAnimation 1s ease-in 1;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+
+    animation: visualClickAnimation 2s ease-in 1;
+    -webkit-animation: visualClickAnimation 2s ease-in 1;
+       -moz-animation: visualClickAnimation 2s ease-in 1;
+
     pointer-events: none;
 
-    z-index: 100;
-
 }
+
+
+
 .clickAnimationCircle {
     animation: shrinkGrow .15s ease-out 1;
     -webkit-animation: shrinkGrow .15s ease-out 1;
+       -moz-animation: shrinkGrow .15s ease-out 1;
 }
 
 /*CSS Animations to spice it up a bit*/
@@ -395,37 +413,52 @@ button:disabled{
 }
 
 @keyframes visualClickAnimation {
-    0% {
-        opacity: 1;
+    from {
+        opacity: .8;
         font-size: small;
         margin-top: 0px;
         margin-left: 0px;
     }
 
-    100% {
-        opacity: .1;
-        font-size: 1000pt;
-        margin-top: -50px;
-        margin-left: -50px;
+    to {
+        opacity: 0;
+        font-size: 500pt;
+        margin-top: -500px;
+        margin-left: -2000px;
     }
 }
 
 @-webkit-keyframes visualClickAnimation {
-    0% {
-        opacity: 1;
+    from {
+        opacity: .8;
         font-size: small;
         margin-top: 0px;
         margin-left: 0px;
     }
 
-    100% {
-        opacity: .1;
-        font-size: 1000pt;
-        margin-top: -50px;
-        margin-left: -50px;
+    to {
+        opacity: 0;
+        font-size: 500pt;
+        margin-top: -500px;
+        margin-left: -2000px;
     }
 }
 
+@-moz-keyframes visualClickAnimation {
+    from {
+        opacity: .8;
+        font-size: small;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    to {
+        opacity: 0;
+        font-size: 500pt;
+        margin-top: -500px;
+        margin-left: -2000px;
+    }
+}
 
 
 

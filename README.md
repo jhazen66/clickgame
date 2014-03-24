@@ -28,6 +28,7 @@ Play it [here!](https://clickgame.azurewebsites.net)
   3. [Knockout](http://knockoutjs.com/) - data binding
   4. [jQuery](http://jquery.com/) - because jquery
   3. [Accounting.js](http://josscrowcroft.github.io/accounting.js/) - formatting money values
+  4. Also using the [Microsoft Software Development Kit (SDK) for Windows 8.1](http://msdn.microsoft.com/en-US/windows/desktop/bg162891) - needed makeapp.exe for creating the appx file for the Windows Store App package.
 
 **More information**
 

@@ -19,7 +19,6 @@
 "app\bower_components\bootstrap\js\scrollspy.js"						"bower_components\bootstrap\js\scrollspy.js"
 "app\bower_components\bootstrap\js\collapse.js"							"bower_components\bootstrap\js\collapse.js"
 "app\bower_components\bootstrap\js\tab.js"								"bower_components\bootstrap\js\tab.js"
-"app\bower_components\howler\howler.js"									"bower_components\howler\howler.js"
 "app\bower_components\accounting\accounting.js"							"bower_components\accounting\accounting.js"
 "app\bower_components\knockout\build\output\knockout-latest.debug.js"	"bower_components\knockout\build\output\knockout-latest.debug.js"
 
@@ -28,9 +27,6 @@
 "app\scripts\views\Data.js" 		"scripts\views\Data.js"
 "app\scripts\views\Game.js" 		"scripts\views\Game.js"
 "app\scripts\views\appView.js" 		"scripts\views\appView.js"
-
-"app\audio\bobpa.mp3" 				"audio\bobpa.mp3"
-"app\audio\bobpa.wav" 				"audio\bobpa.wav"
 
 "app\images\icon_150-wide.png" 		"images\icon_150-wide.png"
 "app\images\icon_150.png" 		    "images\icon_150.png"
@@ -53,9 +49,9 @@
 "app\images\svg\plus.svg" 		    "images\svg\plus.svg"
 "app\images\svg\robot.svg" 			"images\svg\robot.svg"
 "app\images\svg\tap.svg" 			"images\svg\tap.svg"
-
-
-
+"app\images\svg\atm.svg" 			"images\svg\atm.svg"
+"app\images\svg\reset.svg" 			"images\svg\reset.svg"
+"app\images\svg\github.svg" 		"images\svg\github.svg"
 
 
 

@@ -1,0 +1,19 @@
+{
+  "name": "ClickGame",
+  "description": "Addicted to clicking?  We have a solution!",
+  "version": "1.0",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": {
+    "128": "icon_128.png"
+  },
+  "sandbox": {
+     "pages": ["index.html"]
+  }
+
+}
+

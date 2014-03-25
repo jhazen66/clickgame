@@ -34,3 +34,16 @@ Play it [here!](https://clickgame.azurewebsites.net)
 
 In addition to supporting Internet Explorer 10+, Firefox, and Chrome, this project also has support for creating a Chrome Packaged App, and a Windows Store app.
 
+*To install the project as an appx file on Windows:*
+
+1. run `.\AppX\Build-AppX.ps1` from the root of the project.
+2. this will package and install the appx file to your start menu
+
+*To create the folder for the Chrome Packaged App:*
+
+1. run `.\ChromeApp\Build-ChromeApp.ps1` from the root of the project.
+2. Open Chrome and install the package from the .\ChromeApp\dist folder
+
+**Help me out**
+
+Pull requests are most welcome...there is a lot I have not yet learned about Yeoman and grunt, and I am sure there are better ways of configuring the project and scripting the builds.  If there is a better way, help me fix it.

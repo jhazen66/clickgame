@@ -22,18 +22,14 @@ Copy-Item ('{0}\app\index.html' -f $projectDirectory) ('{0}\index.html' -f $chro
 Copy-Item ('{0}\ChromeApp\manifest.json' -f $projectDirectory) ('{0}\' -f $chromeDistDirectory);
 Copy-Item ('{0}\ChromeApp\background.js' -f $projectDirectory) ('{0}\' -f $chromeDistDirectory);
 
-New-Item ('{0}\bower_components\' -f $chromeDistDirectory) -type directory; 
-New-Item ('{0}\bower_components\jquery\' -f $chromeDistDirectory) -type directory;
+#create the new target directory structures
 New-Item ('{0}\bower_components\jquery\dist\' -f $chromeDistDirectory) -type directory;
-New-Item ('{0}\bower_components\bootstrap\' -f $chromeDistDirectory) -type directory;
-New-Item ('{0}\bower_components\bootstrap\dist\' -f $chromeDistDirectory) -type directory;
 New-Item ('{0}\bower_components\bootstrap\dist\js\' -f $chromeDistDirectory) -type directory;
 New-Item ('{0}\bower_components\bootstrap\dist\css' -f $chromeDistDirectory) -type directory;
 New-Item ('{0}\bower_components\accounting' -f $chromeDistDirectory) -type directory;
-New-Item ('{0}\bower_components\knockout\' -f $chromeDistDirectory) -type directory;
-New-Item ('{0}\bower_components\knockout\build\' -f $chromeDistDirectory) -type directory;
 New-Item ('{0}\bower_components\knockout\build\output\' -f $chromeDistDirectory) -type directory;
 
+#copy over the bower_components
 Copy-Item ('{0}\app\bower_components\jquery\dist\jquery.min.js' -f $projectDirectory) ('{0}\bower_components\jquery\dist\jquery.min.js' -f $chromeDistDirectory);
 Copy-Item ('{0}\app\bower_components\bootstrap\dist\js\bootstrap.min.js' -f $projectDirectory) ('{0}\bower_components\bootstrap\dist\js\bootstrap.min.js' -f $chromeDistDirectory);
 Copy-Item ('{0}\app\bower_components\accounting\accounting.min.js' -f $projectDirectory) ('{0}\bower_components\accounting\accounting.min.js' -f $chromeDistDirectory);

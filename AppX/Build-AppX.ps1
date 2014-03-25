@@ -69,7 +69,7 @@ if ($sign) {
         Remove-Item -LiteralPath $buildDirectory -Force -Recurse;
     } 
     
-    New-Item -ItemType Directory $buildDirectory -Force;
+    New-Item -ItemType Directory $buildDirectory -Force | Out-Null;
     
     Get-ChildItem -LiteralPath $appDirectory | % {
         Copy-Item -LiteralPath $_.FullName -Recurse -Force -Destination $buildDirectory;

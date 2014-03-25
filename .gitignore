@@ -1,9 +1,9 @@
 node_modules
-
+/dist
 .tmp
 .sass-cache
 
 test/bower_components
-/*.appx
+*.appx
 /*.sublime-workspace
 /*.sublime-project

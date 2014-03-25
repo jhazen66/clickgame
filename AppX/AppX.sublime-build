@@ -1,0 +1,10 @@
+{
+	"windows": {
+		"shell":true,
+		"working_dir": "${project_path:${folder}}",
+
+		"cmd": [
+			"@powershell -ExecutionPolicy unrestricted .\\AppX\\Build-AppX.ps1"
+		]
+	}
+}

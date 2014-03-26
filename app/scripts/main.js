@@ -168,8 +168,8 @@ function mouseDown(e) {
 
 
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
-    showClick(clicks,e);
 
+    showClick(clicks,e);
     appView.player.addPlayerClickData(clicks); 
     totalCurrency += clicks;
 

@@ -148,14 +148,10 @@ function mouseDown(e) {
         } 
     }
 
-    showClick(clicks,e);
-    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
-    showClick(clicks,e);
-    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
 
-    if(appView.game.soundState()){
-        sound.play();
-    }
+    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
+    showClick(clicks,e);
+
     appView.player.addPlayerClickData(clicks); 
     totalCurrency += clicks;
 

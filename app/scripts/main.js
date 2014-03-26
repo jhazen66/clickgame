@@ -30,17 +30,19 @@ $(document).ready(function () {
     //set my event listeners
     var ele=document.getElementById("clickCover");
 
+    //event handlers for the click button.  Use touchstart on iOS to avoid click delay
     if(window.Touch){
         ele.addEventListener("touchstart", mouseDown, false );
     } else {
         ele.addEventListener("mousedown", mouseDown, false );
     }
 
-
     ele.addEventListener("mouseup", mouseUp, false );
 
-    // fix iOS 300ms click delay for the main button
-    //new NoClickDelay(document.getElementById('clickCover'));. 
+    //this code causes the bootstrap menu to collapse when clicked.
+    $('.nav a').on('click', function () {
+        $("#myMenu").toggleClass('in collapse');
+    });
 
 
 });
@@ -276,6 +278,7 @@ function showPage(arg) {
             break;
 
     }
+
 
 
 }

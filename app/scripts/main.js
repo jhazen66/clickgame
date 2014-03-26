@@ -12,6 +12,8 @@ var appView = {};
 
 // Initialize my ko view
 $(document).ready(function () {
+
+    //setup the inventory
     try{
         //window.localStorage.setItem("inventory", "");
         load();
@@ -27,8 +29,20 @@ $(document).ready(function () {
 
     //set my event listeners
     var ele=document.getElementById("clickCover");
-    ele.addEventListener("mousedown", mouseDown, false );
+
+    //event handlers for the click button.  Use touchstart on iOS to avoid click delay
+    if(window.Touch){
+        ele.addEventListener("touchstart", mouseDown, false );
+    } else {
+        ele.addEventListener("mousedown", mouseDown, false );
+    }
+
     ele.addEventListener("mouseup", mouseUp, false );
+
+    //this code causes the bootstrap menu to collapse when clicked.
+    $('.nav a').on('click', function () {
+        $("#myMenu").toggleClass('in collapse');
+    });
 
 
 });
@@ -142,14 +156,10 @@ function mouseDown(e) {
         } 
     }
 
-    showClick(clicks,e);
-    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
-    showClick(clicks,e);
-    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
 
-    if(appView.game.soundState()){
-        sound.play();
-    }
+    $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
+    showClick(clicks,e);
+
     appView.player.addPlayerClickData(clicks); 
     totalCurrency += clicks;
 
@@ -270,6 +280,7 @@ function showPage(arg) {
     }
 
 
+
 }
 
 
@@ -313,4 +324,47 @@ function updateMoney() {
 }
 
 
+// credit to http://cubiq.org/remove-onclick-delay-on-webkit-for-iphone
+// for the fix to the iOS delay below
 
+function NoClickDelay(el) {
+    this.element = el;
+    if( window.Touch ) this.element.addEventListener('touchstart', this, false);
+}
+
+NoClickDelay.prototype = {
+    handleEvent: function(e) {
+        switch(e.type) {
+            case 'touchstart': this.onTouchStart(e); break;
+            case 'touchmove': this.onTouchMove(e); break;
+            case 'touchend': this.onTouchEnd(e); break;
+        }
+    },
+
+    onTouchStart: function(e) {
+        e.preventDefault();
+        this.moved = false;
+
+        this.element.addEventListener('touchmove', this, false);
+        this.element.addEventListener('touchend', this, false);
+    },
+
+    onTouchMove: function(e) {
+        this.moved = true;
+    },
+
+    onTouchEnd: function(e) {
+        this.element.removeEventListener('touchmove', this, false);
+        this.element.removeEventListener('touchend', this, false);
+
+        if( !this.moved ) {
+            // Place your code here or use the click simulation below
+            var theTarget = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+            if(theTarget.nodeType == 3) theTarget = theTarget.parentNode;
+
+            var theEvent = document.createEvent('MouseEvents');
+            theEvent.initEvent('click', true, true);
+            theTarget.dispatchEvent(theEvent);
+        }
+    }
+};

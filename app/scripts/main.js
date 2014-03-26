@@ -12,6 +12,8 @@ var appView = {};
 
 // Initialize my ko view
 $(document).ready(function () {
+
+    //setup the inventory
     try{
         //window.localStorage.setItem("inventory", "");
         load();
@@ -29,6 +31,11 @@ $(document).ready(function () {
     var ele=document.getElementById("clickCover");
     ele.addEventListener("mousedown", mouseDown, false );
     ele.addEventListener("mouseup", mouseUp, false );
+
+    //fix up the 300ms delay on iPhone by using the fastclick.js polyfill
+    $(function() {
+        FastClick.attach(document.body);
+    });
 
 
 });

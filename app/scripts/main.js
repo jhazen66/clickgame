@@ -44,9 +44,6 @@ $(document).ready(function () {
             }
     });
 
-    $('#clickCover').on('mouseup', function () {
-        mouseUp();
-    });
 
     //this code causes the bootstrap menu to collapse when clicked.
     $('.nav a').on('click', function () {
@@ -176,10 +173,8 @@ function mouseDown(e) {
     appView.player.addPlayerClickData(clicks); 
     totalCurrency += clicks;
 
-}
-
-function mouseUp(e) {
     setTimeout(function () { $('#clickCover').removeClass("clickAnimationCircle"); }, 150);
+
 }
 
 

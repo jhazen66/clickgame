@@ -29,8 +29,14 @@ $(document).ready(function () {
 
     //set my event listeners
     var ele=document.getElementById("clickCover");
-    ele.addEventListener("mousedown", mouseDown, false );
-    ele.addEventListener("touchstart", mouseDown, false );
+
+    if(window.Touch){
+        ele.addEventListener("touchstart", mouseDown, false );
+    } else {
+        ele.addEventListener("mousedown", mouseDown, false );
+    }
+
+
     ele.addEventListener("mouseup", mouseUp, false );
 
     // fix iOS 300ms click delay for the main button

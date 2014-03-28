@@ -11,7 +11,7 @@ Sooo....here is what to do:
 
 ## Build-AppX.ps1 ##
 
-This powershell script automates the process of packaging, signing, and deploying the AppX package for this project.  It is easily adaptable for other projects.  It can be run two ways:
+This PowerShell script automates the process of packaging, signing, and deploying the AppX package for this project.  It is easily adaptable for other projects.  It can be run two ways:
 
 1. Without any parameters,  `.\Build-AppX.ps1`, it simply copies all the required folders over to the AppX/dist/ folder and then calls `Add-AppxPackage -Register` to deploy the app on Windows 8 or Windows 8.1.  It removes any previously installed version.
 

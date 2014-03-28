@@ -14,6 +14,8 @@ Trap [Exception] {
     return
 }
 
+Set-Alias -Name chrome -Value ('{0}\Google\Chrome\Application\chrome.exe' -f ${env:ProgramFiles(x86)});
+
 # If the build directory exists, then recursively delete it.
 if (Test-Path $buildDirectory) {
     Remove-Item -Recurse -Force $buildDirectory;
@@ -50,3 +52,5 @@ $bowerComponents | % {
 
 Write-Host -ForegroundColor Green "+ Copied files to build directory."
 Write-Host -ForegroundColor Green "`n`nBUILD SUCCEEDED!`n`n";
+
+chrome --load-and-launch-app="$buildDirectory" 

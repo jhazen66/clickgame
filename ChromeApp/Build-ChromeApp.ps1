@@ -1,8 +1,6 @@
 ﻿#
 #  Build-ChromeApp.ps1
 #  
-#  Must be called from the project's root directory, due to the use of relative file paths.
-#
 #  This script handles the packaging for the Chome App version of this project.
 #
 Param(
@@ -10,7 +8,7 @@ Param(
     $buildDirectory = (Join-Path $chromeAppDirectory 'dist')
 )
 Trap [Exception] {
-    Write-Host -ForegroundColor Red ("ERROR: (Message: {1})" -f $_.Exception.GetType().Name, $_.Exception.Message);
+    Write-Host -ForegroundColor Red ("ERROR: {0} (Message: {1})" -f $_.Exception.GetType().Name, $_.Exception.Message);
     Write-Host -ForegroundColor Red "`n`nBUILD FAILED!`n`n"
     Write-Host "Please correct errors and try again.";
     return
@@ -19,14 +17,12 @@ Trap [Exception] {
 # If the build directory exists, then recursively delete it.
 if (Test-Path $buildDirectory) {
     Remove-Item -Recurse -Force $buildDirectory;
-    Write-Host -ForegroundColor Green "✔ Cleaning ChromeApp build directory `"$buildDirectory`"";
+    Write-Host -ForegroundColor Green "+ Cleaning ChromeApp build directory `"$buildDirectory`"";
 }
 
-throw "ahahaha";
-
 # Create build directory.
-New-Item -Type Directory $buildDirectory
-Write-Host -ForegroundColor Green "✔ Created new build directory `"$buildDirectory`"";
+New-Item -Type Directory $buildDirectory | Out-Null;
+Write-Host -ForegroundColor Green "+ Created new build directory `"$buildDirectory`"";
 
 $appDirectory = Join-Path (Split-Path -parent $chromeAppDirectory) 'app';
 
@@ -40,18 +36,17 @@ Copy-Item "$chromeAppDirectory\manifest.json", "$chromeAppDirectory\background.j
 # Copy-Item doesn't automatically create the needed folder structure, so the bower components
 # files are first created as empty files, then copied.
 $bowerComponents = @(
-    'jquery\dist\jquery.min.js',
-    'bootstrap\dist\js\bootstrap.min.js',
-    'bootstrap\dist\css\bootstrap.css',
-    'accounting\accounting.min.js',
-    'knockout\build\output\knockout-latest.debug.js'
+    'bower_components\jquery\dist\jquery.min.js',
+    'bower_components\bootstrap\dist\js\bootstrap.min.js',
+    'bower_components\bootstrap\dist\css\bootstrap.css',
+    'bower_components\accounting\accounting.min.js',
+    'bower_components\knockout\build\output\knockout-latest.debug.js'
 );
 
 $bowerComponents | % {
     New-Item -Type File (Join-Path $buildDirectory $_) -Force | Out-Null;
-    Copy-Item "$appDirectory\bower_components\$_" (Join-Path $buildDirectory $_) -Force | Out-Null;
+    Copy-Item "$appDirectory\$_" "$buildDirectory\$_" -Force | Out-Null;
 }
 
-Write-Host -ForegroundColor Green "✔ Copied files to build directory."
-
+Write-Host -ForegroundColor Green "+ Copied files to build directory."
 Write-Host -ForegroundColor Green "`n`nBUILD SUCCEEDED!`n`n";

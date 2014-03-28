@@ -35,9 +35,10 @@ $appXDisplayName = Get-AppXManifestInfo '(?<=<DisplayName>)(.+?)(?=</DisplayName
 if ($sign) {
     $appXPackageFile = (Join-Path $buildDirectory ("{0}.appx" -f $appxDisplayName));
 
+    Push-Location $appxDirectory;
     # Make AppX package using the mapping file at the project's root directory.
     makeappx pack /o /f (Join-Path $appxDirectory 'mappingfile.txt') /p $appXPackageFile;
-
+    Pop-Location;
     # Uses regex to find the publisher name inside the appx manifest file.
     $publisher = Get-AppXManifestInfo '(?<=Publisher=")(.+?)(?=".+)';
 

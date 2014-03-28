@@ -4,6 +4,6 @@ node_modules
 .sass-cache
 
 test/bower_components
-/appx/dist
+appx/dist/*
 /*.sublime-workspace
 /*.sublime-project

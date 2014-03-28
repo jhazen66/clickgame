@@ -1,4 +1,4 @@
-**Building AppX packages without Visual Studio**
+# Building AppX packages without Visual Studio #
 
 So you don't really need Visual Studio to build AppX packages.  In some ways it is easier, but hey, not everyone wants or need those tools.  Plus being able to do it from the command line is handy and kinda cool.
 
@@ -9,7 +9,7 @@ Sooo....here is what to do:
  `Show-WindowsDeveloperLicenseRegistration` and follow the prompts.
 3. You need to install the [Microsoft Software Development Kit (SDK) for Windows 8.1](http://msdn.microsoft.com/en-US/windows/desktop/bg162891) - mostly you just need makeappx.exe that comes with this SDK.  
 
-**Build-AppX.ps1**
+## Build-AppX.ps1 ##
 
 This powershell script automates the process of packaging, signing, and deploying the AppX package for this project.  It is easily adaptable for other projects.  It can be run two ways:
 

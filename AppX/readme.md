@@ -15,7 +15,7 @@ This PowerShell script automates the process of packaging, signing, and deployin
 
 1. Without any parameters,  `.\Build-AppX.ps1`, it simply copies all the required folders over to the AppX/dist/ folder and then calls `Add-AppxPackage -Register` to deploy the app on Windows 8 or Windows 8.1.  It removes any previously installed version.
 
-2. If you call the app with the signing parameter, `.\Build-AppX.ps1 -sign`, then it will actually create the compressed AppX package, and sign it with your certificate.  If it cannot find appropriate keys, then you will be prompted to create the necessary keys.
+2. If you call the app with the signing parameter, `.\Build-AppX.ps1 -sign`, then it will actually create the compressed AppX package, and sign it with your certificate.  If it cannot find appropriate keys, then you will be prompted to create the necessary keys. When running with the `-sign` parameter, you must use and **elevated** PowerShell prompt.
 
 You can read more about how this process works [here](http://blogs.msdn.com/b/wsdevsol/archive/2014/02/12/create-a-windows-store-appx-package-and-sign-it.aspx). 
 

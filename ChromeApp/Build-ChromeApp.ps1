@@ -24,11 +24,11 @@ Copy-Item -Recurse "$appDirectory\styles", "$appDirectory\scripts" $buildDirecto
 Copy-Item "$appDirectory\images\icon_128.png" $buildDirectory
 Copy-Item "$appDirectory\index.html" $buildDirectory
 
-Copy-Item "$chromeAppDirectory\manifest.json", "$chromeAppDirectory\background.json" $buildDirectory;
+Copy-Item "$chromeAppDirectory\manifest.json", "$chromeAppDirectory\background.js" $buildDirectory;
 
 #create the new target directory structures
 $bowerDirectory = Join-Path $buildDirectory 'bower_components';
-New-Item -Type Directory ` 
+New-Item -Type Directory -Name ` 
     "$buildDirectory\jquery\dist\", `
     "$buildDirectory\bootstrap\dist\js\", `
     "$buildDirectory\bootstrap\dist\css\", `

@@ -28,16 +28,22 @@ $(document).ready(function () {
     }
 
     //set my event listeners
-    var ele=document.getElementById("clickCover");
 
     //event handlers for the click button.  Use touchstart on iOS to avoid click delay
-    if(window.Touch){
-        ele.addEventListener("touchstart", mouseDown, false );
-    } else {
-        ele.addEventListener("mousedown", mouseDown, false );
-    }
+    //the following code ensures that we don't process both events on systems that take both
+    $('#clickCover').on('touchstart click', function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            if(event.handled !== true) {
 
-    ele.addEventListener("mouseup", mouseUp, false );
+                mouseDown(event);
+
+                event.handled = true;
+            } else {
+                return false;
+            }
+    });
+
 
     //this code causes the bootstrap menu to collapse when clicked.
     $('.nav a').on('click', function () {
@@ -46,6 +52,10 @@ $(document).ready(function () {
 
 
 });
+
+
+
+
 
 // Save tries to save game data using local storage
 function save() {
@@ -158,15 +168,13 @@ function mouseDown(e) {
 
 
     $("#clickCover").removeClass("clickAnimationCircle").addClass("clickAnimationCircle");
-    showClick(clicks,e);
 
+    showClick(clicks,e);
     appView.player.addPlayerClickData(clicks); 
     totalCurrency += clicks;
 
-}
-
-function mouseUp(e) {
     setTimeout(function () { $('#clickCover').removeClass("clickAnimationCircle"); }, 150);
+
 }
 
 

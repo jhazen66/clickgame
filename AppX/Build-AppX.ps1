@@ -12,6 +12,14 @@ Param(
     [switch]$sign = $false
 );
 
+
+if (Test-Path $buildDirectory) {
+    Remove-Item -LiteralPath $buildDirectory -Force -Recurse;
+} 
+    
+New-Item -ItemType Directory $buildDirectory -Force | Out-Null;
+    
+
 # Add windows sdk to path (if you are running 8.0 or x86, you may need to change this)
 $env:Path += ";" + (Join-Path ${Env:ProgramFiles(x86)} "Windows Kits\8.1\bin\x64\");
 
@@ -27,9 +35,10 @@ $appXDisplayName = Get-AppXManifestInfo '(?<=<DisplayName>)(.+?)(?=</DisplayName
 if ($sign) {
     $appXPackageFile = (Join-Path $buildDirectory ("{0}.appx" -f $appxDisplayName));
 
+    Push-Location $appxDirectory;
     # Make AppX package using the mapping file at the project's root directory.
     makeappx pack /o /f (Join-Path $appxDirectory 'mappingfile.txt') /p $appXPackageFile;
-
+    Pop-Location;
     # Uses regex to find the publisher name inside the appx manifest file.
     $publisher = Get-AppXManifestInfo '(?<=Publisher=")(.+?)(?=".+)';
 
@@ -39,9 +48,9 @@ if ($sign) {
 
     # Get all the installed certificates under "Trusted People"
     $certs = certutil -store TrustedPeople 2>$1;
-
+    
     # If a root certificate matching the publisher name listed in the AppXManifest file is not found, then create and install it.
-    if ($false -eq ($certs -imatch "^Issuer:\ $publisher")) {
+    if (-not ($certs -imatch "^Issuer:\ $publisher") -or -not (Test-Path "$keyName.pfx")) {
         # Create self signed root certificate with the issuer equal to the one defined in the appxmanifest.xml file:
         makecert -n $publisher -r -h 0 -eku "1.3.6.1.5.5.7.3.3,1.3.6.1.4.1.311.10.3.13" -m 6 -sv "$keyName.pvk" "$keyName.cer";
         certutil -addStore TrustedPeople "$keyName.cer";
@@ -65,12 +74,6 @@ if ($sign) {
         $_ | Remove-AppxPackage
     }
 
-    if (Test-Path $buildDirectory) {
-        Remove-Item -LiteralPath $buildDirectory -Force -Recurse;
-    } 
-    
-    New-Item -ItemType Directory $buildDirectory -Force | Out-Null;
-    
     Get-ChildItem -LiteralPath $appDirectory | % {
         Copy-Item -LiteralPath $_.FullName -Recurse -Force -Destination $buildDirectory;
     }

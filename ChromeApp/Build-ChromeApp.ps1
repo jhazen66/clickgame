@@ -5,34 +5,40 @@
 #
 #  This script handles the packaging for the Chome App version of this project.
 #
+Param(
+    $chromeAppDirectory = (split-path -parent $MyInvocation.MyCommand.Definition),
+    $buildDirectory = (Join-Path $chromeAppDirectory 'dist')
+)
 
-$projectDirectory = Get-Item .\;
+# If the build directory exists, then recursively delete it.
+if (Test-Path $buildDirectory) {
+    Remove-Item -Recurse -Force $buildDirectory;
+}
 
-$chromeDistDirectory = ('{0}\ChromeApp\dist\' -f $projectDirectory);
+# Create build directory.
+New-Item -Type Directory $buildDirectory
 
-#clean the destination directory
-Remove-Item -Recurse -Force ('{0}\*' -f $chromeDistDirectory);
+$appDirectory = Join-Path (Split-Path -parent $chromeAppDirectory) 'app';
+Copy-Item -Recurse "$appDirectory\images\svg\" "$buildDirectory\images\svg\"
+Copy-Item -Recurse "$appDirectory\styles", "$appDirectory\scripts" $buildDirectory;
+Copy-Item "$appDirectory\images\icon_128.png" $buildDirectory
+Copy-Item "$appDirectory\index.html" $buildDirectory
 
-#copy the required files
-Copy-Item ('{0}\app\images\icon_128.png' -f $projectDirectory) ('{0}\icon_128.png' -f $chromeDistDirectory);
-Copy-Item -recurse ('{0}\app\images\svg\' -f $projectDirectory) ('{0}\images\svg\' -f $chromeDistDirectory);
-Copy-Item -recurse ('{0}\app\styles\' -f $projectDirectory) ('{0}\styles\' -f $chromeDistDirectory);
-Copy-Item -recurse ('{0}\app\scripts\' -f $projectDirectory) ('{0}\scripts\' -f $chromeDistDirectory);
-Copy-Item ('{0}\app\index.html' -f $projectDirectory) ('{0}\index.html' -f $chromeDistDirectory);
-Copy-Item ('{0}\ChromeApp\manifest.json' -f $projectDirectory) ('{0}\' -f $chromeDistDirectory);
-Copy-Item ('{0}\ChromeApp\background.js' -f $projectDirectory) ('{0}\' -f $chromeDistDirectory);
+Copy-Item "$chromeAppDirectory\manifest.json", "$chromeAppDirectory\background.json" $buildDirectory;
 
 #create the new target directory structures
-New-Item ('{0}\bower_components\jquery\dist\' -f $chromeDistDirectory) -type directory;
-New-Item ('{0}\bower_components\bootstrap\dist\js\' -f $chromeDistDirectory) -type directory;
-New-Item ('{0}\bower_components\bootstrap\dist\css' -f $chromeDistDirectory) -type directory;
-New-Item ('{0}\bower_components\accounting' -f $chromeDistDirectory) -type directory;
-New-Item ('{0}\bower_components\knockout\build\output\' -f $chromeDistDirectory) -type directory;
+$bowerDirectory = Join-Path $buildDirectory 'bower_components';
+New-Item -Type Directory ` 
+    "$buildDirectory\jquery\dist\", `
+    "$buildDirectory\bootstrap\dist\js\", `
+    "$buildDirectory\bootstrap\dist\css\", `
+    "$buildDirectory\accounting", `
+    "$buildDirectory\knockout\build\output\";
 
 #copy over the bower_components
-Copy-Item ('{0}\app\bower_components\jquery\dist\jquery.min.js' -f $projectDirectory) ('{0}\bower_components\jquery\dist\jquery.min.js' -f $chromeDistDirectory);
-Copy-Item ('{0}\app\bower_components\bootstrap\dist\js\bootstrap.min.js' -f $projectDirectory) ('{0}\bower_components\bootstrap\dist\js\bootstrap.min.js' -f $chromeDistDirectory);
-Copy-Item ('{0}\app\bower_components\accounting\accounting.min.js' -f $projectDirectory) ('{0}\bower_components\accounting\accounting.min.js' -f $chromeDistDirectory);
-Copy-Item ('{0}\app\bower_components\knockout\build\output\knockout-latest.debug.js' -f $projectDirectory) ('{0}\bower_components\knockout\build\output\knockout-latest.debug.js' -f $chromeDistDirectory);
-Copy-Item ('{0}\app\bower_components\bootstrap\dist\css\bootstrap.css' -f $projectDirectory) ('{0}\bower_components\bootstrap\dist\css\bootstrap.css' -f $chromeDistDirectory);
+Copy-Item "$appDirectory\jquery\dist\jquery.min.js" "$bowerDirectory\jquery\dist\jquery.min.js";
+Copy-Item "$appDirectory\bootstrap\dist\js\bootstrap.min.js" "$bowerDirectory\bootstrap\dist\js\bootstrap.min.js";
+Copy-Item "$appDirectory\accounting\accounting.min.js" "$bowerDirectory\accounting\accounting.min.js";
+Copy-Item "$appDirectory\knockout\build\output\knockout-latest.debug.js" "$bowerDirectory\knockout\build\output\knockout-latest.debug.js";
+Copy-Item "$appDirectory\bootstrap\dist\css\bootstrap.css" "$bowerDirectory\bootstrap\dist\css\bootstrap.css";
 

@@ -3,8 +3,8 @@
 		"shell":true,
 		"working_dir": "${project_path:${folder}}",
 
-		"cmd": [
-			"@powershell -ExecutionPolicy unrestricted .\\ChromeApp\\Build-ChromeApp.ps1"
-		]
+		"cmd": ["start", "powershell", ".\\ChromeApp\\Build-ChromeApp.ps1"],
+		"cmd": ["start", "cmd", "/k echo ${project_path:${folder}}"]
+
 	}
 }

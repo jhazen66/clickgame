@@ -3,8 +3,6 @@
 		"shell":true,
 		"working_dir": "${project_path:${folder}}",
 
-		"cmd": [
-			"@powershell -ExecutionPolicy unrestricted .\\AppX\\Build-AppX.ps1"
-		]
+		"cmd": ["start", "cmd", "/c powershell -ExecutionPolicy unrestricted .\\AppX\\Build-AppX.ps1"]
 	}
 }

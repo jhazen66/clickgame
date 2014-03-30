@@ -12,5 +12,6 @@ Param(
 
 Copy-Item (Join-Path $chromeDirectory 'ChromeApp.sublime-build') $sublimeBuildDirectory;
 Copy-Item (Join-Path $appxDirectory 'AppX.sublime-build') $sublimeBuildDirectory;
+Copy-Item (Join-Path $appxDirectory 'AppX-signed.sublime-build') $sublimeBuildDirectory;
 
 Write-Host -ForegroundColor Green "+ Copied Sublime Config files to: `"$sublimeBuildDirectory`"";

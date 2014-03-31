@@ -41,4 +41,7 @@ Copy-Item (Join-Path $appxDirectory 'AppXManifest.xml') (Join-Path $targetDirect
 Copy-Item (Join-Path $appxDirectory 'mappingfile.txt') (Join-Path $targetDirectory 'AppX\');
 Copy-Item (Join-Path $appxDirectory 'Build-AppX.ps1') (Join-Path $targetDirectory 'AppX\');
 
+#Copy over the copy script for the demo
+Copy-Item (Join-Path $scriptDirectory 'demo.ps1') $targetDirectory;
+
 Write-Host -ForegroundColor Green "+ Copied files to target directory."

@@ -58,4 +58,4 @@ if ($sign) {
 
 $appXPackage = (Get-AppxPackage -Name "$appXDisplayName*");
 
-Invoke-Command { (Get-AppXPackage clickgame | C:\Code\clickgame\appx\Launch-AppxPackage.ps1) }
+Invoke-Command { (Get-AppXPackage clickgame | .\Launch-AppxPackage.ps1) }

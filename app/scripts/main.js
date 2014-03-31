@@ -177,8 +177,8 @@ function mouseDown(e) {
 }
 
 
-function showClick(num, e) {
-    var evt = e ? e:window.event;
+function showClick(num, evt) {
+    // var evt = e ? e:window.event;
     var clickX=0, clickY=0;
 
     if ((evt.clientX || evt.clientY) &&

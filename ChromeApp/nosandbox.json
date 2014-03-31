@@ -10,7 +10,7 @@
   },
   "icons": {
     "128": "icon_128.png"
-  }, 
+  }
 
-  "sandbox": { "pages": ["index.html"] }
 }
+

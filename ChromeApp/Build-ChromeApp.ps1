@@ -53,8 +53,4 @@ $bowerComponents | % {
 Write-Host -ForegroundColor Green "+ Copied files to build directory."
 Write-Host -ForegroundColor Green "`n`nBUILD SUCCEEDED!`n`n";
 
-
-Invoke-Item c:\windows\system32\calc.exe
-
-
 Invoke-Command -ScriptBlock { chrome "--load-and-launch-app=$buildDirectory"}

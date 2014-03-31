@@ -2,18 +2,18 @@
 ".\appxmanifest.xml" 			"appxmanifest.xml"
 "..\app\index.html" 			"index.html" 							
  				
-"..\app\bower_components\bootstrap\dist\css\bootstrap.css" 		    	"bower_components\bootstrap\dist\css\bootstrap.css" 
+"..\app\bower_components\bootstrap\dist\css\bootstrap.css" 		    		"bower_components\bootstrap\dist\css\bootstrap.css" 
 "..\app\styles\main.css" 			    									"styles\main.css"
 
-"..\app\bower_components\jquery\dist\jquery.min.js"					    "bower_components\jquery\dist\jquery.min.js"
+"..\app\bower_components\jquery\dist\jquery.min.js"					    	"bower_components\jquery\dist\jquery.min.js"
 "..\app\bower_components\bootstrap\dist\js\bootstrap.min.js"				"bower_components\bootstrap\dist\js\bootstrap.min.js"
 "..\app\bower_components\accounting\accounting.min.js"						"bower_components\accounting\accounting.min.js"
 "..\app\bower_components\knockout\build\output\knockout-latest.debug.js"	"bower_components\knockout\build\output\knockout-latest.debug.js"
 
 "..\app\scripts\main.js" 			    "scripts\main.js"
 "..\app\scripts\views\ItemButton.js" 	"scripts\views\ItemButton.js"
-"..\app\scripts\views\Data.js" 		"scripts\views\Data.js"
-"..\app\scripts\views\Game.js" 		"scripts\views\Game.js"
+"..\app\scripts\views\Data.js" 			"scripts\views\Data.js"
+"..\app\scripts\views\Game.js" 			"scripts\views\Game.js"
 "..\app\scripts\views\appView.js" 		"scripts\views\appView.js"
 
 "..\app\images\icon_150-wide.png" 		"images\icon_150-wide.png"
@@ -22,7 +22,7 @@
 "..\app\images\icon_310.png" 		    "images\icon_310.png"
 "..\app\images\icon_50.png" 			"images\icon_50.png"
 "..\app\images\icon_70.png" 			"images\icon_70.png"
-"..\app\images\splash.png" 			"images\splash.png"
+"..\app\images\splash.png" 				"images\splash.png"
 "..\app\images\svg\cat.svg" 			"images\svg\cat.svg"
 "..\app\images\svg\caterpillar.svg" 	"images\svg\caterpillar.svg"
 "..\app\images\svg\chicken.svg" 		"images\svg\chicken.svg"
@@ -31,7 +31,7 @@
 "..\app\images\svg\coins.svg" 			"images\svg\coins.svg"
 "..\app\images\svg\coins_white.svg" 	"images\svg\coins_white.svg"
 "..\app\images\svg\dog.svg" 			"images\svg\dog.svg"
-"..\app\images\svg\kangaroo.svg"   	"images\svg\kangaroo.svg"
+"..\app\images\svg\kangaroo.svg"   		"images\svg\kangaroo.svg"
 "..\app\images\svg\mouse.svg" 			"images\svg\mouse.svg"
 "..\app\images\svg\octopus.svg" 		"images\svg\octopus.svg"
 "..\app\images\svg\plus.svg" 		    "images\svg\plus.svg"
@@ -39,7 +39,7 @@
 "..\app\images\svg\tap.svg" 			"images\svg\tap.svg"
 "..\app\images\svg\atm.svg" 			"images\svg\atm.svg"
 "..\app\images\svg\reset.svg" 			"images\svg\reset.svg"
-"..\app\images\svg\github.svg" 		"images\svg\github.svg"
+"..\app\images\svg\github.svg" 			"images\svg\github.svg"
 
 
 

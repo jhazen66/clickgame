@@ -146,7 +146,6 @@ function cheat() {
 
 
 // Animate the click circle
-// For iPhone use the onTouchStart instead of onMouseDown
 function mouseDown(e) {
 
     var clicks = 1;
@@ -206,12 +205,16 @@ function showClick(num, evt) {
     obj.setAttribute("class", "clickAnimationPlus");
     obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
 
-
     document.body.appendChild(obj);
 
     obj.innerHTML = "$" + num;
 
     setTimeout(destroyClick, 600, obj);
+
+    alert("test");
+    alert(obj.innerHTML);
+
+
 }
 
 

@@ -177,8 +177,8 @@ function mouseDown(e) {
 }
 
 
-function showClick(num, evt) {
-    // var evt = e ? e:window.event;
+function showClick(num, e) {
+    var evt = e ? e:window.event;
     var clickX=0, clickY=0;
 
     if ((evt.clientX || evt.clientY) &&
@@ -194,9 +194,9 @@ function showClick(num, evt) {
         clickX = evt.clientX + document.documentElement.scrollLeft;
         clickY = evt.clientY + document.documentElement.scrollTop;
     }
-    if (evt.pageX || evt.pageY) {
-        clickX = evt.pageX;
-        clickY = evt.pageY;
+    if (evt.originalEvent.pageX || evt.originalEvent.pageY) {
+        clickX = evt.originalEvent.pageX;
+        clickY = evt.originalEvent.pageY;
     }
 
     clickX = clickX - 15;

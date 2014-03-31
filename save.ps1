@@ -32,7 +32,7 @@ Copy-Item -Recurse (Join-Path $appDirectory 'styles')  (Join-Path $targetDirecto
 Copy-Item -Recurse (Join-Path $appDirectory 'images')  (Join-Path $targetDirectory 'app\');
 
 #Copy over the ChromeApp files
-Copy-Item (Join-Path $chromeDirectory 'manifest.json') (Join-Path $targetDirectory 'ChromeApp\');
+Copy-Item (Join-Path $chromeDirectory 'nosandbox.json') (Join-Path $targetDirectory 'ChromeApp\manifest.json'); #note: I copy the pre-sandbox version of the manifest over to the manifest.json file to setup the demo
 Copy-Item (Join-Path $chromeDirectory 'background.js') (Join-Path $targetDirectory 'ChromeApp\');
 Copy-Item (Join-Path $chromeDirectory 'Build-ChromeApp.ps1') (Join-Path $targetDirectory 'ChromeApp\');
 

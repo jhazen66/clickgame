@@ -204,15 +204,13 @@ function showClick(num, evt) {
     var obj = document.createElement("p");
     obj.setAttribute("class", "clickAnimationPlus");
     obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
-
-    document.body.appendChild(obj);
-
     obj.innerHTML = "$" + num;
 
-    setTimeout(destroyClick, 600, obj);
+    var ele = document.body.appendChild(obj);
 
-    alert("test");
-    alert(obj.innerHTML);
+    ele.innerHTML = "$" + num;
+
+    setTimeout(destroyClick, 600, ele);
 
 
 }

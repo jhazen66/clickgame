@@ -4,10 +4,16 @@
     [string]$buildDirectory = (Join-Path $appxDirectory 'dist')
 );
 
-Copy-Item "$appxDirectory\AppxManifest.xml", "$appDirectory\*" $buildDirectory -Recurse -Force
-
 [xml]$appxManifest = Get-Content "$appxDirectory\AppxManifest.xml";
 $appXDisplayName = $appxManifest.Package.Properties.DisplayName;
+
+Get-AppxPackage -Name $appXDisplayName | % {
+    $_ | Remove-AppxPackage;
+}
+
+New-Item $buildDirectory -Force -ItemType Directory | Out-Null;
+
+Copy-Item "$appxDirectory\AppxManifest.xml", "$appDirectory\*" $buildDirectory -Recurse -Force
 
 Add-AppxPackage -Register -Path "$buildDirectory\AppxManifest.xml";
 

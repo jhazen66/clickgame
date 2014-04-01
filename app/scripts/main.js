@@ -202,7 +202,7 @@ function showClick(num, evt) {
     }
 
     //if I still do not have a good value, try again.  Needed for Chrome on android.
-    if (1) {
+    if (clickX == 0 && evt.originalEvent.targetTouches) {
         clickX = evt.originalEvent.targetTouches[0].pageX;
         clickY = evt.originalEvent.targetTouches[0].pageY;        
     }

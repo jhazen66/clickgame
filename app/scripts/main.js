@@ -194,10 +194,21 @@ function showClick(num, evt) {
         clickX = evt.clientX + document.documentElement.scrollLeft;
         clickY = evt.clientY + document.documentElement.scrollTop;
     }
+
+    //needed this for iOS
     if (evt.originalEvent.pageX || evt.originalEvent.pageY) {
         clickX = evt.originalEvent.pageX;
         clickY = evt.originalEvent.pageY;
     }
+
+    //if I still do not have a good value, try again.  Needed for Chrome on android.
+    if (clickX == 0 && evt.originalEvent.targetTouches.0.clientX){
+        clickX = evt.originalEvent.targetTouches.0.clientX;
+        clickY = evt.originalEvent.targetTouches.0.clientY;
+    }
+    
+    
+    
 
     clickX = clickX - 15;
 

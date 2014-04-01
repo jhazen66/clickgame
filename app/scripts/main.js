@@ -202,13 +202,15 @@ function showClick(num, evt) {
     }
 
     //if I still do not have a good value, try again.  Needed for Chrome on android.
-    if (clickX == 0 && evt.originalEvent.targetTouches.0.clientX){
-        clickX = evt.originalEvent.targetTouches.0.clientX;
-        clickY = evt.originalEvent.targetTouches.0.clientY;
+    if (1) {
+        clickX = 400;
+        clickY = 400;
+        // clickX = evt.originalEvent.targetTouches.0.clientX;
+        // clickY = evt.originalEvent.targetTouches.0.clientY;        
     }
     
-    
-    
+
+
 
     clickX = clickX - 15;
 

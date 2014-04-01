@@ -167,7 +167,7 @@ body {
     background-color: gray;
     box-shadow: 0 0 0 5px white inset;
     border-radius: 250px;
-    background-size: 250px;
+
     margin-left: auto ;
     margin-right: auto ;
     background-image:url('/images/svg/plus.svg');
@@ -530,8 +530,8 @@ button:disabled{
     #clickCover {
         width: 120px;
         height: 120px;
-        background-image:url('/images/svg/plus.svg');
-        background-size: 120px;
+        
+        
     }
     .clickContainer {
         margin-top: 50px;
@@ -605,8 +605,8 @@ button:disabled{
     #clickCover {
         width: 120px;
         height: 120px;
-        background-image:url('/images/svg/plus.svg');        
-        background-size: 120px;
+             
+        
     }
     .clickContainer {
         margin-top: 40px;

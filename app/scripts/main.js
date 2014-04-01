@@ -207,22 +207,49 @@ function showClick(num, evt) {
         clickY = evt.originalEvent.targetTouches[0].pageY;        
     }
     
-
-
-
     clickX = clickX - 15;
 
+    //setup the new animated value and element
+    var clickString = "$" + num;
     var obj = document.createElement("p");
     obj.setAttribute("class", "clickAnimationPlus");
     obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px;");
-    obj.innerHTML = "$" + num;
+
+
+    //doge support! such wow!
+    var coverImage = $("#clickCover").css( "background-image" );
+    var doge = /doge/.test(coverImage);
+
+    if(doge){
+
+        var x = Math.floor((Math.random()*5));
+        var str = new Array();
+        str[0] = "wow //BUILD";
+        str[1] = "such css";
+        str[2] = "so win";
+        str[3] = "very touch";
+        str[4] = "much html";
+
+        clickString = str[x];
+
+        x = Math.floor((Math.random()*4));
+        str[0] = "blue";
+        str[1] = "yellow";
+        str[2] = "red";
+        str[3] = "green";
+
+        obj.setAttribute("style", "top:" + clickY + "px;left:" + clickX +"px; color:" + str[x] +";" );
+
+    }
+
+
+    obj.innerHTML = clickString;
 
     var ele = document.body.appendChild(obj);
 
-    ele.innerHTML = "$" + num;
+    ele.innerHTML = clickString;
 
     setTimeout(destroyClick, 600, ele);
-
 
 }
 

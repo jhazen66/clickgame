@@ -1,10 +1,13 @@
 # ClickGame #
 
 
-## A simple javascript based click game ##
+## [//BUILD](http://buildwindows.com) Demo App ##
 
 
 Play it [here!](https://clickgame.azurewebsites.net)
+
+This repo has all the code and links to the material I used in [my talk at //BUILD 2014](http://msdn.microsoft.com/en-us/library/windows/apps/hh767331.aspx). See links to additional information and resources below.
+
 
 ## Features: ##
 
@@ -16,10 +19,6 @@ Play it [here!](https://clickgame.azurewebsites.net)
   6. Ability to cheat by getting free money
   7. Credits for for the great images from [The Noun Project](https://thenounproject.com)
 
-**Possible Improvements:**
-
-  1. Achievements for clicking
-  2. Game Statistics
 
 ## Tools and Libraries used: ##
 
@@ -44,11 +43,22 @@ In addition to supporting Internet Explorer 10+, Firefox, and Chrome, this proje
 1. run `.\Build-ChromeApp.ps1` from the ChromeApp folder of the project.
 2. Open Chrome and install the package from the .\ChromeApp\dist folder
 
+There are readme.md files in those folders with more information.
 
 ## Oddities ##
 
 Since I did not have time to deal with [this issue](https://github.com/knockout/knockout/issues/1039) I am using the knockout-latest.debug.js rather than the properly built minified version.  A compromise that is ok for a demo, but not something you would want in production.
 
+##Other Helpful Resources##
+My talk focused on building cross-platform HTML apps using community tools.  If you want to learn more about building specifically for Windows, including taking advantage of platform specific capabilities I recommend [this series](http://aka.ms/windevbeginjs) that will walk you step by step through building a first class Windows app using HTML.
+
+If you want to learn how to integrate your web resources with core platform capabilities, particularly using the webview control, [this is a great talk](http://channel9.msdn.com/Events/Build/2014/2-560).
+
+If you want to check out WinJS as an open source library you can find the repo here on github.  [http://github.com/winjs](http://github.com/winjs).  Also see [the road ahead](http://channel9.msdn.com/Events/Build/2014/2-506) //BUILD talk which announced our move to open source.
+
+It you want to learn more about the subtle but important differences between using HTML in the Browser vs. using HTML in apps, you can read [this article](http://msdn.microsoft.com/en-us/library/windows/apps/hh465380.aspx).
+
+If you wan to learn more about the [execUnsafeLocalFunction](http://msdn.microsoft.com/en-us/library/windows/apps/hh767331.aspx) you may want to watch [my previous talk](http://channel9.msdn.com/Events/Build/BUILD2011/APP-476T) on the HTML security model in apps.
 
 ## Helping out ##
 

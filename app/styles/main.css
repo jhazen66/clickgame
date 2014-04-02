@@ -249,8 +249,8 @@ button:disabled{
      -moz-appearance: none;
           appearance: none;
 
-    display:run-in;
-    position:relative;
+  display:run-in;
+  position:relative;
 
   width: 50px;
   height: 10px;
@@ -261,15 +261,9 @@ button:disabled{
   color:#13559F;
   background-color: #f36d0a;
 
-      -webkit-border-radius:20px;
-       -moz-border-radius:20px;
-            border-radius:20px;
-
-
-    background-color: #f36d0a;
-
-
-
+  -webkit-border-radius:20px;
+   -moz-border-radius:20px;
+        border-radius:20px;
 
 }
 

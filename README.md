@@ -6,7 +6,7 @@
 
 Play it [here!](https://clickgame.azurewebsites.net)
 
-This repo has all the code and links to the material I used in [my talk at //BUILD 2014]http://channel9.msdn.com/Events/Build/2014/3-508). See links to additional information and resources below.
+This repo has all the code and links to the material I used in [my talk at //BUILD 2014](http://channel9.msdn.com/Events/Build/2014/3-508). See links to additional information and resources below.
 
 
 ## Features: ##
